@@ -33,7 +33,8 @@ module.exports = {
         "i18next"
     ],
     "rules": {
-        'react/jsx-indent': [2, 2],
+        "react/jsx-indent": [2, 2],
+        "max-len": ['error', { ignoreComments: true }],
         // 'react/jsx-indent-props': [2, 4],
         // indent: [2, 4],
         // 'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
