@@ -7,8 +7,8 @@ module.exports = {
     "extends": [
         "standard-with-typescript",
         "plugin:react/recommended",
-        // "airbnb",
         "plugin:i18next/recommended",
+        "plugin:storybook/recommended"
     ],
     "overrides": [
         {
@@ -34,7 +34,7 @@ module.exports = {
     ],
     "rules": {
         "react/jsx-indent": [2, 2],
-        "max-len": ['error', { ignoreComments: true }],
+        "max-len": ['error', { ignoreComments: true, code: 100 }],
         // 'react/jsx-indent-props': [2, 4],
         // indent: [2, 4],
         // 'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
@@ -52,8 +52,23 @@ module.exports = {
         "i18next/no-literal-string": [
             'error', 
             {
-                markupOnly: true
+                markupOnly: true,
+                ignoreAttribute: [
+                    'data-testid',
+                    'to',
+                ]
             }
         ],
-    }
+    },
+    "globals": {
+        __IS_DEV__: true
+    },
+    "overrides": [
+        {
+            files: ["**/src/**/*.test.{t s,tsx}"],
+            rules: {
+                "i18next/no-literal-string": "off"
+            }
+        }
+    ]
 }
