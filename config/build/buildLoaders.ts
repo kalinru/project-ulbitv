@@ -1,6 +1,6 @@
 import type webpack from 'webpack'
 import { type BuildOptions } from './types/config'
-import { buildCssLOader } from './loaders/buildCssLoader'
+import { buildCssLoader } from './loaders/buildCssLoader'
 
 export function buildLoader ({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   // Для jsx нужен babel-loader. Но т.к. работаем с ts и tsx не нужно. ts-loader поддерживает tsx
@@ -10,7 +10,7 @@ export function buildLoader ({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     exclude: /node_modules/
   }
 
-  const cssLoader = buildCssLOader(isDev)
+  const cssLoader = buildCssLoader(isDev)
 
   const svgLoader = {
     test: /\.svg$/i,
