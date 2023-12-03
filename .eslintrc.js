@@ -20,6 +20,12 @@ module.exports = {
             "parserOptions": {
                 "sourceType": "script"
             }
+        },
+        {
+            files: ["**/src/**/*.test.{t s,tsx}"],
+            rules: {
+                "i18next/no-literal-string": "off"
+            }
         }
     ],
     "parserOptions": {
@@ -58,16 +64,16 @@ module.exports = {
                 ]
             }
         ],
+        "@typescript-eslint/explicit-function-return-type": [
+            "warn",
+            { "allowExpressions": true } 
+        ]
+        ,
+        "@typescript-eslint/consistent-type-assertions": [
+            "warn",
+        ]
     },
     "globals": {
         __IS_DEV__: true
     },
-    "overrides": [
-        {
-            files: ["**/src/**/*.test.{t s,tsx}"],
-            rules: {
-                "i18next/no-literal-string": "off"
-            }
-        }
-    ]
 }
