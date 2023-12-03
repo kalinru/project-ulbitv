@@ -20,9 +20,9 @@ export const Sidebar = ({ className }: SidebarProps) => {
          data-testid='sidebar'>
       <Button onClick={onToggle}
               theme={ThemeButton.OUTLINE}
-              style={{color: 'white'}}
+              style={{ color: 'white' }}
               data-testid='sidebar-toggle'>
-        toogledsada
+        toogle
       </Button>
       <div className={cls.switchers}>
         <ThemeSwitcher />

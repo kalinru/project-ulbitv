@@ -1,4 +1,3 @@
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import type webpack from 'webpack'
 import { type BuildOptions } from './types/config'
 import { buildCssLOader } from './loaders/buildCssLoader'
