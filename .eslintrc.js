@@ -20,6 +20,12 @@ module.exports = {
             "parserOptions": {
                 "sourceType": "script"
             }
+        },
+        {
+            files: ["**/src/**/*.test.{t s,tsx}"],
+            rules: {
+                "i18next/no-literal-string": "off"
+            }
         }
     ],
     "parserOptions": {
@@ -70,12 +76,4 @@ module.exports = {
     "globals": {
         __IS_DEV__: true
     },
-    "overrides": [
-        {
-            files: ["**/src/**/*.test.{t s,tsx}"],
-            rules: {
-                "i18next/no-literal-string": "off"
-            }
-        }
-    ]
 }
