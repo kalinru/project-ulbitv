@@ -18,6 +18,7 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
     <Button
           theme={ThemeButton.CLEAR}
           className={classNames(cls.LangSwitcher, {}, [className])}
+          // eslint-disable-next-line @typescript-eslint/no-misused-promises
           onClick={toogle}>
       {t('Текущий Язык')}
     </Button>
