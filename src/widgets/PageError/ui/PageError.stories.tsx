@@ -10,7 +10,7 @@ const meta = {
     layout: 'centered'
   },
   tags: ['autodocs']
-} satisfies Meta<typeof NavbPageErrorar>
+} satisfies Meta<typeof PageError>
 
 export default meta
 type Story = StoryObj<typeof meta>
