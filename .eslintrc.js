@@ -7,7 +7,8 @@ module.exports = {
     "extends": [
         "standard-with-typescript",
         "plugin:react/recommended",
-        "plugin:i18next/recommended"
+        "plugin:i18next/recommended",
+        "plugin:react-hooks/recommended"
     ],
     "overrides": [
         {
@@ -22,9 +23,10 @@ module.exports = {
             }
         },
         {
-            files: ["**/src/**/*.test.{t s,tsx}"],
+            files: ["**/src/**/*.{test,stories}.{ts,tsx}"],
             rules: {
-                "i18next/no-literal-string": "off"
+                "i18next/no-literal-string": "off",
+                "max-len": "off",
             }
         }
     ],
@@ -35,7 +37,8 @@ module.exports = {
     "plugins": [
         "react",
         "@typescript-eslint",
-        "i18next"
+        "i18next",
+        "jsx-a11y"
     ],
     "rules": {
         "react/jsx-indent": [2, 2],
@@ -71,7 +74,10 @@ module.exports = {
         ,
         "@typescript-eslint/consistent-type-assertions": [
             "warn",
-        ]
+        ],
+        "jsx-a11y/no-static-element-interactions": "off",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "error"
     },
     "globals": {
         __IS_DEV__: true

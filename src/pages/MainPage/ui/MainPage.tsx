@@ -1,4 +1,5 @@
 import { BugButton } from 'app/providers/ErrorBoundry'
+import { Counter } from 'entities/Counter/ui/Counter'
 import { useTranslation } from 'react-i18next'
 
 const MainPage = () => {
@@ -6,6 +7,7 @@ const MainPage = () => {
 
   return (<>
     <div>{t('Главная')}</div>
+    <div><Counter/></div>
     <div><BugButton /></div>
   </>)
 }

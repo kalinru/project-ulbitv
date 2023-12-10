@@ -9,6 +9,8 @@
 
 .links {
   margin-left: auto;
+  color: var(--inverted-text-primary-color);
+  border-color: var(--inverted-text-primary-color);
 }
 
 .links > * {
