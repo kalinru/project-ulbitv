@@ -11,7 +11,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     entry: '',
     src: path.resolve(__dirname, '..', '..', 'src')
   }
-  config.resolve.modules.push(paths.src)
+  config.resolve.modules.unshift(paths.src)
   config.resolve.extensions.push('.ts', '.tsx')
 
   // remove svg from existing rule
@@ -38,6 +38,10 @@ export default ({ config }: { config: webpack.Configuration }) => {
     use: ['@svgr/webpack']
   })
   config.module.rules.push(buildCssLoader(true))
+
+  // config.resolve.alias = {
+  //   entities: path.resolve(__dirname, "..", "..", "src", "entities"),
+  // }
 
   return config
 }
