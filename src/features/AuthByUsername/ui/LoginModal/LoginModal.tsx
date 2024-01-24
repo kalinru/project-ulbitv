@@ -1,7 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './LoginModal.module.scss'
 import { Modal } from 'shared/ui/Modal/Modal'
-import { LoginForm } from '../LoginForm/LoginForm'
+import { Suspense, useEffect } from 'react'
+import { LoginFormAsync } from '../LoginForm/LoginForm.async'
+import { Loader } from 'shared/ui'
 
 interface LoginModalProps {
   className?: string
@@ -10,12 +12,20 @@ interface LoginModalProps {
 }
 
 export const LoginModal = ({ className, isOpen, onClose }: LoginModalProps) => {
+  useEffect(() => {
+    return () => {
+      onClose?.()
+    }
+  }, [onClose])
+
   return (
     <Modal className={classNames(cls.LoginModal, {}, [className])}
            lazy
            isOpen={isOpen}
            onClose={onClose}>
-      <LoginForm/>
+      <Suspense fallback={<Loader />}>
+        <LoginFormAsync onSuccess={onClose}/>
+      </Suspense>
     </Modal>
   )
 }

@@ -33,7 +33,8 @@
     // можно писать такой
     // import React from 'react';
     "allowSyntheticDefaultImports": true,
-    "strict": false
+    "strict": true,
+    "skipLibCheck": true
   },
   "ts-node": {
     "compilerOptions": {

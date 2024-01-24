@@ -5,5 +5,10 @@
 # npm run lint:ts
 # npm run lint:scss
 # npm run test:unit
+
+# npm run storybook:build
+# npm run test:ui:ci
+
+# origin
 # npm run storybook
 # npm run test:ui

@@ -1,4 +1,4 @@
-import { type RuleSetRule } from 'webpack'
+import { DefinePlugin, type RuleSetRule } from 'webpack'
 import type webpack from 'webpack'
 import path from 'path'
 import { buildCssLoader } from '../build/loaders/buildCssLoader'
@@ -11,11 +11,12 @@ export default ({ config }: { config: webpack.Configuration }) => {
     entry: '',
     src: path.resolve(__dirname, '..', '..', 'src')
   }
-  config.resolve.modules.unshift(paths.src)
-  config.resolve.extensions.push('.ts', '.tsx')
+  config!.resolve!.modules!.unshift(paths.src)
+  config!.resolve!.extensions!.push('.ts', '.tsx')
 
   // remove svg from existing rule
-  config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
+  // @ts-ignore rule: RuleSetRule
+  config!.module!.rules = config!.module!.rules!.map((rule: RuleSetRule) => {
     if (
       String(rule.test) ===
     String(
@@ -32,12 +33,17 @@ export default ({ config }: { config: webpack.Configuration }) => {
   })
 
   // use svgr for svg files
-  config.module.rules.push({
+  config!.module!.rules.push({
     test: /\.svg$/i,
     issuer: /\.[jt]sx?$/,
     use: ['@svgr/webpack']
   })
-  config.module.rules.push(buildCssLoader(true))
+  config!.module!.rules.push(buildCssLoader(true))
+
+  config.plugins?.push(new DefinePlugin({
+    __IS_DEV__: JSON.stringify(true),
+    __API__: JSON.stringify('')
+  }))
 
   // config.resolve.alias = {
   //   entities: path.resolve(__dirname, "..", "..", "src", "entities"),

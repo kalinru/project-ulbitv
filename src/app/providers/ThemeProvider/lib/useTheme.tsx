@@ -11,11 +11,11 @@ const useTheme = (): useThemeResult => {
 
   const toggleTheme = () => {
     const newTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT
-    setTheme(newTheme)
+    setTheme?.(newTheme)
   }
 
   return {
-    theme,
+    theme: theme ?? Theme.LIGHT,
     toggleTheme
   }
 }

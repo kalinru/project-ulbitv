@@ -59,12 +59,14 @@ export default {
     //   '<rootDir>/__mocks__/fileMock.js',
     '\\.(s?css)$': 'identity-obj-proxy',
     '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
-    'entities/(.*)': '<rootDir>src/entities/$1'
+    'entities/(.*)': '<rootDir>src/entities/$1',
+    'axios': 'axios/dist/node/axios.cjs'
   },
 
   // A set of global variables that need to be available in all test environments
   globals: {
-    __IS_DEV__: true
+    __IS_DEV__: true,
+    __API__: ''
   },
 
   // Indicates whether the coverage information should be collected while executing the test

@@ -6,6 +6,7 @@ import { type BuildEnv, type BuildMode, type BuildPaths } from './config/build/t
 export default (env: BuildEnv) => {
   const mode: BuildMode = env.mode ?? 'development'
   const port = env.port ?? 3000
+  const apiUrl = env.apiUrl ?? 'http://localhost:8000'
   const isDev = mode === 'development'
 
   const paths: BuildPaths = {
@@ -19,7 +20,8 @@ export default (env: BuildEnv) => {
     mode,
     paths,
     isDev,
-    port
+    port,
+    apiUrl
   })
 
   return config

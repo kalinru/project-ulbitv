@@ -29,31 +29,6 @@
   flex-direction: column;
 }
 
-.item {
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-}
-
-.link {
-  margin-left: 10px;
-  transition: 0.2s opacity;
-}
-
-.icon {
-  fill: var(--inverted-text-primary-color);
-}
-
 .collapsed {
   width: var(--sidebar-width-collapsed);
-
-  .switchers {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .link {
-    opacity: 0;
-    width: 0;
-  }
 }

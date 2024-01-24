@@ -78,9 +78,12 @@ module.exports = {
         "jsx-a11y/no-static-element-interactions": "off",
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "error",
-        "@typescript-eslint/strict-boolean-expressions": "off"
+        "@typescript-eslint/strict-boolean-expressions": "off",
+        "react/prop-types": "off",
+        "no-undef": "off"
     },
     "globals": {
-        __IS_DEV__: true
+        __IS_DEV__: true,
+        __API__: true
     },
 }

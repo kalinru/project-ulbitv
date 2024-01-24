@@ -3,5 +3,6 @@
     "Текущий Язык Коротко": "EN",
     "Страница не найдена": "Page not found",
     "Главная": "Main",
-    "О сайте": "About us"
+    "О сайте": "About us",
+    "Пользователь не найден или Вы ввели неверный логиг или пароль": "User not found or You pass invalid username or password"
 }
