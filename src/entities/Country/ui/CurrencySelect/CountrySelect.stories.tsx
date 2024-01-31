@@ -3,7 +3,7 @@ import { CountrySelect } from './CountrySelect'
 import { Country } from '../../model/types/country'
 
 const meta = {
-  title: 'entities/CurrencySelect',
+  title: 'entities/CountrySelect',
   component: CountrySelect,
   parameters: {
     layout: 'centered'

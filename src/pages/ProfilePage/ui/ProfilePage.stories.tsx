@@ -3,6 +3,9 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider'
 import ProfilePage from './ProfilePage'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
+import AvatarImg from 'shared/assets/tests/avatar.png'
+import { Country } from 'entities/Country'
+import { Currency } from 'entities/Currency'
 
 const meta = {
   title: 'pages/ProfilePage',
@@ -20,10 +23,45 @@ export const Normal: Story = {
   args: {
   }
 }
-Normal.decorators = [StoreDecorator({ profile: { isLoading: false, readonly: false } })]
+Normal.decorators = [
+  StoreDecorator({
+    profile: {
+      isLoading: false,
+      readonly: false,
+      form: {
+        age: 20,
+        avatar: AvatarImg,
+        city: 'Moscow',
+        country: Country.Russian,
+        currency: Currency.RUB,
+        first: 'vasya',
+        lastname: 'ivanov',
+        username: 'vasya_ivanov'
+      }
+    }
+  })
+]
 
 export const Dark: Story = {
   args: {
   }
 }
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({ profile: { isLoading: false, readonly: false } })]
+Dark.decorators = [
+  ThemeDecorator(Theme.DARK),
+  StoreDecorator({
+    profile: {
+      isLoading: false,
+      readonly: false,
+      form: {
+        age: 20,
+        avatar: AvatarImg,
+        city: 'Moscow',
+        country: Country.Russian,
+        currency: Currency.RUB,
+        first: 'vasya',
+        lastname: 'ivanov',
+        username: 'vasya_ivanov'
+      }
+    }
+  })
+]
