@@ -18,15 +18,15 @@ type Story = StoryObj<typeof meta>
 
 export const Light: Story = {
   args: {
-  }
+  },
+  decorators: [
+    StoreDecorator({
+      user: {
+        authData: {}
+      }
+    })
+  ]
 }
-Light.decorators = [
-  StoreDecorator({
-    user: {
-      authData: {}
-    }
-  })
-]
 
 export const Dark: Story = {
   args: {
