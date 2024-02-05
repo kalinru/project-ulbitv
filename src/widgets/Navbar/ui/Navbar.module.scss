@@ -1,7 +1,7 @@
 .Navbar {
   width: 100%;
   height: var(--navbar-height);
-  background: var(--inverted-bg-color);
+  background: var(--bg-color-inverted);
   display: flex;
   align-items: center;
   padding: 20px;
@@ -9,8 +9,8 @@
 
 .links {
   margin-left: auto;
-  color: var(--inverted-text-primary-color);
-  border-color: var(--inverted-text-primary-color);
+  color: var(--primary-color-inverted);
+  border-color: var(--primary-color-inverted);
 }
 
 .links > * {

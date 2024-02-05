@@ -7,7 +7,7 @@ import { memo, useCallback } from 'react'
 import { loginActions, loginReducer } from '../..//model/slice/loginSlice'
 import { useAppSelector } from 'app/providers/StoreProvider/config/store'
 import { loginByUsername } from '../../services/loginByUsername/loginByUsername'
-import { Text } from 'shared/ui/Text/Text'
+import { Text, TextStyle } from 'shared/ui/Text/Text'
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername'
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword'
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading'
@@ -43,7 +43,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     dispatch(loginActions.setPassword(value))
   }, [dispatch])
 
-  const onLoginClick = useCallback(async () => {
+  const login = useCallback(async () => {
     const result = await dispatch(loginByUsername({
       username,
       password
@@ -53,6 +53,10 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     }
   }, [dispatch, onSuccess, password, username])
 
+  const onLoginClick = useCallback(() => {
+    void login()
+  }, [login])
+
   return (
     <DynamicModuleLoader reducers={initialReducers}>
       <div className={classNames(cls.LoginForm, {}, [className])}>
@@ -61,7 +65,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
         </h1>
         {!!error &&
         <div>
-          <Text fontStyle='danger'>
+          <Text style={TextStyle.DANGER}>
             {t('Пользователь не найден или Вы ввели неверный логиг или пароль')}
           </Text>
         </div>

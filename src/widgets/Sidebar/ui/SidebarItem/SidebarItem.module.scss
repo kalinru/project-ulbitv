@@ -3,14 +3,14 @@
   display: flex;
   align-items: center;
 }
-  
+
 .link {
   margin-left: 10px;
   transition: 0.2s opacity;
 }
 
 .icon {
-  fill: var(--inverted-text-primary-color);
+  fill: var(--primary-color-inverted);
 }
 
 .collapsed {

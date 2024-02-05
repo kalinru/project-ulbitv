@@ -30,7 +30,7 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
 
   return (
     <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
-      <h1>{t('Профиль')}</h1>
+      <h1>{t('Профиль123')}</h1>
       {readOnly
         ? (
           <Button theme={ButtonTheme.OUTLINE}

@@ -16,7 +16,7 @@ export const LangSwitcher = ({ className, short = true }: LangSwitcherProps) => 
 
   return (
     <Button
-          theme={ButtonTheme.CLEAR}
+          theme={ButtonTheme.BACKGROUND_INVERTED}
           className={classNames('', {}, [className])}
           // eslint-disable-next-line @typescript-eslint/no-misused-promises
           onClick={toogle}>

@@ -1,36 +1,41 @@
 .Button {
   cursor: pointer;
   padding: 10px 15px;
-  color: var(--text-primary-color);
+  color: var(--primary-color);
+  transition: transform 0.1s;
+
+  &:hover {
+    transform: scale(1.01) translateY(-0.5px);
+  }
 }
 
 .clear {
   border: none;
   background: none;
   outline: none;
-  color: var(--text-primary-color);
+  color: var(--primary-color);
 }
 
 // TODO добавить пропс
 .inverted {
-  color: var(--inverted-text-primary-color);
+  color: var(--primary-color-inverted);
 }
 
 .outline {
-  border: 1px solid var(--text-primary-color);
-  color: var(--text-primary-color);
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
   background: none;
 }
 
 .background {
   background: var(--bg-color);
-  color: var(--text-primary-color);
+  color: var(--primary-color);
   border: none;
 }
 
 .backgroundInverted {
-  background: var(--inverted-bg-color);
-  color: var(--inverted-text-primary-color);
+  background: var(--bg-color-inverted);
+  color: var(--primary-color-inverted);
   border: none;
 }
 

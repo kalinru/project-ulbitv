@@ -1,0 +1,15 @@
+.app_contrast_theme {
+  --bg-color: #fff;
+  --bg-color-inverted: #000;
+  --primary-color: #000;
+  --secondary-color: #00f;
+  --primary-color-inverted: #fff;
+  --secondary-color-inverted: #ffbf00;
+
+  // skeleton
+  --skeleton-color: #fff;
+  --skeleton-shadow: rgba(0 0 0 / 20%);
+
+  // code
+  --code-bg: #fff;
+}

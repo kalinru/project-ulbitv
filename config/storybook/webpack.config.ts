@@ -38,7 +38,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     issuer: /\.[jt]sx?$/,
     use: ['@svgr/webpack']
   })
-  config!.module!.rules.push(buildCssLoader(true))
+  config!.module!.rules.push(buildCssLoader({isDev: true}))
 
   config.plugins?.push(new DefinePlugin({
     __IS_DEV__: JSON.stringify(true),

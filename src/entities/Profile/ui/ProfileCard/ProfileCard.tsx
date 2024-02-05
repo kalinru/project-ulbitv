@@ -4,8 +4,8 @@ import cls from './ProfileCard.module.scss'
 import { Loader } from 'shared/ui'
 import { Input } from 'shared/ui/Input/Input'
 import { type Profile } from '../../model/types/profile'
-import { Text } from 'shared/ui/Text/Text'
-import { type ChangeEvent } from 'react'
+import { Text, TextStyle } from 'shared/ui/Text/Text'
+import { type FC } from 'react'
 import { type Country } from 'entities/Country/model/types/country'
 import { type Currency } from 'entities/Currency/model/types/currency'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
@@ -28,7 +28,7 @@ interface ProfileCardProps {
   onChangeCountry?: (value?: Country) => void
 }
 
-export const ProfileCard = (props: ProfileCardProps) => {
+export const ProfileCard: FC<ProfileCardProps> = (props) => {
   const {
     className,
     data,
@@ -57,7 +57,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
   if (error) {
     return (
       <div className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
-        <Text fontStyle='danger'>{t('Ошибка')}: {error}</Text>
+        <Text style={TextStyle.DANGER}>{t('Ошибка')}: {error}</Text>
       </div>
     )
   }

@@ -1,11 +1,15 @@
-// .AppLink {
-//     color: var(--text-primary-color);
-// }
+.AppLink {
+  transition: transform 0.1s;
+
+  &:hover {
+    transform: scale(1.01) translateY(-0.5px);
+  }
+}
 
 .primary {
-  color: var(--text-primary-color);
+  color: var(--primary-color);
 }
 
 .secondary {
-  color: var(--inverted-text-primary-color);
+  color: var(--primary-color-inverted);
 }

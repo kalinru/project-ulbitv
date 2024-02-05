@@ -1,7 +1,8 @@
 import type webpack from 'webpack'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import { BuildOptions } from '../types/config'
 
-export function buildCssLoader (isDev: boolean): webpack.RuleSetRule {
+export function buildCssLoader ({ isDev }: Partial<BuildOptions>): webpack.RuleSetRule {
   return {
     test: /\.s[ac]ss$/i,
     use: [
