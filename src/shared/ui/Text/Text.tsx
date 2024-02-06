@@ -18,7 +18,8 @@ export enum TextSize {
 
 export enum TextStyle {
   DEFAULT = '',
-  DANGER = 'danger'
+  DANGER = 'danger',
+  SECONDARY = 'secondary'
 }
 
 export const Text = memo((props: TextProps) => {
