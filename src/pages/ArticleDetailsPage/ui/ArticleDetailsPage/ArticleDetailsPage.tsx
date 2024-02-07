@@ -1,4 +1,4 @@
-import React, { memo, type FC } from 'react'
+import React, { memo, type FC, useCallback } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './ArticleDetailsPage.module.scss'
 import { useTranslation } from 'react-i18next'
@@ -23,6 +23,10 @@ import {
   fetchCommentsByArticleId
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { AddCommentForm } from 'features/addCommentForm'
+import {
+  addCommentForArticle
+} from '../../model/services/addCommentForArticle/addCommentForArticle'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -41,9 +45,13 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = memo(({ className }) => 
   const commentsIsLoading = useAppSelector(getArticleCommentsIsLoading)
   const error = useAppSelector(getArticleCommentsError)
 
+  const onSendComment = useCallback((text: string) => {
+    void dispatch(addCommentForArticle(text))
+  }, [])
+
   useInitialEffect(() => {
     void dispatch(fetchCommentsByArticleId(id))
-  })
+  }, [id])
 
   if (!id) {
     return (
@@ -62,7 +70,8 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = memo(({ className }) => 
             style={TextStyle.SECONDARY}>
           {t('Комментарии')}
         </Text>
-        <CommentList comments={comments} isLoading={commentsIsLoading}/>
+        <AddCommentForm onSendComment={onSendComment} />
+        <CommentList comments={comments} isLoading={commentsIsLoading} />
       </Wrapper>
     </DynamicModuleLoader>
   )
