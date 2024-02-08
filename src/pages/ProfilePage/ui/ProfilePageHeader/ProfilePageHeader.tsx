@@ -3,7 +3,12 @@ import cls from './ProfilePageHeader.module.scss'
 import { Button, ButtonTheme } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { getProfileData, getProfileReadOnly, profileActions, updateProfileData } from 'entities/Profile'
+import {
+  getProfileData,
+  getProfileReadOnly,
+  profileActions,
+  updateProfileData
+} from 'entities/Profile'
 import { useCallback } from 'react'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { getUserAuthData } from 'entities/User'
@@ -30,7 +35,7 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
   }, [dispatch])
 
   const onSave = useCallback(() => {
-    void dispatch(updateProfileData(userAuthData?.id))
+    void dispatch(updateProfileData())
   }, [dispatch])
 
   return (
