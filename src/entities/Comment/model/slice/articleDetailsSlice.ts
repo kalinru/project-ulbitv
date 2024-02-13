@@ -1,7 +1,7 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { type IComment } from '../types/comment'
 import { type ArticleDetailsSchema } from '../types/CommentsSchema'
-import { fetchArticleById } from '../services/fetchArticleById/fetchArticleById'
+import { fetchCommentsByArticleId } from '../services/fetchArticleById/fetchArticleById'
 
 const initialState: ArticleDetailsSchema = {
   isLoading: false,
@@ -17,15 +17,15 @@ export const articleDetailsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchArticleById.pending, (state) => {
+      .addCase(fetchCommentsByArticleId.pending, (state) => {
         state.isLoading = true
         state.error = undefined
       })
-      .addCase(fetchArticleById.fulfilled, (state, action: PayloadAction<IComment>) => {
+      .addCase(fetchCommentsByArticleId.fulfilled, (state, action: PayloadAction<IComment>) => {
         state.isLoading = false
         state.data = action.payload
       })
-      .addCase(fetchArticleById.rejected, (state, action: PayloadAction<string | undefined>) => {
+      .addCase(fetchCommentsByArticleId.rejected, (state, action: PayloadAction<string | undefined>) => {
         state.isLoading = false
         state.error = action.payload
       })

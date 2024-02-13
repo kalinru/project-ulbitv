@@ -18,10 +18,17 @@ body {
   display: flex;
 }
 
-.page-wrapper {
-  flex-grow: 1;
-  padding: 20px 20px 20px 40px;
-  height: calc(100vh - var(--navbar-height));
-  overflow-y: auto;
-  flex-shrink: 100;
+*::-webkit-scrollbar {
+  width: 12px;               /* ширина scrollbar */
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--card-bg);        /* цвет дорожки */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color-inverted);    /* цвет плашки */
+  border-radius: 20px;       /* закругления плашки */
+  border: 1px solid var(--primary-color);  /* padding вокруг плашки */
 }

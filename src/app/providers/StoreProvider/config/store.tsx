@@ -10,24 +10,23 @@ import { userReducer } from 'entities/User'
 import { type TypedUseSelectorHook, useSelector } from 'react-redux'
 import { createReducerManager } from './reducerManager'
 import { $api } from 'shared/api/api'
-import { type NavigateFunction } from 'react-router-dom'
+import { UIReducer } from 'features/UI'
 
 export function createReduxStore (
   initialState: StateSchema,
-  asyncReducers: ReducersMapObject<StateSchema>,
-  navigate?: NavigateFunction
+  asyncReducers: ReducersMapObject<StateSchema>
 ) {
   const reducer: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     counter: counterReducer,
-    user: userReducer
+    user: userReducer,
+    ui: UIReducer
   }
 
   const reducerManager = createReducerManager(reducer)
 
   const extraArgument: ThunkExtraArg = {
-    api: $api,
-    navigate
+    api: $api
   }
 
   const store = configureStore({

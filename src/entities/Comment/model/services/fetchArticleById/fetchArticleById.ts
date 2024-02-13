@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type ThunkConfig } from 'app/providers/StoreProvider'
 import { type IComment } from '../../types/comment'
 
-export const fetchArticleById =
+export const fetchCommentsByArticleId =
 createAsyncThunk<IComment, string, ThunkConfig<string>>(
   'articleDetails/fetchArticleById',
   async (articleId, { dispatch, extra, rejectWithValue }) => {

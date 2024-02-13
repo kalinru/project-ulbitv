@@ -6,3 +6,10 @@
   margin-top: 20px;
   display: block;
 }
+
+.recommendations {
+  margin-top: 10px;
+  flex-wrap: nowrap !important;
+  overflow-y: hidden;
+  overflow-x: auto;
+}

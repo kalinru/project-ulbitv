@@ -23,8 +23,6 @@ createAsyncThunk<User, LoginByUsernameProps, ThunkConfig<string>>(
       localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(userData))
       dispatch(userActions.setUserData(userData))
 
-      extra.navigate?.('/about')
-
       return userData
     } catch (e) {
       return rejectWithValue('error')

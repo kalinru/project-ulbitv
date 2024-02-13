@@ -7,7 +7,11 @@ createAsyncThunk<IArticle, string, ThunkConfig<string>>(
   'articleDetails/fetchArticleById',
   async (articleId, { dispatch, extra, rejectWithValue }) => {
     try {
-      const response = await extra.api.get<IArticle>(`/articles/${articleId}`)
+      const response = await extra.api.get<IArticle>(`/articles/${articleId}`, {
+        params: {
+          _expand: 'user'
+        }
+      })
       const data = response.data
       if (!data) {
         throw new Error()

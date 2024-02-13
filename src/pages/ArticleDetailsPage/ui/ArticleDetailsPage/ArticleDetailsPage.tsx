@@ -1,9 +1,9 @@
-import React, { memo, type FC, useCallback } from 'react'
+import { memo, type FC, useCallback } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './ArticleDetailsPage.module.scss'
 import { useTranslation } from 'react-i18next'
-import { ArticleDetails } from 'entities/Article'
-import { useParams } from 'react-router-dom'
+import { ArticleDetails, ArticleList } from 'entities/Article'
+import { useNavigate, useParams } from 'react-router-dom'
 import { Text, TextSize, TextStyle } from 'shared/ui/Text/Text'
 import { CommentList } from 'entities/Comment'
 import {
@@ -11,7 +11,7 @@ import {
   type ReducersList
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import {
-  articleDetailsCommentsReducer, getArticleComments
+  getArticleComments
 } from '../../model/slices/articleDetailsCommentsSlice'
 import { useAppSelector } from 'app/providers/StoreProvider/config/store'
 import {
@@ -27,30 +27,43 @@ import { AddCommentForm } from 'features/addCommentForm'
 import {
   addCommentForArticle
 } from '../../model/services/addCommentForArticle/addCommentForArticle'
+import { Button } from 'shared/ui'
+import { RoutePath } from 'shared/config/routerConfig/routerConfig'
+import { Page } from 'widgets/Page/Page'
+import {
+  getArticleRecommendations
+} from 'pages/ArticleDetailsPage/model/slices/articleDetailsRecommendationsSlice'
+import {
+  fetchArticleRecommendations
+} from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations'
+import { articleDetailsPageReducer } from '../../model/slices'
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader'
 
 interface ArticleDetailsPageProps {
   className?: string
 }
 
 const reducers: ReducersList = {
-  articleDetailsComments: articleDetailsCommentsReducer
+  articleDetailsPage: articleDetailsPageReducer
 }
 
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = memo(({ className }) => {
   const { t } = useTranslation('article-details')
   const { id } = useParams<{ id: string }>()
-
   const dispatch = useAppDispatch()
   const comments = useAppSelector(getArticleComments.selectAll)
   const commentsIsLoading = useAppSelector(getArticleCommentsIsLoading)
   const error = useAppSelector(getArticleCommentsError)
+  const recommendations = useAppSelector(getArticleRecommendations.selectAll)
+  const recommendationsIsLoading = useAppSelector(getArticleCommentsIsLoading)
 
   const onSendComment = useCallback((text: string) => {
     void dispatch(addCommentForArticle(text))
-  }, [])
+  }, [dispatch])
 
   useInitialEffect(() => {
     void dispatch(fetchCommentsByArticleId(id))
+    void dispatch(fetchArticleRecommendations())
   }, [id])
 
   if (!id) {
@@ -64,10 +77,20 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = memo(({ className }) => 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Wrapper className={className}>
+        <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
         <Text className={cls.commentTitle}
-            size={TextSize.XL}
-            style={TextStyle.SECONDARY}>
+              size={TextSize.XL}
+              style={TextStyle.SECONDARY}>
+          {t('Рекомендуем')}
+        </Text>
+        <ArticleList articles={recommendations}
+                     isLoading={recommendationsIsLoading}
+                     target='_blank'
+                     className={cls.recommendations} />
+        <Text className={cls.commentTitle}
+              size={TextSize.XL}
+              style={TextStyle.SECONDARY}>
           {t('Комментарии')}
         </Text>
         <AddCommentForm onSendComment={onSendComment} />
@@ -79,9 +102,9 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = memo(({ className }) => 
 
 const Wrapper: FC<ArticleDetailsPageProps> = ({ children, className }) => {
   return (
-    <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+    <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
       {children}
-    </div>
+    </Page>
   )
 }
 

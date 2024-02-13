@@ -1,0 +1,109 @@
+.ArticleListItem {
+  
+}
+
+.BIG {
+  .views {
+    margin-left: auto;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+  }
+
+  .username {
+    margin-left: 8px;
+  }
+
+  .createdAt {
+    margin-left: auto;
+  }
+
+  .title {
+    margin-top: 8px;
+  }
+
+  .img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    margin: 16px 0;
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+  }
+
+  .textBlock {
+    max-height: 200px;
+    overflow-y: hidden;
+  }
+}
+
+.SMALL {
+  width: 230px;
+  transition: .2s all;
+  cursor: pointer;
+  
+  .imageWrapper {
+    width: 200px;
+    height: 200px;
+    position: relative;
+  }
+  
+  .img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .createdAt {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: none;
+  }
+
+  &:hover {
+    opacity: .9;
+    transform: scale(1.01);
+
+    .createdAt {
+      display: block;
+    }
+  }
+
+  .infoWrapper {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .types {
+    margin-right: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .views {
+    margin-right: 5px;
+    flex-shrink: 0;
+  }
+  
+  .viewsIcon {
+    flex-shrink: 0;
+  }
+  
+  .title {
+    margin-top: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: block;
+  }
+}

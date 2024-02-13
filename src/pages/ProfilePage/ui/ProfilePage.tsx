@@ -26,6 +26,7 @@ import { type Currency } from 'entities/Currency/model/types/currency'
 import { Text, TextStyle } from 'shared/ui/Text/Text'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useParams } from 'react-router-dom'
+import { Page } from 'widgets/Page/Page'
 
 const reducers: ReducersList = {
   profile: profileReducer
@@ -93,7 +94,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.ProfilePage, {}, [className])}>
+      <Page className={classNames(cls.ProfilePage, {}, [className])}>
         <ProfilePageHeader/>
         {profileValidateErrors?.length && (
           <div style={{ display: 'flex', gap: 10 }}>
@@ -116,7 +117,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
           onChangeCurrency={onChangeCurrency}
           onChangeAvatar={onChangeAvatar}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   )
 }
