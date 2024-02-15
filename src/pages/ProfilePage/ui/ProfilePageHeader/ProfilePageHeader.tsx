@@ -12,6 +12,7 @@ import {
 import { useCallback } from 'react'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { getUserAuthData } from 'entities/User'
+import { HStack } from 'shared/ui/Stack/HStack/HStack'
 
 interface ProfilePageHeaderProps {
   className?: string
@@ -39,35 +40,33 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
   }, [dispatch])
 
   return (
-    <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
+    <HStack max justify='between' className={classNames(cls.ProfilePageHeader, {}, [className])}>
       <h1>{t('Профиль123')}</h1>
       {canEdit && (
-        <div className={cls.wrapper}>
+        <>
           {readOnly
             ? (
               <Button theme={ButtonTheme.OUTLINE}
-                  className={cls.editBtn}
-                  onClick={onEdit}>
+                      onClick={onEdit}>
                 {t('Редактировать')}
               </Button>
               )
             : (
-              <>
+              <HStack gap='8'>
                 <Button theme={ButtonTheme.OUTLINE}
-                  className={cls.editBtn}
-                  onClick={onCancelEdit}>
+                        onClick={onCancelEdit}>
                   {t('Отменить')}
                 </Button>
                 <Button theme={ButtonTheme.OUTLINE}
-                  className={cls.saveBtn}
-                  onClick={onSave}>
+                        className={cls.saveBtn}
+                        onClick={onSave}>
                   {t('Сохранить')}
                 </Button>
-              </>
+              </HStack>
               )
           }
-        </div>
+        </>
       )}
-    </div>
+    </HStack>
   )
 }

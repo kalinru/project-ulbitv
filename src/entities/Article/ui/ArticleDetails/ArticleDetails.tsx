@@ -25,6 +25,7 @@ import { Icon } from 'shared/ui/Icon/Icon'
 import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock'
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock'
 import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock'
+import { HStack, VStack } from 'shared/ui/Stack'
 
 interface ArticleDetailsProps {
   className?: string
@@ -39,22 +40,19 @@ const renderBlock = (block: TArticleBlock) => {
   switch (block.type) {
     case ArticleBlockType.CODE:
       return <ArticleCodeBlock
-        key={block.id}
-        data={block}
-        className={cls.block}
-      />
+               key={block.id}
+               data={block}
+             />
     case ArticleBlockType.TEXT:
       return <ArticleTextBlock
-        key={block.id}
-        data={block}
-        className={cls.block}
-      />
+               key={block.id}
+               data={block}
+             />
     case ArticleBlockType.IMAGE:
       return <ArticleImageBlock
-        key={block.id}
-        data={block}
-        className={cls.block}
-      />
+               key={block.id}
+               data={block}
+             />
     default:
       return null
   }
@@ -85,10 +83,10 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) 
           height={200}
           border="50%"
         />
-        <Skeleton className={cls.title} width={300} height={32} />
-        <Skeleton className={cls.skeleton} width={600} height={24} />
-        <Skeleton className={cls.skeleton} width="100%" height={200} />
-        <Skeleton className={cls.skeleton} width="100%" height={200} />
+        <Skeleton width={300} height={32} />
+        <Skeleton width={600} height={24} />
+        <Skeleton width="100%" height={200} />
+        <Skeleton width="100%" height={200} />
       </>
     )
   } else if (error) {
@@ -97,47 +95,46 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) 
     )
   } else {
     content = (<>
-      <div className={cls.avatarWrapper}>
+      <HStack justify='center' max>
         <Avatar
           src={article?.img}
           size={200}
           className={cls.avatar}
           alt={article?.title}
         />
-      </div>
-      <Text size={TextSize.XL}
-            className={cls.title}>
-        {article?.title}
-      </Text>
-      <Text size={TextSize.L}>
-        {article?.subtitle}
-      </Text>
-      <div className={cls.articleInfo}>
-        <Icon Svg={EyeIcon}/>
-        <Text size={TextSize.S}>
-          {article?.views}
+      </HStack>
+      <VStack gap='4' max>
+        <Text size={TextSize.XL} element='h1'>
+          {article?.title}
         </Text>
-      </div>
-      <div className={cls.articleInfo}>
-        <Icon Svg={CalendarIcon}/>
-        <Text size={TextSize.S}>
-          {article?.createdAt}
+        <Text size={TextSize.L} element='h2'>
+          {article?.subtitle}
         </Text>
-      </div>
-      <Text size={TextSize.S}>
-        {t('Категория')}: {article?.type}
-      </Text>
-      <div>
-        {article?.blocks.map(renderBlock)}
-      </div>
+        <HStack gap='4'>
+          <Icon Svg={EyeIcon}/>
+          <Text size={TextSize.S}>
+            {article?.views}
+          </Text>
+        </HStack>
+        <HStack gap='4'>
+          <Icon Svg={CalendarIcon}/>
+          <Text size={TextSize.S}>
+            {article?.createdAt}
+          </Text>
+        </HStack>
+        <Text size={TextSize.S}>
+          {t('Категория')}: {article?.type}
+        </Text>
+      </VStack>
+      {article?.blocks.map(renderBlock)}
     </>)
   }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.ArticleDetails, {}, [className])}>
+      <VStack gap='16' max className={classNames(cls.ArticleDetails, {}, [className])}>
         {content}
-      </div>
+      </VStack>
     </DynamicModuleLoader>
   )
 })

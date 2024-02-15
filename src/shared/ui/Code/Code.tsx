@@ -3,7 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Code.module.scss'
 import { Button } from '../Button/Button'
 import CopyIcon from 'shared/assets/icons/copy-20-20.svg'
-import { Icon } from 'shared/ui/Icon/Icon'
+import { Icon } from '../Icon/Icon'
 
 interface CodeProps {
   className?: string

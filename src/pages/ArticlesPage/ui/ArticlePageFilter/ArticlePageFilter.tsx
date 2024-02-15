@@ -1,7 +1,14 @@
-import { memo, type FC, useCallback, useMemo } from 'react'
+import { memo, type FC, useCallback } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './ArticlePageFilter.module.scss'
-import { type ArticleView, ArticleViewSelector, type ArticleSortField, ArticleSortSelector, ArticleTypeTabs, type ArticleType } from 'entities/Article'
+import {
+  type ArticleView,
+  ArticleViewSelector,
+  type ArticleSortField,
+  ArticleSortSelector,
+  ArticleTypeTabs,
+  type ArticleType
+} from 'entities/Article'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useAppSelector } from 'app/providers/StoreProvider/config/store'
 import {
@@ -17,9 +24,8 @@ import { Card } from 'shared/ui/Card/Card'
 import { Input } from 'shared/ui/Input/Input'
 
 import { type SortOrder } from 'shared/types'
-import { fetchArticles } from 'pages/ArticlesPage/model/services/fetchArticles/fetchArticles'
+import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles'
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce'
-import { type TabItem, Tabs } from 'shared/ui/Tabs/Tabs'
 
 interface ArticlePageFilterProps {
   className?: string

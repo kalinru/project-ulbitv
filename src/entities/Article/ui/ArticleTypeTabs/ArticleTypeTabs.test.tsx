@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { ArticleTypeTabs } from './ArticleTypeTabs'
-import { ArticleType } from 'entities/Article/model/types/article'
+import { ArticleType } from '../../model/types/article'
 
 const fn = (...props: any[]) => {}
 

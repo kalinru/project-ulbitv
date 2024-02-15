@@ -13,10 +13,10 @@ export const ArticleTextBlock: FC<ArticleTextBlockProps> = memo(({ className, da
   return (
     <div className={classNames(cls.ArticleTextBlock, {}, [className])}>
       {data.title && (
-        <Text className={cls.title} size={TextSize.L}>{data.title}</Text>
+        <Text className={cls.title} size={TextSize.L} element='h3'>{data.title}</Text>
       )}
       {data.paragraphs.map((paragraph) => (
-        <Text key={paragraph} className={cls.paragraph}>{paragraph}</Text>
+        <Text key={paragraph} className={cls.paragraph} element='p'>{paragraph}</Text>
       ))}
     </div>
   )

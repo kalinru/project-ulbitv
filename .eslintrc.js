@@ -38,7 +38,9 @@ module.exports = {
         "react",
         "@typescript-eslint",
         "i18next",
-        "jsx-a11y"
+        "jsx-a11y",
+        // "react-hooks",
+        "ulbi-tv-plugin-kalinru",
     ],
     "rules": {
         "react/jsx-indent": [2, 2],
@@ -64,7 +66,15 @@ module.exports = {
                 ignoreAttribute: [
                     'data-testid',
                     'to',
-                    'target'
+                    'target',
+                    'className',
+                    'justify',
+                    'align',
+                    'direction',
+                    'gap',
+                    'role',
+                    'as',
+                    'element',
                 ]
             }
         ],
@@ -81,7 +91,9 @@ module.exports = {
         "react-hooks/exhaustive-deps": "error",
         "@typescript-eslint/strict-boolean-expressions": "off",
         "react/prop-types": "off",
-        "no-undef": "off"
+        "no-undef": "off",
+        "n/no-callback-literal": "off",
+        "ulbi-tv-plugin-kalinru/path-checker": "error",
     },
     "globals": {
         __IS_DEV__: true,

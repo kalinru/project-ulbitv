@@ -11,7 +11,6 @@ import { Text } from 'shared/ui/Text/Text'
 import { Icon } from 'shared/ui/Icon/Icon'
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
 import { Card } from 'shared/ui/Card/Card'
-import { useHover } from 'shared/lib/hooks/useHover/useHover'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { AppLink, Button, ButtonTheme } from 'shared/ui'
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock'
@@ -31,7 +30,6 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo(({
   view,
   target = ''
 }) => {
-  const [isHover, bindHover] = useHover()
   const { t } = useTranslation()
 
   const types = <Text className={cls.types}>{article.type.join(', ')}</Text>
@@ -97,7 +95,6 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo(({
   return (
     <AppLink to={RoutePath.article_details + article.id}
              target={target}
-             {...bindHover}
              className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
       <Card className={cls.card}>
         <div className={cls.imageWrapper}>

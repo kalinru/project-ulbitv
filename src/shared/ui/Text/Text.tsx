@@ -6,6 +6,8 @@ interface TextProps {
   className?: string
   style?: TextStyle
   size?: TextSize
+  // header?: HeaderTagType
+  element?: keyof JSX.IntrinsicElements
   children?: ReactNode
 }
 
@@ -22,23 +24,42 @@ export enum TextStyle {
   SECONDARY = 'secondary'
 }
 
+// type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4'
+
+// const mapSizeToHeaderTag: Record<HeaderTagType, TextSize> = {
+//   h4: TextSize.S,
+//   h3: TextSize.M,
+//   h2: TextSize.L,
+//   h1: TextSize.XL
+// }
+
 export const Text = memo((props: TextProps) => {
   const {
     className,
     style = TextStyle.DEFAULT,
     size = TextSize.M,
+    element: Element = 'span',
     children
   } = props
 
-  const mods = {
+  // const Element = header ? mapSizeToHeaderTag[header] :
+
+  let mods = {
     [cls[size]]: true,
     [cls[style]]: true
   }
 
+  if (Element) {
+    mods = {
+      ...mods,
+      [cls[Element]]: true
+    }
+  }
+
   return (
-    <span className={classNames(cls.Text, mods, [className])}>
+    <Element className={classNames(cls.Text, mods, [className])}>
       {children}
-    </span>
+    </Element>
   )
 })
 

@@ -21,6 +21,11 @@ const getSkeletons = (view: ArticleView) => {
     ))
 }
 
+/**
+ * TODO сделать виртуальный список используя react-window или react-virtuoso
+ * (урок 63 - используется устаревший react-virtualized)
+ * там же есть видео реализции на React virtuoso https://1drv.ms/v/s!AsJfm7HR-TbV4xcTzX43JvEBNiS1?e=XDTWDL
+ */
 export const ArticleList: FC<ArticleListProps> = memo(({
   className,
   articles,

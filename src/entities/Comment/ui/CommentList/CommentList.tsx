@@ -4,6 +4,7 @@ import cls from './CommentList.module.scss'
 import { type IComment } from '../../model/types/comment'
 import { CommentCard } from '../CommentCard/CommentCard'
 import { useTranslation } from 'react-i18next'
+import { VStack } from 'shared/ui/Stack'
 
 interface CommentListProps {
   className?: string
@@ -16,26 +17,25 @@ export const CommentList: FC<CommentListProps> = memo(({ className, comments, is
 
   if (isLoading) {
     return (
-      <div className={classNames(cls.CommentList, {}, [className])}>
+      <VStack gap='16' max className={classNames(cls.CommentList, {}, [className])}>
         <CommentCard isLoading className={cls.comment} />
         <CommentCard isLoading className={cls.comment} />
         <CommentCard isLoading className={cls.comment} />
-      </div>
+      </VStack>
     )
   }
 
   return (
-    <div className={classNames(cls.CommentList, {}, [className])}>
+    <VStack gap='16' max className={classNames(cls.CommentList, {}, [className])}>
       {comments?.map((comment) => (
         <CommentCard key={comment.id}
                      comment={comment}
-                     isLoading={isLoading}
-                     className={cls.comment} />
+                     isLoading={isLoading} />
       ))}
       {!comments?.length && (
         t('Нет комментариев')
       )}
-    </div>
+    </VStack>
   )
 })
 

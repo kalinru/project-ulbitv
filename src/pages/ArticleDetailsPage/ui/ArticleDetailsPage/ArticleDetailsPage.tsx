@@ -3,7 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './ArticleDetailsPage.module.scss'
 import { useTranslation } from 'react-i18next'
 import { ArticleDetails, ArticleList } from 'entities/Article'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { Text, TextSize, TextStyle } from 'shared/ui/Text/Text'
 import { CommentList } from 'entities/Comment'
 import {
@@ -15,8 +15,7 @@ import {
 } from '../../model/slices/articleDetailsCommentsSlice'
 import { useAppSelector } from 'app/providers/StoreProvider/config/store'
 import {
-  getArticleCommentsIsLoading,
-  getArticleCommentsError
+  getArticleCommentsIsLoading
 } from '../../model/selectors/comments'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import {
@@ -27,17 +26,16 @@ import { AddCommentForm } from 'features/addCommentForm'
 import {
   addCommentForArticle
 } from '../../model/services/addCommentForArticle/addCommentForArticle'
-import { Button } from 'shared/ui'
-import { RoutePath } from 'shared/config/routerConfig/routerConfig'
 import { Page } from 'widgets/Page/Page'
 import {
   getArticleRecommendations
-} from 'pages/ArticleDetailsPage/model/slices/articleDetailsRecommendationsSlice'
+} from '../../model/slices/articleDetailsRecommendationsSlice'
 import {
   fetchArticleRecommendations
 } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations'
 import { articleDetailsPageReducer } from '../../model/slices'
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader'
+import { VStack } from 'shared/ui/Stack'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -53,7 +51,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = memo(({ className }) => 
   const dispatch = useAppDispatch()
   const comments = useAppSelector(getArticleComments.selectAll)
   const commentsIsLoading = useAppSelector(getArticleCommentsIsLoading)
-  const error = useAppSelector(getArticleCommentsError)
+  // const error = useAppSelector(getArticleCommentsError)
   const recommendations = useAppSelector(getArticleRecommendations.selectAll)
   const recommendationsIsLoading = useAppSelector(getArticleCommentsIsLoading)
 
@@ -103,7 +101,9 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = memo(({ className }) => 
 const Wrapper: FC<ArticleDetailsPageProps> = ({ children, className }) => {
   return (
     <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-      {children}
+      <VStack gap='16' max>
+        {children}
+      </VStack>
     </Page>
   )
 }

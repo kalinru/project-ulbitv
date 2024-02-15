@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { ArticleSortSelector } from './ArticleSortSelector'
-import { ArticleSortField } from 'entities/Article/model/types/article'
+import { ArticleSortField } from '../../model/types/article'
 
 const fn = (...props: any[]) => {}
 

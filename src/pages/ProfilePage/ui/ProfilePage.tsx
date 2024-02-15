@@ -17,7 +17,7 @@ import {
   profileActions,
   profileReducer
 } from 'entities/Profile'
-import { type FC, useCallback, useEffect } from 'react'
+import { type FC, useCallback } from 'react'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useAppSelector } from 'app/providers/StoreProvider/config/store'
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader'
@@ -27,6 +27,7 @@ import { Text, TextStyle } from 'shared/ui/Text/Text'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useParams } from 'react-router-dom'
 import { Page } from 'widgets/Page/Page'
+import { VStack } from 'shared/ui/Stack/VStack/VStack'
 
 const reducers: ReducersList = {
   profile: profileReducer
@@ -95,28 +96,30 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classNames(cls.ProfilePage, {}, [className])}>
-        <ProfilePageHeader/>
-        {profileValidateErrors?.length && (
-          <div style={{ display: 'flex', gap: 10 }}>
-            {profileValidateErrors.map(error => (
-              <Text key={error} style={TextStyle.DANGER}>{validateErrorsTranslates[error]}</Text>
-            ))}
-          </div>
-        )}
-        <ProfileCard
-          data={formData}
-          isLoading={isLoading}
-          // error={error}
-          readOnly={readOnly}
-          onChangeFirstName={onChangeFirstName}
-          onChangeLastName={onChangeLastName}
-          onChangeAge={onChangeAge}
-          onChangeCity={onChangeCity}
-          onChangeCountry={onChangeCountry}
-          onChangeUsername={onChangeUsername}
-          onChangeCurrency={onChangeCurrency}
-          onChangeAvatar={onChangeAvatar}
-        />
+        <VStack max gap='16'>
+          <ProfilePageHeader/>
+          {profileValidateErrors?.length && (
+            <div style={{ display: 'flex', gap: 10 }}>
+              {profileValidateErrors.map(error => (
+                <Text key={error} style={TextStyle.DANGER}>{validateErrorsTranslates[error]}</Text>
+              ))}
+            </div>
+          )}
+          <ProfileCard
+            data={formData}
+            isLoading={isLoading}
+            // error={error}
+            readOnly={readOnly}
+            onChangeFirstName={onChangeFirstName}
+            onChangeLastName={onChangeLastName}
+            onChangeAge={onChangeAge}
+            onChangeCity={onChangeCity}
+            onChangeCountry={onChangeCountry}
+            onChangeUsername={onChangeUsername}
+            onChangeCurrency={onChangeCurrency}
+            onChangeAvatar={onChangeAvatar}
+          />
+        </VStack>
       </Page>
     </DynamicModuleLoader>
   )

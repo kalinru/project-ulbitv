@@ -25,6 +25,7 @@ import {
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
 import { ArticlePageFilter } from '../ArticlePageFilter/ArticlePageFilter'
 import { useSearchParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 interface ArticlesPageProps {
   className?: string
@@ -35,6 +36,7 @@ const reducers: ReducersList = {
 }
 
 const ArticlesPage: FC<ArticlesPageProps> = memo(({ className }) => {
+  const { t } = useTranslation()
   const dispatch = useAppDispatch()
   const [searchParams] = useSearchParams()
   const view = useAppSelector(getArticlesPageView)
@@ -51,7 +53,7 @@ const ArticlesPage: FC<ArticlesPageProps> = memo(({ className }) => {
   })
 
   if (error) {
-    return <div>Error</div>
+    return <div>{t('Ошибка при загрузке статей')}</div>
   }
 
   return (
