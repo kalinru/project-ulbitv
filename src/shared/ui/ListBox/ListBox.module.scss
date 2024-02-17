@@ -1,41 +1,41 @@
 .ListBox {
-    position: relative;
-    width: max-content;
+  position: relative;
+  width: max-content;
 }
 
 .buttonWrapper {
-    // background: none;
-    // border: none;
-    // outline: none;
-    // padding: 0;
-    // margin: 0;
+  // background: none;
+  // border: none;
+  // outline: none;
+  // padding: 0;
+  // margin: 0;
 }
 
 .options {
-    position: absolute;
-    z-index: 10000;
-    background: var(--listbox-bg);
-    border-radius:12px;
-    border: 1px solid var(--bg-color-inverted);
-    box-shadow: 4px 4px 8px var(--listbox-bg);
+  position: absolute;
+  z-index: 10000;
+  background: var(--listbox-bg);
+  border-radius: 12px;
+  border: 1px solid var(--bg-color-inverted);
+  box-shadow: 4px 4px 8px var(--listbox-bg);
 }
 
 .option {
-    padding: 10px 20px;
+  padding: 10px 20px;
 }
 
 .active {
-    background: var(--bg-color-inverted);
-    color: var(--primary-color-inverted);
+  background: var(--bg-color-inverted);
+  color: var(--primary-color-inverted);
 }
 
 .selected {
-    background: var(--bg-color-inverted);
-    color: var(--secondary-color);
+  background: var(--bg-color-inverted);
+  color: var(--secondary-color);
 }
 
 .disabled {
-    opacity: .4;
+  opacity: 0.4;
 }
 
 .optionsBottomLeft {
@@ -43,15 +43,15 @@
 }
 
 .optionsBottomRight {
-    right: 0;
+  right: 0;
 }
 
 .optionsTopLeft {
-    bottom: 100%;
-    left: 0;
+  bottom: 100%;
+  left: 0;
 }
 
 .optionsTopRight {
-    bottom: 100%;
-    right: 0;
+  bottom: 100%;
+  right: 0;
 }
