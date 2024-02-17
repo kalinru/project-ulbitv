@@ -4,14 +4,13 @@ import cls from './ListBox.module.scss'
 import { Listbox } from '@headlessui/react'
 import { Button, ButtonTheme } from '../Button/Button'
 import { HStack } from '../Stack'
+import { type DropdownDirection } from 'shared/types/ui'
 
 export interface ListBoxItem {
   value: string
   content: ReactNode
   disabled?: boolean
 }
-
-type DropdownDirection = 'top' | 'bottom'
 
 interface ListBoxProps {
   className?: string
@@ -25,8 +24,10 @@ interface ListBoxProps {
 }
 
 const mapDirectionClass: Record<DropdownDirection, string> = {
-  bottom: cls.optionsBottom,
-  top: cls.optionsTop
+  'bottom left': cls.optionsBottomLeft,
+  'bottom right': cls.optionsBottomRight,
+  'top left': cls.optionsTopLeft,
+  'top right': cls.optionsTopRight
 }
 
 export const ListBox: FC<ListBoxProps> = memo(({
@@ -36,7 +37,7 @@ export const ListBox: FC<ListBoxProps> = memo(({
   defaultValue,
   label,
   readOnly,
-  direction = 'bottom',
+  direction = 'bottom right',
   onChange
 }) => {
   const optionsClasses = [
@@ -51,10 +52,11 @@ export const ListBox: FC<ListBoxProps> = memo(({
              disabled={readOnly}
              as='div'
              className={classNames(cls.ListBox, {}, [className])}>
-      <Listbox.Button className={cls.buttonWrapper} disabled={readOnly}>
-        <Button className={cls.button} theme={ButtonTheme.OUTLINE} disabled={readOnly}>
-          {value ?? defaultValue}
-        </Button>
+      <Listbox.Button as={Button}
+                      className={cls.buttonWrapper}
+                      disabled={readOnly}
+                      theme={ButtonTheme.OUTLINE}>
+        {value ?? defaultValue}
       </Listbox.Button>
       <Listbox.Options className={classNames('', {}, optionsClasses)}>
         {items?.map((item) => (

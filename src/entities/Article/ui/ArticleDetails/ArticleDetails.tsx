@@ -126,7 +126,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) 
           {t('Категория')}: {article?.type}
         </Text>
       </VStack>
-      {article?.blocks.map(renderBlock)}
+      {article?.blocks?.map(renderBlock)}
     </>)
   }
 

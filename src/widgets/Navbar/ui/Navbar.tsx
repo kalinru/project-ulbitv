@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getUserAuthData, userActions } from 'entities/User'
 import { Text, TextSize, TextStyle } from 'shared/ui/Text/Text'
 import { RoutePath } from 'shared/config/routerConfig/routerConfig'
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown'
+import { Avatar } from 'shared/ui/Avatar/Avatar'
 
 interface NavbarProps {
   className?: string
@@ -40,11 +42,19 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         <AppLink to={RoutePath.article_create} theme={AppLinkTheme.SECONDARY}>
           {t('Добавить статью')}
         </AppLink>
-        <Button className={cls.links}
-                theme={ButtonTheme.OUTLINE}
-                onClick={onLogout}>
-          { t('Выйти') }
-        </Button>
+        <Dropdown trigger={<Avatar src={authData.avatar} size={30}/>}
+                  direction='bottom left'
+                  className={cls.dropdown}
+                  items={[
+                    {
+                      content: t('Профиль'),
+                      href: RoutePath.profile + authData.id
+                    },
+                    {
+                      content: t('Выйти'),
+                      onClick: onLogout
+                    }
+                  ]} />
       </header>
     )
   }

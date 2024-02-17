@@ -793,6 +793,12 @@
       "userId": 1,
       "text": "22222",
       "id": "ICaUR7t"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "11",
+      "id": "erK37lg"
     }
   ],
   "users": [
@@ -865,11 +871,11 @@
   "profile": [
     {
       "id": "1",
-      "first": "ADmin",
-      "lastname": "cool",
+      "first": "admin4ick",
+      "lastname": "asd",
       "age": 25,
-      "currency": "USD",
-      "country": "USA",
+      "currency": "RUB",
+      "country": "Russian",
       "city": "Moscow",
       "username": "admin213",
       "avatar": "https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625"

@@ -44,7 +44,7 @@ module.exports = {
     ],
     "rules": {
         "react/jsx-indent": [2, 2],
-        "max-len": ['error', { ignoreComments: true, code: 100 }],
+        "max-len": ['error', { ignoreComments: true, code: 120 }],
         // 'react/jsx-indent-props': [2, 4],
         // indent: [2, 4],
         // 'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],

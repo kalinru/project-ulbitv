@@ -11,6 +11,7 @@ import { type TypedUseSelectorHook, useSelector } from 'react-redux'
 import { createReducerManager } from './reducerManager'
 import { $api } from 'shared/api/api'
 import { UIReducer } from 'features/UI'
+import { rtkApi } from 'shared/api/rtkApi'
 
 export function createReduxStore (
   initialState: StateSchema,
@@ -20,7 +21,8 @@ export function createReduxStore (
     ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
-    ui: UIReducer
+    ui: UIReducer,
+    [rtkApi.reducerPath]: rtkApi.reducer
   }
 
   const reducerManager = createReducerManager(reducer)
@@ -37,7 +39,7 @@ export function createReduxStore (
       thunk: {
         extraArgument
       }
-    })
+    }).concat(rtkApi.middleware)
   })
 
   // @ts-expect-error fixme
