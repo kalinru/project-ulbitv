@@ -9,6 +9,8 @@ interface TextProps {
   // header?: HeaderTagType
   element?: keyof JSX.IntrinsicElements
   children?: ReactNode
+
+  'data-testid'?: string
 }
 
 export enum TextSize {
@@ -39,7 +41,8 @@ export const Text = memo((props: TextProps) => {
     style = TextStyle.DEFAULT,
     size = TextSize.M,
     element: Element = 'span',
-    children
+    children,
+    'data-testid': dataTestId = 'Text'
   } = props
 
   // const Element = header ? mapSizeToHeaderTag[header] :
@@ -57,7 +60,8 @@ export const Text = memo((props: TextProps) => {
   }
 
   return (
-    <Element className={classNames(cls.Text, mods, [className])}>
+    <Element className={classNames(cls.Text, mods, [className])}
+             data-testid={`${dataTestId}.Text`}>
       {children}
     </Element>
   )

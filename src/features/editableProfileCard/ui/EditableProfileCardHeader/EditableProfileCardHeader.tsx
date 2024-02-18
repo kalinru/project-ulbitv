@@ -39,25 +39,28 @@ export const EditableProfileCardHeader = ({ className }: EditableProfileCardHead
 
   return (
     <HStack max justify='between' className={classNames(cls.ProfilePageHeader, {}, [className])}>
-      <h1>{t('Профиль123')}</h1>
+      <h1>{t('Профиль')}</h1>
       {canEdit && (
         <>
           {readOnly
             ? (
               <Button theme={ButtonTheme.OUTLINE}
-                      onClick={onEdit}>
+                      onClick={onEdit}
+                      data-testid='EditableProfileCardHeader.EditButton'>
                 {t('Редактировать')}
               </Button>
               )
             : (
               <HStack gap='8'>
                 <Button theme={ButtonTheme.OUTLINE}
-                        onClick={onCancelEdit}>
+                        onClick={onCancelEdit}
+                        data-testid='EditableProfileCardHeader.CancelButton'>
                   {t('Отменить')}
                 </Button>
                 <Button theme={ButtonTheme.OUTLINE}
                         className={cls.saveBtn}
-                        onClick={onSave}>
+                        onClick={onSave}
+                        data-testid='EditableProfileCardHeader.SaveButton'>
                   {t('Сохранить')}
                 </Button>
               </HStack>

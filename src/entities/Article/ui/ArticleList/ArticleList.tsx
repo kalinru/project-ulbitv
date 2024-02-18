@@ -11,6 +11,8 @@ interface ArticleListProps {
   isLoading?: boolean
   view?: ArticleView
   target?: HTMLAttributeAnchorTarget
+  // TODO виртуальный списка
+  virtualized?: boolean
 }
 
 const getSkeletons = (view: ArticleView) => {
@@ -31,7 +33,8 @@ export const ArticleList: FC<ArticleListProps> = memo(({
   articles,
   isLoading,
   view = ArticleView.SMALL,
-  target = ''
+  target = '',
+  virtualized = true
 }) => {
   const renderArticle = useCallback((article: IArticle) => {
     return (
