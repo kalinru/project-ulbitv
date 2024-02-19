@@ -1,0 +1,20 @@
+🩺 checking the health of your Storybook..
+(node:13280) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+╭ Diagnostics ─────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                      │
+│   Attention: We've detected that you're using the following addons in versions which are known to be incompatible    │
+│   with Storybook 7:                                                                                                  │
+│                                                                                                                      │
+│   - storybook-addon-mock@3.2.0                                                                                       │
+│                                                                                                                      │
+│   Please be aware they might not work in Storybook 7. Reach out to their maintainers for updates and check the       │
+│   following Github issue for more information:                                                                       │
+│   https://github.com/storybookjs/storybook/issues/20529                                                              │
+│                                                                                                                      │
+│   -------                                                                                                            │
+│                                                                                                                      │
+│   You can find the full logs in D:\Dev\ulbitv\project\doctor-storybook.log                                           │
+│                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯

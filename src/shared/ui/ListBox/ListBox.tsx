@@ -20,7 +20,7 @@ interface ListBoxProps {
   label?: string
   readOnly?: boolean
   direction?: DropdownDirection
-  onChange: <T = string>(item: T) => void
+  onChange: (item: string) => void
 }
 
 const mapDirectionClass: Record<DropdownDirection, string> = {

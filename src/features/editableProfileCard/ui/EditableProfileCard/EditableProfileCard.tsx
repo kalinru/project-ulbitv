@@ -15,14 +15,14 @@ import { getProfilevalidateErrors } from '../../model/selectors/getProfileValida
 import { ProfileCard } from 'entities/Profile'
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData'
 import { profileActions, profileReducer } from '../../model/slice/profileSlice'
-import { ValidateProfileError } from '../../model/types/editableProfileCardSchema'
+import { ValidateProfileError } from 'features/editableProfileCard/model/consts/consts'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader'
 import { VStack } from 'shared/ui/Stack'
 
 interface EditableProfileCardProps {
   className?: string
-  id: string
+  id?: string
 }
 
 const reducers: ReducersList = {

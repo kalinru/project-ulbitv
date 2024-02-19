@@ -20,7 +20,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
   const { isLoading, data: recommendations, error } = useGetArticleRecommendationsListQuery(4)
 
   if (isLoading || !recommendations || error) {
-    return null
+    return <div>Error</div>
   }
 
   return (

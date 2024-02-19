@@ -1,4 +1,4 @@
-import { memo, type FC, useRef, type MutableRefObject, type UIEvent } from 'react'
+import { memo, useRef, type MutableRefObject, type UIEvent, type ReactNode } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Page.module.scss'
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll'
@@ -11,11 +11,12 @@ import { type StateSchema } from 'app/providers/StoreProvider'
 import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle'
 
 interface PageProps {
+  children?: ReactNode
   className?: string
   onScrollEnd?: () => void
 }
 
-export const Page: FC<PageProps> = memo(({ className, children, onScrollEnd }) => {
+export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>
   const dispatch = useAppDispatch()
