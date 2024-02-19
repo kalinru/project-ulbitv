@@ -3,7 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './ArticleTypeTabs.module.scss'
 import { useTranslation } from 'react-i18next'
 import { type TabItem, Tabs } from 'shared/ui/Tabs/Tabs'
-import { ArticleType } from '../../model/types/article'
+import { ArticleType } from '../../model/consts/consts'
 
 interface ArticleTypeTabsProps {
   className?: string

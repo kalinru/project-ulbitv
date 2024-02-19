@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { ArticleSortSelector } from './ArticleSortSelector'
-import { ArticleSortField } from '../../model/types/article'
+import { ArticleSortField } from '../../model/consts/consts'
 
 const meta = {
   title: 'shared/ArticleSortSelector',

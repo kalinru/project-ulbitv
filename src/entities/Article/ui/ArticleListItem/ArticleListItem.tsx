@@ -2,11 +2,13 @@ import { memo, type FC, type HTMLAttributeAnchorTarget } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './ArticleListItem.module.scss'
 import {
-  ArticleBlockType,
-  ArticleView,
   type IArticleTextBlock,
   type IArticle
 } from '../../model/types/article'
+import {
+  ArticleBlockType,
+  ArticleView
+} from '../../model/consts/consts'
 import { Text } from 'shared/ui/Text/Text'
 import { Icon } from 'shared/ui/Icon/Icon'
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg'

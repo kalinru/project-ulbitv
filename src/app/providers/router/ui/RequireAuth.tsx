@@ -1,7 +1,5 @@
 import { useAppSelector } from 'app/providers/StoreProvider/config/store'
-import { getUserAuthData } from 'entities/User'
-import { getUserRoles } from 'entities/User/model/selectors/roleSelectors'
-import { type UserRole } from 'entities/User/model/types/user'
+import { getUserAuthData, getUserRoles, type UserRole } from 'entities/User'
 import { memo, useMemo, type ReactNode } from 'react'
 import { Navigate, useLocation } from 'react-router-dom'
 import { RoutePath } from 'shared/config/routerConfig/routerConfig'
