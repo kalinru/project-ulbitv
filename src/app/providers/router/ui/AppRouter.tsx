@@ -5,7 +5,7 @@ import { PageLoader } from 'widgets/PageLoader/PageLoader'
 import { RequireAuth } from './RequireAuth'
 
 const renderWithWrapper = (route: AppRoutesProps) => {
-  const { path, element } = route
+  const { path, element, roles } = route
 
   const renderElement = (
     <Suspense fallback={<PageLoader />}>
@@ -17,7 +17,7 @@ const renderWithWrapper = (route: AppRoutesProps) => {
     <Route
       key={path}
       path={path}
-      element={route.authOnly ? <RequireAuth>{renderElement}</RequireAuth> : renderElement}
+      element={route.authOnly ? <RequireAuth roles={roles}>{renderElement}</RequireAuth> : renderElement}
     />
   )
 }

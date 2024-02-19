@@ -1,3 +1,4 @@
+export { getIsUserAdmin, getIsUserManager } from './model/selectors/roleSelectors'
 export { getUserIninted } from './model/selectors/getUserInited/getUserInited'
 export { getUserAuthData } from './model/selectors/getUserAuthData.ts/getUserAuthData'
 export { userReducer, userActions } from './model/slice/userSlice'

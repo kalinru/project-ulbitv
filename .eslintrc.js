@@ -94,6 +94,7 @@ module.exports = {
         "no-undef": "off",
         "n/no-callback-literal": "off",
         "ulbi-tv-plugin-kalinru/path-checker": "error",
+        // "@typescript-eslint/no-non-null-assertion": "off"
     },
     "globals": {
         __IS_DEV__: true,
