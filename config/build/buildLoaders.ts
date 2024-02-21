@@ -7,11 +7,11 @@ export function buildLoader (options: BuildOptions): webpack.RuleSetRule[] {
   const  { isDev } = options
   
   // Для jsx нужен babel-loader. Но т.к. работаем с ts и tsx не нужно. ts-loader поддерживает tsx
-  const typescriptLoader = {
-    test: /\.tsx?$/,
-    use: 'ts-loader',
-    exclude: /node_modules/
-  }
+  // const typescriptLoader = {
+  //   test: /\.tsx?$/,
+  //   use: 'ts-loader',
+  //   exclude: /node_modules/
+  // }
 
   const cssLoader = buildCssLoader(options)
 
@@ -30,7 +30,8 @@ export function buildLoader (options: BuildOptions): webpack.RuleSetRule[] {
     ]
   }
 
-  const babelLoader = buildBabelLoader(isDev)
+  const codeBabelLoader = buildBabelLoader({...options, isTsx: false})
+  const tsxBabelLoader = buildBabelLoader({...options, isTsx: true})
 
   // Настройка i18next-extractor для того, чтобы новые ключи записывались в файлы переводов и не перетирали существующие:
   // Для того, чтобы плагин видел файлы локализаций, можно использовать структуру ключа
@@ -62,8 +63,10 @@ export function buildLoader (options: BuildOptions): webpack.RuleSetRule[] {
   // };
 
   return [
-    babelLoader,
-    typescriptLoader,
+    // babelLoader,
+    // typescriptLoader,
+    codeBabelLoader,
+    tsxBabelLoader,
     cssLoader,
     svgLoader,
     fileLOader

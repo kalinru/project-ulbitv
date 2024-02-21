@@ -1,10 +1,12 @@
 import { memo, type FC, Fragment, type ReactNode } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './ListBox.module.scss'
+import popupCls from '../../styles/popup.module.scss'
 import { Listbox } from '@headlessui/react'
-import { Button, ButtonTheme } from '../Button/Button'
-import { HStack } from '../Stack'
+import { Button, ButtonTheme } from '../../../Button/Button'
+import { HStack } from '../../../Stack'
 import { type DropdownDirection } from 'shared/types/ui'
+import { mapDirectionClass } from '../../styles/consts'
 
 export interface ListBoxItem {
   value: string
@@ -21,13 +23,6 @@ interface ListBoxProps {
   readOnly?: boolean
   direction?: DropdownDirection
   onChange: (item: string) => void
-}
-
-const mapDirectionClass: Record<DropdownDirection, string> = {
-  'bottom left': cls.optionsBottomLeft,
-  'bottom right': cls.optionsBottomRight,
-  'top left': cls.optionsTopLeft,
-  'top right': cls.optionsTopRight
 }
 
 export const ListBox: FC<ListBoxProps> = memo(({
@@ -51,7 +46,7 @@ export const ListBox: FC<ListBoxProps> = memo(({
              onChange={onChange}
              disabled={readOnly}
              as='div'
-             className={classNames(cls.ListBox, {}, [className])}>
+             className={classNames(cls.ListBox, {}, [className, popupCls.popup])}>
       <Listbox.Button as={Button}
                       className={cls.buttonWrapper}
                       disabled={readOnly}
@@ -68,9 +63,9 @@ export const ListBox: FC<ListBoxProps> = memo(({
           >
             {({ active, selected }) => (
               <li className={classNames(cls.option, {
-                [cls.active]: active,
-                [cls.selected]: selected,
-                [cls.disabled]: item.disabled
+                [popupCls.active]: active,
+                [popupCls.selected]: selected,
+                [popupCls.disabled]: item.disabled
               })}>
                 {item.content}
               </li>
