@@ -1,5 +1,5 @@
 import { memo, type FC, type HTMLAttributeAnchorTarget } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './ArticleListItem.module.scss'
 import {
   type IArticleTextBlock,
@@ -9,15 +9,15 @@ import {
   ArticleBlockType,
   ArticleView
 } from '../../model/consts/consts'
-import { Text } from 'shared/ui/Text/Text'
-import { Icon } from 'shared/ui/Icon/Icon'
-import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
-import { Card } from 'shared/ui/Card/Card'
-import { Avatar } from 'shared/ui/Avatar/Avatar'
-import { AppLink, Button, ButtonTheme } from 'shared/ui'
+import { Text } from '@/shared/ui/Text/Text'
+import { Icon } from '@/shared/ui/Icon/Icon'
+import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
+import { Card } from '@/shared/ui/Card/Card'
+import { Avatar } from '@/shared/ui/Avatar/Avatar'
+import { AppLink, Button, ButtonTheme } from '@/shared/ui'
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock'
 import { useTranslation } from 'react-i18next'
-import { RoutePath } from 'shared/config/routerConfig/routerConfig'
+import { RoutePath } from '@/shared/config/routerConfig/routerConfig'
 
 interface ArticleListItemProps {
   className?: string

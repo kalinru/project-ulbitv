@@ -1,10 +1,10 @@
 import { type ReactNode, memo } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Popover.module.scss'
 import popupCls from '../../styles/popup.module.scss'
 import { Popover as HPopover } from '@headlessui/react'
 import { mapDirectionClass } from '../../styles/consts'
-import { type DropdownDirection } from 'shared/types/ui'
+import { type DropdownDirection } from '@/shared/types/ui'
 
 interface PopoverProps {
   children: ReactNode

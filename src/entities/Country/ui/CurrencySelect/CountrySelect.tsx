@@ -1,5 +1,5 @@
-import { classNames } from 'shared/lib/classNames/classNames'
-import { Select } from 'shared/ui/Select/Select'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { Select } from '@/shared/ui/Select/Select'
 import { useTranslation } from 'react-i18next'
 import { Country } from '../../model/types/country'
 import { memo, useCallback } from 'react'

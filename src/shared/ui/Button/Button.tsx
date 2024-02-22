@@ -1,5 +1,5 @@
 import { memo, type ButtonHTMLAttributes, type FC, forwardRef, type ForwardedRef } from 'react'
-import { type Mods, classNames } from 'shared/lib/classNames/classNames'
+import { type Mods, classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Button.module.scss'
 
 export enum ButtonTheme {

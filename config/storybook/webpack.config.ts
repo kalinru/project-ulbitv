@@ -16,6 +16,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
   config!.resolve!.modules!.unshift(paths.src)
   config!.resolve!.extensions!.push('.ts', '.tsx')
+  config!.resolve!.alias = { '@': paths.src }
 
   // remove svg from existing rule
   // @ts-ignore rule: RuleSetRule

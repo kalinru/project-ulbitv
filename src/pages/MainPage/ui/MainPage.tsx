@@ -1,8 +1,8 @@
-import { BugButton } from 'app/providers/ErrorBoundry'
-import { Counter } from 'entities/Counter'
+import { BugButton } from '@/app/providers/ErrorBoundry'
+import { Counter } from '@/entities/Counter'
 import { useTranslation } from 'react-i18next'
-import { ListBox } from 'shared/ui/Popups/components/ListBox/ListBox'
-import { Page } from 'widgets/Page/Page'
+import { ListBox } from '@/shared/ui/Popups/components/ListBox/ListBox'
+import { Page } from '@/widgets/Page/Page'
 
 const MainPage = () => {
   const { t } = useTranslation()

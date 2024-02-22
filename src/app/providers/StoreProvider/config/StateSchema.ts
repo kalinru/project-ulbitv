@@ -6,18 +6,18 @@ import {
   type CombinedState
 } from '@reduxjs/toolkit'
 import { type AxiosInstance } from 'axios'
-import { type ArticleDetailsSchema } from 'entities/Article'
-import { type CounterSchema } from 'entities/Counter'
-import { type UserSchema } from 'entities/User'
-import { type LoginSchema } from 'features/AuthByUsername'
-import { type UISchema } from 'features/UI'
-import { type AddCommentFormSchema } from 'features/addCommentForm'
-import { type ProfileSchema } from 'features/editableProfileCard'
+import { type ArticleDetailsSchema } from '@/entities/Article'
+import { type CounterSchema } from '@/entities/Counter'
+import { type UserSchema } from '@/entities/User'
+import { type LoginSchema } from '@/features/AuthByUsername'
+import { type UISchema } from '@/features/UI'
+import { type AddCommentFormSchema } from '@/features/addCommentForm'
+import { type ProfileSchema } from '@/features/editableProfileCard'
 import {
   type ArticleDetailsPageSchema
-} from 'pages/ArticleDetailsPage'
-import { type ArticlesPageSchema } from 'pages/ArticlesPage'
-import { type rtkApi } from 'shared/api/rtkApi'
+} from '@/pages/ArticleDetailsPage'
+import { type ArticlesPageSchema } from '@/pages/ArticlesPage'
+import { type rtkApi } from '@/shared/api/rtkApi'
 
 export interface StateSchema {
   counter: CounterSchema

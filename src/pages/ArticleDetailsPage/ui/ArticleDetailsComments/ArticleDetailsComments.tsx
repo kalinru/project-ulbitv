@@ -1,20 +1,20 @@
-import { useAppSelector } from 'app/providers/StoreProvider/config/store'
-import { CommentList } from 'entities/Comment'
-import { AddCommentForm } from 'features/addCommentForm'
+import { useAppSelector } from '@/app/providers/StoreProvider/config/store'
+import { CommentList } from '@/entities/Comment'
+import { AddCommentForm } from '@/features/addCommentForm'
 import {
   addCommentForArticle
 } from '../../model/services/addCommentForArticle/addCommentForArticle'
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice'
 import { memo, type FC, useCallback, Suspense } from 'react'
 import { useTranslation } from 'react-i18next'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
-import { Text, TextSize, TextStyle } from 'shared/ui/Text/Text'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
+import { Text, TextSize, TextStyle } from '@/shared/ui/Text/Text'
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments'
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
-import { VStack } from 'shared/ui/Stack'
-import { Loader } from 'shared/ui'
+import { VStack } from '@/shared/ui/Stack'
+import { Loader } from '@/shared/ui'
 
 interface ArticleDetailsCommentsProps {
   className?: string

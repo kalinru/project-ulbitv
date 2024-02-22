@@ -1,10 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { type ThunkConfig } from 'app/providers/StoreProvider'
+import { type ThunkConfig } from '@/app/providers/StoreProvider'
 import { getArticlesPageInited } from '../../selectors/articlesPageSelectors'
 import { articlesPageActions } from '../../slices/articlesPageSlice'
 import { fetchArticles } from '../fetchArticles/fetchArticles'
-import { type SortOrder } from 'shared/types'
-import { type ArticleType, type ArticleSortField } from 'entities/Article'
+import { type SortOrder } from '@/shared/types'
+import { type ArticleType, type ArticleSortField } from '@/entities/Article'
 
 export const initArticlesPage =
 createAsyncThunk<unknown, URLSearchParams, ThunkConfig<string>>(

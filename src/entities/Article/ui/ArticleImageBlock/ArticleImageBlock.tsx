@@ -1,8 +1,8 @@
 import { memo, type FC } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './ArticleImageBlock.module.scss'
 import { type IArticleImageBlock } from '../../model/types/article'
-import { Text, TextSize } from 'shared/ui/Text/Text'
+import { Text, TextSize } from '@/shared/ui/Text/Text'
 
 interface ArticleImageBlockProps {
   className?: string
