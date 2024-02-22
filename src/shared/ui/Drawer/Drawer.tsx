@@ -4,7 +4,7 @@ import { useTheme } from '@/app/providers/ThemeProvider'
 import { Overlay } from '../Overlay/Overlay'
 import cls from './Drawer.module.scss'
 import { Portal } from '../Portal/Portal'
-import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider'
+import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider'
 
 interface DrawerProps {
   className?: string
@@ -16,7 +16,7 @@ interface DrawerProps {
 
 const height = window.innerHeight - 100
 
-export const DrawerContext = memo((props: DrawerProps) => {
+const DrawerContext = memo((props: DrawerProps) => {
   const { Spring, Gesture } = useAnimationLibs()
   const [{ y }, api] = Spring.useSpring(() => ({ y: height }))
   const { theme } = useTheme()
@@ -93,7 +93,7 @@ export const DrawerContext = memo((props: DrawerProps) => {
 
 DrawerContext.displayName = 'DrawerContext'
 
-export const Drawer = memo((props: DrawerProps) => {
+const DrawerAsync = memo((props: DrawerProps) => {
   const { isLoaded } = useAnimationLibs()
 
   if (!isLoaded) {
@@ -103,4 +103,12 @@ export const Drawer = memo((props: DrawerProps) => {
   return <DrawerContext {...props}/>
 })
 
-Drawer.displayName = 'Drawer'
+DrawerAsync.displayName = 'DrawerAsync'
+
+export const Drawer = (props: DrawerProps) => {
+  return (
+    <AnimationProvider>
+      <DrawerAsync {...props}/>
+    </AnimationProvider>
+  )
+}
