@@ -13,7 +13,12 @@ body {
   background-color: var(--bg-color);
   min-height: 100vh;
 }
-
+.app,
+.app_modal,
+.app_drawer {
+    font: var(--font-m);
+    color: var(--primary-color);
+}
 .content-page {
   display: flex;
 }

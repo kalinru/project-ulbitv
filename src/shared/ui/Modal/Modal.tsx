@@ -1,3 +1,5 @@
+import { useDrag } from '@use-gesture/react'
+import { a, useSpring, config } from '@react-spring/web'
 import { type Mods, classNames } from 'shared/lib/classNames/classNames'
 import cls from './Modal.module.scss'
 import { type ReactNode } from 'react'

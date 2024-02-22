@@ -14,7 +14,7 @@ export const NotificationList = memo((props: NotificationListProps) => {
   const { className } = props
 
   const { data, isLoading } = useNotifications(null, {
-    pollingInterval: 1000
+    pollingInterval: 10000
   })
 
   if (isLoading) {

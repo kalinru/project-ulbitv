@@ -8,6 +8,7 @@ import { Icon } from 'shared/ui/Icon/Icon'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Drawer } from 'shared/ui/Drawer/Drawer'
 import { useIsMobile } from 'shared/lib/hooks/useIsMobile/useIsMobile'
+import { AnimationProvider } from 'shared/lib/components/AnimationProvider'
 
 interface NotificationButtonProps {
   className?: string
@@ -63,9 +64,11 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
       {isMobile
         ? (<>
           {trigger}
-          <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-            <NotificationList />
-          </Drawer>
+          <AnimationProvider>
+            <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+              <NotificationList />
+            </Drawer>
+          </AnimationProvider>
         </>)
         : (
           <Popover className={classNames(cls.NotificationButton, {}, [className])}
