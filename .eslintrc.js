@@ -95,7 +95,8 @@ module.exports = {
         "no-undef": "off",
         "n/no-callback-literal": "off",
         // TODO доработать плагин, не работает после добавления алисов (@)
-        "ulbi-tv-plugin-kalinru/path-checker": "error",
+        "ulbi-tv-plugin-kalinru/path-checker": ["error", {alias: '@'}],
+        "ulbi-tv-plugin-kalinru/fsd-public-api-imports": ["error", {alias: '@'}],
         // "@typescript-eslint/no-non-null-assertion": "off"
     },
     "globals": {

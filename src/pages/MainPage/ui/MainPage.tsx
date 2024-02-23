@@ -2,8 +2,7 @@ import { BugButton } from '@/app/providers/ErrorBoundry'
 import { Counter } from '@/entities/Counter'
 import { useTranslation } from 'react-i18next'
 import { ListBox } from '@/shared/ui/Popups/components/ListBox/ListBox'
-import { Page } from '@/widgets/Page/Page'
-import { StarRating } from '@/shared/ui/StarRating/StarRating'
+import { Page } from '@/widgets/Page'
 import { RatingCard } from '@/entities/RatingCard'
 
 const MainPage = () => {
@@ -12,9 +11,9 @@ const MainPage = () => {
   return (
     <Page>
       <div>{t('Главная')}</div>
-      <RatingCard feedbackTitle='Оставьте пожайлуста ваш отзыв о статье'
+      <RatingCard feedbackTitle={t('Оставьте пожайлуста ваш отзыв о статье')}
                   hasFeedback
-                  title='Оцените стаьью'
+                  title={t('Оцените статью')}
                   />
       <div><Counter/></div>
       <ListBox onChange={console.log}

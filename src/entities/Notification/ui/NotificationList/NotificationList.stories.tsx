@@ -41,7 +41,8 @@ Normal.parameters = {
           title: 'Уведомление 3',
           description: 'Поставь лайк и оставь комментарий под Ulbi TV'
         }
-      ]
+      ],
+      delay: 2000
     }
   ]
 }

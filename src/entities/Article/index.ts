@@ -1,6 +1,6 @@
 export { getArticleDetailsData } from './model/selectors/articleDetails'
 export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs'
-export { ArticleSortField, ArticleType, ArticleView } from './model/consts/consts'
+export { ArticleSortField, ArticleType, ArticleView, ArticleBlockType } from './model/consts/consts'
 export { type IArticle } from './model/types/article'
 export { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelector'
 export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector'

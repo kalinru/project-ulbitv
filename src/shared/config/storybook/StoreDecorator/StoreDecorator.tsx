@@ -1,3 +1,4 @@
+/* eslint-disable ulbi-tv-plugin-kalinru/fsd-public-api-imports */
 import { type Story } from '@storybook/react'
 import { type StateSchema, StoreProvider } from '@/app/providers/StoreProvider'
 import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice'
