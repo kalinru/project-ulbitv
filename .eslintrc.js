@@ -41,6 +41,7 @@ module.exports = {
         "jsx-a11y",
         // "react-hooks",
         "ulbi-tv-plugin-kalinru",
+        "unused-imports"
     ],
     "rules": {
         "react/jsx-indent": [2, 2],
@@ -94,7 +95,7 @@ module.exports = {
         "react/prop-types": "off",
         "no-undef": "off",
         "n/no-callback-literal": "off",
-        // TODO доработать плагин, не работает после добавления алисов (@)
+        "unused-imports/no-unused-imports": "error",
         "ulbi-tv-plugin-kalinru/path-checker": [
             "error", {
                 alias: '@'
