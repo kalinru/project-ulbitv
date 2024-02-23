@@ -1,5 +1,7 @@
 import { memo, useCallback } from 'react'
+
 import { useTranslation } from 'react-i18next'
+
 import { classNames } from '@/shared/lib/classNames/classNames'
 import {
   DynamicModuleLoader,
@@ -10,12 +12,14 @@ import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector
 import { Button, ButtonTheme } from '@/shared/ui'
 import { Input } from '@/shared/ui/Input'
 import { Text, TextStyle } from '@/shared/ui/Text'
+
 import { loginActions, loginReducer } from '../..//model/slice/loginSlice'
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError'
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading'
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword'
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername'
 import { loginByUsername } from '../../services/loginByUsername/loginByUsername'
+
 import cls from './LoginForm.module.scss'
 
 export interface LoginFormProps {

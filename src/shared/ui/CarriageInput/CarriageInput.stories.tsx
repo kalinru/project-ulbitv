@@ -1,4 +1,5 @@
 import { Input } from './CarriageInput'
+
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {

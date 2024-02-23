@@ -1,6 +1,8 @@
 import { type Meta, type StoryObj } from '@storybook/react'
+
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/consts/theme'
+
 import { NotFoundPage } from './NotFoundPage'
 
 const meta = {

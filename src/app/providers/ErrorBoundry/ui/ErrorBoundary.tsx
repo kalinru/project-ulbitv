@@ -1,4 +1,5 @@
 import { type ReactNode, type ErrorInfo, Component, Suspense } from 'react'
+
 import { Loader } from '@/shared/ui'
 import { PageError } from '@/widgets/PageError'
 

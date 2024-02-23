@@ -6,6 +6,7 @@ import {
   type CombinedState
 } from '@reduxjs/toolkit'
 import { type AxiosInstance } from 'axios'
+
 import { type ArticleDetailsSchema } from '@/entities/Article'
 import { type CounterSchema } from '@/entities/Counter'
 import { type UserSchema } from '@/entities/User'

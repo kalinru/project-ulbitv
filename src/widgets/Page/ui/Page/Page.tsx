@@ -1,5 +1,7 @@
 import { memo, useRef, type MutableRefObject, type UIEvent, type ReactNode } from 'react'
+
 import { useLocation } from 'react-router-dom'
+
 import { type StateSchema } from '@/app/providers/StoreProvider'
 import { UIActions, getUIScrollPositionByPath } from '@/features/UI'
 import { classNames } from '@/shared/lib/classNames/classNames'
@@ -8,6 +10,7 @@ import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle'
+
 import cls from './Page.module.scss'
 
 interface PageProps {

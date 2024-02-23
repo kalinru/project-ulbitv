@@ -1,5 +1,7 @@
 import { memo, type FC, useEffect } from 'react'
+
 import { useTranslation } from 'react-i18next'
+
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg'
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
 import { classNames } from '@/shared/lib/classNames/classNames'
@@ -14,6 +16,7 @@ import { Icon } from '@/shared/ui/Icon'
 import { Skeleton } from '@/shared/ui/Skeleton'
 import { HStack, VStack } from '@/shared/ui/Stack'
 import { Text, TextSize, TextStyle } from '@/shared/ui/Text'
+
 import { ArticleBlockType } from '../../model/consts/consts'
 import {
   getArticleDetailsData,
@@ -26,6 +29,7 @@ import { type TArticleBlock } from '../../model/types/article'
 import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock'
 import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock'
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock'
+
 import cls from './ArticleDetails.module.scss'
 
 interface ArticleDetailsProps {

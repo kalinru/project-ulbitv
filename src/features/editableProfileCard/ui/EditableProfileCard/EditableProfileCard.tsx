@@ -1,5 +1,7 @@
 import { memo, useCallback } from 'react'
+
 import { useTranslation } from 'react-i18next'
+
 import { type Country } from '@/entities/Country'
 import { type Currency } from '@/entities/Currency'
 import { ProfileCard } from '@/entities/Profile'
@@ -10,6 +12,7 @@ import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { VStack } from '@/shared/ui/Stack'
 import { Text, TextStyle } from '@/shared/ui/Text'
+
 import { ValidateProfileError } from '../../model/consts/consts'
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm'
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading'
@@ -18,6 +21,7 @@ import { getProfilevalidateErrors } from '../../model/selectors/getProfileValida
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData'
 import { profileActions, profileReducer } from '../../model/slice/profileSlice'
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader'
+
 import cls from './EditableProfileCard.module.scss'
 
 interface EditableProfileCardProps {

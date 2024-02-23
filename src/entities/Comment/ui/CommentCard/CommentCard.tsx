@@ -1,4 +1,5 @@
 import { memo, type FC } from 'react'
+
 import { RoutePath } from '@/shared/consts/router'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { AppLink } from '@/shared/ui'
@@ -6,7 +7,9 @@ import { Avatar } from '@/shared/ui/Avatar'
 import { Skeleton } from '@/shared/ui/Skeleton'
 import { VStack } from '@/shared/ui/Stack'
 import { Text } from '@/shared/ui/Text'
+
 import { type IComment } from '../../model/types/comment'
+
 import cls from './CommentCard.module.scss'
 
 interface CommentCardProps {

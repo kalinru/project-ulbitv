@@ -1,4 +1,5 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit'
+
 import { type UISchema } from '../types/UISchema'
 
 const initialState: UISchema = {

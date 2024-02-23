@@ -1,5 +1,7 @@
 import { memo, type FC, useCallback } from 'react'
+
 import { useTranslation } from 'react-i18next'
+
 import {
   type ArticleView,
   ArticleViewSelector,
@@ -15,6 +17,7 @@ import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce'
 import { type SortOrder } from '@/shared/types'
 import { Card } from '@/shared/ui/Card'
 import { Input } from '@/shared/ui/Input'
+
 import {
   getArticlesPageOrder,
   getArticlesPageSearch,

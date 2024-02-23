@@ -1,12 +1,15 @@
 import { memo, type FC, useCallback } from 'react'
+
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
+
 import { getArticleDetailsData } from '@/entities/Article'
 import { RoutePath } from '@/shared/consts/router'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { Button } from '@/shared/ui'
 import { HStack } from '@/shared/ui/Stack'
+
 import { getCanEditArticle } from '../../model/selectors/article'
 
 interface ArticleDetailsPageHeaderProps {

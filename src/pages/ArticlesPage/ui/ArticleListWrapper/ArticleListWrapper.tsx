@@ -1,14 +1,18 @@
 import { memo, type FC } from 'react'
+
 import { useTranslation } from 'react-i18next'
+
 import { ArticleList } from '@/entities/Article'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
+
 import {
   getArticlesPageView,
   getArticlesPageIsLoading,
   getArticlesPageError
 } from '../../model/selectors/articlesPageSelectors'
 import { getArticles } from '../../model/slices/articlesPageSlice'
+
 import cls from './ArticleListWrapper.module.scss'
 
 interface ArticleListWrapperProps {

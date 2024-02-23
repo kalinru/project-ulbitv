@@ -1,5 +1,6 @@
 import { Currency } from './../../model/types/currency'
 import { CurrencySelect } from './CurrencySelect'
+
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {

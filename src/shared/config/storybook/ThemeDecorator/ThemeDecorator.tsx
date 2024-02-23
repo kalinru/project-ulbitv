@@ -1,4 +1,5 @@
 import { type Story } from '@storybook/react'
+
 // eslint-disable-next-line ulbi-tv-plugin-kalinru/fsd-layer-imports
 import { ThemeProvider } from '@/app/providers/ThemeProvider'
 import { type Theme } from '@/shared/consts/theme'

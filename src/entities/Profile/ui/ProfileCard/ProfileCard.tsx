@@ -1,5 +1,7 @@
 import { type FC } from 'react'
+
 import { useTranslation } from 'react-i18next'
+
 import { type Country } from '@/entities/Country'
 import { CountrySelect } from '@/entities/Country'
 import { CurrencySelect } from '@/entities/Currency'
@@ -10,7 +12,9 @@ import { Avatar } from '@/shared/ui/Avatar'
 import { Input } from '@/shared/ui/Input'
 import { HStack, VStack } from '@/shared/ui/Stack'
 import { Text, TextStyle } from '@/shared/ui/Text'
+
 import { type Profile } from '../../model/types/profile'
+
 import cls from './ProfileCard.module.scss'
 
 interface ProfileCardProps {

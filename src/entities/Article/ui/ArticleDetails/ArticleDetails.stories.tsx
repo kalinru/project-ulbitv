@@ -1,7 +1,10 @@
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+
 import { ArticleBlockType, ArticleType } from '../../model/consts/consts'
 import { type IArticle } from '../../model/types/article'
+
 import { ArticleDetails } from './ArticleDetails'
+
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {

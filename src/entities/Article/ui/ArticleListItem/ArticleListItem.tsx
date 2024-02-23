@@ -1,5 +1,7 @@
 import { memo, type FC, type HTMLAttributeAnchorTarget } from 'react'
+
 import { useTranslation } from 'react-i18next'
+
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
 import { RoutePath } from '@/shared/consts/router'
 import { classNames } from '@/shared/lib/classNames/classNames'
@@ -8,6 +10,7 @@ import { Avatar } from '@/shared/ui/Avatar'
 import { Card } from '@/shared/ui/Card'
 import { Icon } from '@/shared/ui/Icon'
 import { Text } from '@/shared/ui/Text'
+
 import {
   ArticleBlockType,
   ArticleView
@@ -17,6 +20,7 @@ import {
   type IArticle
 } from '../../model/types/article'
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock'
+
 import cls from './ArticleListItem.module.scss'
 
 interface ArticleListItemProps {

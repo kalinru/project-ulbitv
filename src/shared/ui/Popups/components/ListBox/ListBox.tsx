@@ -1,11 +1,15 @@
-import { Listbox } from '@headlessui/react'
 import { memo, type FC, Fragment, type ReactNode } from 'react'
+
+import { Listbox } from '@headlessui/react'
+
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { type DropdownDirection } from '@/shared/types/ui'
+
 import { Button, ButtonTheme } from '../../../Button/Button'
 import { HStack } from '../../../Stack'
 import { mapDirectionClass } from '../../styles/consts'
 import popupCls from '../../styles/popup.module.scss'
+
 import cls from './ListBox.module.scss'
 
 export interface ListBoxItem {

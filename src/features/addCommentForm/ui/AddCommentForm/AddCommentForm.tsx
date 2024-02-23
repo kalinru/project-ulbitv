@@ -1,5 +1,7 @@
 import { memo, type FC, useCallback } from 'react'
+
 import { useTranslation } from 'react-i18next'
+
 import { classNames } from '@/shared/lib/classNames/classNames'
 import {
   DynamicModuleLoader,
@@ -10,6 +12,7 @@ import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector
 import { Button, ButtonTheme } from '@/shared/ui'
 import { Input } from '@/shared/ui/Input'
 import { HStack } from '@/shared/ui/Stack'
+
 import {
   getAddCommentFromText
 } from '../../model/selectors/addCommentFormSelectors'
@@ -17,6 +20,7 @@ import {
   addCommentFormActions,
   addCommentFormReducer
 } from '../../model/slices/addCommentFormSlice'
+
 import cls from './AddCommentForm.module.scss'
 
 export interface AddCommentFormProps {

@@ -1,7 +1,9 @@
 import { type IArticle } from '@/entities/Article'
 import { ArticleBlockType, ArticleType } from '@/entities/Article'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+
 import ArticleDetailsPage from './ArticleDetailsPage'
+
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {

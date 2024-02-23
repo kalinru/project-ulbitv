@@ -1,10 +1,12 @@
 import { type Meta, type StoryObj } from '@storybook/react'
+
 import { Country } from '@/entities/Country'
 import { Currency } from '@/entities/Currency'
 import AvatarImg from '@/shared/assets/tests/avatar.png'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/consts/theme'
+
 import ProfilePage from './ProfilePage'
 
 const meta = {

@@ -1,4 +1,5 @@
 import { AvatarDropdown } from './AvatarDropdown'
+
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {

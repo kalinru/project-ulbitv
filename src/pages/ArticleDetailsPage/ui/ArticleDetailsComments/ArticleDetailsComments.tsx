@@ -1,5 +1,7 @@
 import { memo, type FC, useCallback, Suspense } from 'react'
+
 import { useTranslation } from 'react-i18next'
+
 import { CommentList } from '@/entities/Comment'
 import { AddCommentForm } from '@/features/addCommentForm'
 import { classNames } from '@/shared/lib/classNames/classNames'
@@ -9,6 +11,7 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { Loader } from '@/shared/ui'
 import { VStack } from '@/shared/ui/Stack'
 import { Text, TextSize, TextStyle } from '@/shared/ui/Text'
+
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments'
 import {
   addCommentForArticle

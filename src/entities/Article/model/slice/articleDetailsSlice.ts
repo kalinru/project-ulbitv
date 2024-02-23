@@ -1,4 +1,5 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit'
+
 import { fetchArticleById } from '../services/fetchArticleById/fetchArticleById'
 import { type IArticle } from '../types/article'
 import { type ArticleDetailsSchema } from '../types/ArticleDetailsSchema'
