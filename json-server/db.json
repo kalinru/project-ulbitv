@@ -973,6 +973,31 @@
       "userId": "1",
       "feedback": "111",
       "id": "QycHy-Z"
+    },
+    {
+      "rate": 3,
+      "userId": "",
+      "id": "G9QfsF_"
+    },
+    {
+      "articleId": "1",
+      "rate": 1,
+      "userId": "",
+      "feedback": "",
+      "id": "7PupRPf"
+    },
+    {
+      "articleId": "1",
+      "rate": 4,
+      "userId": "",
+      "id": "244OYpz"
+    },
+    {
+      "articleId": "1",
+      "rate": 4,
+      "userId": "",
+      "feedback": "123",
+      "id": "X6Qobu9"
     }
   ],
   "profile-ratings": [

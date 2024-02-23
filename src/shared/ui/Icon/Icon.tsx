@@ -6,11 +6,19 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
   className?: string
   Svg: React.VFC<React.SVGProps<SVGSVGElement>>
   inverted?: boolean
+  primary?: boolean
 }
 
-export const Icon: FC<IconProps> = memo(({ className, Svg, inverted, ...restProps }) => {
+export const Icon: FC<IconProps> = memo(({ className, Svg, inverted, primary, ...restProps }) => {
   return (
-    <Svg className={classNames(cls.Icon, { [cls.inverted]: inverted }, [className])} {...restProps}/>
+    <Svg
+      className={classNames(
+        cls.Icon, {
+          [cls.inverted]: inverted,
+          [cls.primary]: primary
+        }, [className]
+      )}
+      {...restProps}/>
   )
 })
 

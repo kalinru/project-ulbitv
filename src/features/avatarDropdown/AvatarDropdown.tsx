@@ -1,6 +1,6 @@
 import { memo, type FC, useCallback } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import cls from './avatarDropdown.module.scss'
+import cls from './AvatarDropdown.module.scss'
 import { Dropdown } from '@/shared/ui/Popups'
 import { Avatar } from '@/shared/ui/Avatar/Avatar'
 import { RoutePath } from '@/shared/config/routerConfig/routerConfig'
@@ -33,7 +33,7 @@ export const AvatarDropdown: FC<avatarDropdownProps> = memo(({ className }) => {
   return (
     <Dropdown trigger={<Avatar src={authData.avatar} size={30}/>}
               direction='bottom left'
-              className={classNames(cls.avatarDropdown, {}, [className])}
+              className={classNames(cls.AvatarDropdown, {}, [className])}
               items={[
                 ...(isAdminPanelAvailable
                   ? [{

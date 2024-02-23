@@ -11,10 +11,11 @@ import { useIsMobile } from '@/shared/lib/hooks/useIsMobile/useIsMobile'
 
 interface NotificationButtonProps {
   className?: string
+  inverted?: boolean
 }
 
 export const NotificationButton = memo((props: NotificationButtonProps) => {
-  const { className } = props
+  const { className, inverted = true } = props
   //   const [isOpen, setIsOpen] = useState(false)
 
   //   const onOpenDrawer = useCallback(() => {
@@ -54,7 +55,7 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
 
   const trigger = (
     <Button theme={ButtonTheme.CLEAR} onClick={onOpenDrawer}>
-      <Icon Svg={NotificationIcon} inverted/>
+      <Icon Svg={NotificationIcon} inverted={inverted} />
     </Button>
   )
 
