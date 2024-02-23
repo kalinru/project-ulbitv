@@ -1,2 +1,4 @@
 webpack.config.ts
-./config
+vite.config.ts
+/config
+/scripts

@@ -2,7 +2,7 @@ import { useAppSelector } from '@/app/providers/StoreProvider/config/store'
 import { getUserAuthData, getUserRoles, type UserRole } from '@/entities/User'
 import { memo, useMemo, type ReactNode } from 'react'
 import { Navigate, useLocation } from 'react-router-dom'
-import { RoutePath } from '@/shared/config/routerConfig/routerConfig'
+import { RoutePath } from '@/shared/consts/router'
 
 interface RequireAuthProps {
   children?: ReactNode

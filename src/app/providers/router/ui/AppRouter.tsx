@@ -1,8 +1,9 @@
 import { Suspense, memo } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { type AppRoutesProps, routeConfig } from '@/shared/config/routerConfig/routerConfig'
 import { PageLoader } from '@/widgets/PageLoader'
 import { RequireAuth } from './RequireAuth'
+import { type AppRoutesProps } from '@/shared/types/router'
+import { routeConfig } from '../config/routerConfig'
 
 const renderWithWrapper = (route: AppRoutesProps) => {
   const { path, element, roles } = route

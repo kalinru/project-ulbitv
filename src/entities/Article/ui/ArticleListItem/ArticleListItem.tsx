@@ -17,7 +17,7 @@ import { Avatar } from '@/shared/ui/Avatar/Avatar'
 import { AppLink, Button, ButtonTheme } from '@/shared/ui'
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock'
 import { useTranslation } from 'react-i18next'
-import { RoutePath } from '@/shared/config/routerConfig/routerConfig'
+import { RoutePath } from '@/shared/consts/router'
 
 interface ArticleListItemProps {
   className?: string

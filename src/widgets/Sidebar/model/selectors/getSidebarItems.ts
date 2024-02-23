@@ -1,4 +1,4 @@
-import { RoutePath } from '@/shared/config/routerConfig/routerConfig'
+import { RoutePath } from '@/shared/consts/router'
 import AboutIcon from '@/shared/assets/icons/about.svg'
 import MainIcon from '@/shared/assets/icons/home.svg'
 import PersonIcon from '@/shared/assets/icons/person.svg'

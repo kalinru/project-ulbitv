@@ -1,7 +1,7 @@
 import { memo, type FC, useCallback } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Button } from '@/shared/ui'
-import { RoutePath } from '@/shared/config/routerConfig/routerConfig'
+import { RoutePath } from '@/shared/consts/router'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useAppSelector } from '@/app/providers/StoreProvider/config/store'
