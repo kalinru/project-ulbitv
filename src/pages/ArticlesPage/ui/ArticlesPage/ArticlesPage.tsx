@@ -1,21 +1,21 @@
 import { memo, type FC, useCallback } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import cls from './ArticlesPage.module.scss'
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
-import { articlesPageReducer } from '../../model/slices/articlesPageSlice'
 import {
   DynamicModuleLoader,
   type ReducersList
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { Page } from '@/widgets/Page'
 import {
   fetchNextArticlesPage
 } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage'
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
-import { ArticlePageFilter } from '../ArticlePageFilter/ArticlePageFilter'
-import { useSearchParams } from 'react-router-dom'
+import { articlesPageReducer } from '../../model/slices/articlesPageSlice'
 import { ArticleListWrapper } from '../ArticleListWrapper/ArticleListWrapper'
+import { ArticlePageFilter } from '../ArticlePageFilter/ArticlePageFilter'
+import cls from './ArticlesPage.module.scss'
 
 interface ArticlesPageProps {
   className?: string

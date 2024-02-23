@@ -5,10 +5,10 @@ import {
 } from '@reduxjs/toolkit'
 import { type StateSchema } from '@/app/providers/StoreProvider'
 import { type IComment } from '@/entities/Comment'
-import { type IArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSchema'
 import {
   fetchCommentsByArticleId
 } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId'
+import { type IArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSchema'
 
 const commentsAdapter = createEntityAdapter<IComment>({
   selectId: (comment: IComment) => comment.id

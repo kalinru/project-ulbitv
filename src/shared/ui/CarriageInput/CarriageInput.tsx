@@ -1,8 +1,8 @@
-import { classNames } from '@/shared/lib/classNames/classNames'
 import React, {
   type InputHTMLAttributes, memo, useEffect, useRef, useState
 } from 'react'
-import cls from './Input.module.scss'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import cls from './CarriageInput.module.scss'
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
 

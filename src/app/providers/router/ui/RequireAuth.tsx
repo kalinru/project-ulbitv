@@ -1,8 +1,8 @@
-import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
-import { getUserAuthData, getUserRoles, type UserRole } from '@/entities/User'
 import { memo, useMemo, type ReactNode } from 'react'
 import { Navigate, useLocation } from 'react-router-dom'
+import { getUserAuthData, getUserRoles, type UserRole } from '@/entities/User'
 import { RoutePath } from '@/shared/consts/router'
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 
 interface RequireAuthProps {
   children?: ReactNode

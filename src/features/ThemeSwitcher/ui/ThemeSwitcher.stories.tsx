@@ -1,5 +1,5 @@
-import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import React from 'react'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/consts/theme'
 import { ThemeSwitcher } from './ThemeSwitcher'

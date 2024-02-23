@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react'
 import { CommentList } from './CommentList'
+import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
   title: 'shared/CommentList',

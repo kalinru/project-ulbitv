@@ -1,15 +1,15 @@
 import { memo, type FC } from 'react'
-import { classNames } from '@/shared/lib/classNames/classNames'
-import cls from './ArticleListWrapper.module.scss'
-import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
+import { useTranslation } from 'react-i18next'
 import { ArticleList } from '@/entities/Article'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import {
   getArticlesPageView,
   getArticlesPageIsLoading,
   getArticlesPageError
 } from '../../model/selectors/articlesPageSelectors'
 import { getArticles } from '../../model/slices/articlesPageSlice'
-import { useTranslation } from 'react-i18next'
+import cls from './ArticleListWrapper.module.scss'
 
 interface ArticleListWrapperProps {
   className?: string

@@ -1,8 +1,8 @@
-import { Counter } from '@/entities/Counter'
 import { useTranslation } from 'react-i18next'
+import { Counter } from '@/entities/Counter'
+import { RatingCard } from '@/entities/RatingCard'
 import { ListBox } from '@/shared/ui/Popups'
 import { Page } from '@/widgets/Page'
-import { RatingCard } from '@/entities/RatingCard'
 
 const MainPage = () => {
   const { t } = useTranslation()

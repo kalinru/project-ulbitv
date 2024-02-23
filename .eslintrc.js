@@ -8,7 +8,9 @@ module.exports = {
         "standard-with-typescript",
         "plugin:react/recommended",
         "plugin:i18next/recommended",
-        "plugin:react-hooks/recommended"
+        "plugin:react-hooks/recommended",
+        // "plugin:import/recommended",
+        // "plugin:import/typescript"
     ],
     "overrides": [
         {
@@ -41,7 +43,8 @@ module.exports = {
         "jsx-a11y",
         // "react-hooks",
         "ulbi-tv-plugin-kalinru",
-        "unused-imports"
+        "unused-imports",
+        "import"
     ],
     "rules": {
         "react/jsx-indent": [2, 2],
@@ -96,6 +99,30 @@ module.exports = {
         "no-undef": "off",
         "n/no-callback-literal": "off",
         "unused-imports/no-unused-imports": "error",
+        "import/order": [
+            "error",
+            {
+                "groups": [
+                    "builtin", "external", "internal", "parent", "sibling", "index", "object", "type"
+                ],
+                "pathGroups": [
+                    {
+                        "pattern": "@/**",
+                        "group": "internal"
+                    },
+                    // {
+                    //     "pattern": "react",
+                    //     "group": "external",
+                    //     "position": "before"
+                    // },
+                ],
+                // "pathGroupsExcludedImportTypes": ["react"],
+                alphabetize: {
+                    order: 'asc', /* sort in ascending order. Options: ['ignore', 'asc', 'desc'] */
+                    caseInsensitive: true /* ignore case. Options: [true, false] */
+                }
+            }
+        ],
         "ulbi-tv-plugin-kalinru/path-checker": [
             "error", {
                 alias: '@'

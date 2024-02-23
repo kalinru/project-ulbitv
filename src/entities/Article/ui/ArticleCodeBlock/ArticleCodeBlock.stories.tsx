@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { ArticleCodeBlock } from './ArticleCodeBlock'
 import { ArticleBlockType } from '../../model/consts/consts'
+import { ArticleCodeBlock } from './ArticleCodeBlock'
+import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
   title: 'entities/ArticleCodeBlock',

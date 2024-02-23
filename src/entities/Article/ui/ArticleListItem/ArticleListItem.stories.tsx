@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { ArticleListItem } from './ArticleListItem'
-import { type IArticle } from '../../model/types/article'
 import { ArticleView } from '../../model/consts/consts'
+import { type IArticle } from '../../model/types/article'
+import { ArticleListItem } from './ArticleListItem'
+import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
   title: 'shared/ArticleListItem',

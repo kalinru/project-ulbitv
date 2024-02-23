@@ -1,15 +1,15 @@
-import { MainPage } from '@/pages/MainPage'
+import { UserRole } from '@/entities/User'
 import { AboutPage } from '@/pages/AboutPage'
-import { NotFoundPage } from '@/pages/NotFoundPage'
-import { ProfilePage } from '@/pages/ProfilePage'
-import { ArticlesPage } from '@/pages/ArticlesPage'
+import { AdminPanelPage } from '@/pages/AdminPanelPage'
 import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage'
 import { ArticleEditPage } from '@/pages/ArticleEditPage'
-import { AdminPanelPage } from '@/pages/AdminPanelPage'
-import { UserRole } from '@/entities/User'
+import { ArticlesPage } from '@/pages/ArticlesPage'
 import { ForbiddenPage } from '@/pages/ForbidddenPage'
-import { type AppRoutesProps } from '@/shared/types/router'
+import { MainPage } from '@/pages/MainPage'
+import { NotFoundPage } from '@/pages/NotFoundPage'
+import { ProfilePage } from '@/pages/ProfilePage'
 import { RoutePath, AppRoutes } from '@/shared/consts/router'
+import { type AppRoutesProps } from '@/shared/types/router'
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.MAIN]: {
