@@ -9,11 +9,11 @@ import {
   ArticleBlockType,
   ArticleView
 } from '../../model/consts/consts'
-import { Text } from '@/shared/ui/Text/Text'
-import { Icon } from '@/shared/ui/Icon/Icon'
+import { Text } from '@/shared/ui/Text'
+import { Icon } from '@/shared/ui/Icon'
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
-import { Card } from '@/shared/ui/Card/Card'
-import { Avatar } from '@/shared/ui/Avatar/Avatar'
+import { Card } from '@/shared/ui/Card'
+import { Avatar } from '@/shared/ui/Avatar'
 import { AppLink, Button, ButtonTheme } from '@/shared/ui'
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock'
 import { useTranslation } from 'react-i18next'

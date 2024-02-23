@@ -2,12 +2,11 @@ import { useTranslation } from 'react-i18next'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './LoginForm.module.scss'
 import { Button, ButtonTheme } from '@/shared/ui'
-import { Input } from '@/shared/ui/CarriageInput/Input'
 import { memo, useCallback } from 'react'
 import { loginActions, loginReducer } from '../..//model/slice/loginSlice'
-import { useAppSelector } from '@/app/providers/StoreProvider/config/store'
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { loginByUsername } from '../../services/loginByUsername/loginByUsername'
-import { Text, TextStyle } from '@/shared/ui/Text/Text'
+import { Text, TextStyle } from '@/shared/ui/Text'
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername'
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword'
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading'
@@ -17,6 +16,7 @@ import {
   type ReducersList
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { Input } from '@/shared/ui/Input'
 
 export interface LoginFormProps {
   className?: string
@@ -74,12 +74,12 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
              placeholder={t('Логин')}
              value={username}
              onChange={onChangeUsername}
-             autofocus/>
+             autoFocus/>
         <Input type="text"
              placeholder={t('Пароль')}
              value={password}
              onChange={onChangePassword}
-             autofocus/>
+             autoFocus/>
         <div>
           <Button theme={ButtonTheme.OUTLINE}
                 disabled={isLoading}

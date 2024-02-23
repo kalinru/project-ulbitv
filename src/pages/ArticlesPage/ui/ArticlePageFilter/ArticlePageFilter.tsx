@@ -10,7 +10,7 @@ import {
   type ArticleType
 } from '@/entities/Article'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { useAppSelector } from '@/app/providers/StoreProvider/config/store'
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import {
   getArticlesPageOrder,
   getArticlesPageSearch,
@@ -20,8 +20,8 @@ import {
 } from '../../model/selectors/articlesPageSelectors'
 import { articlesPageActions } from '../../model/slices/articlesPageSlice'
 import { useTranslation } from 'react-i18next'
-import { Card } from '@/shared/ui/Card/Card'
-import { Input } from '@/shared/ui/Input/Input'
+import { Card } from '@/shared/ui/Card'
+import { Input } from '@/shared/ui/Input'
 
 import { type SortOrder } from '@/shared/types'
 import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles'

@@ -1,6 +1,6 @@
 import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './LoginModal.module.scss'
-import { Modal } from '@/shared/ui/Modal/Modal'
+import { Modal } from '@/shared/ui/Modal'
 import { Suspense, useEffect } from 'react'
 import { LoginFormAsync } from '../LoginForm/LoginForm.async'
 import { Loader } from '@/shared/ui'

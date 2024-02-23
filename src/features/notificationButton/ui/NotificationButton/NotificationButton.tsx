@@ -4,9 +4,9 @@ import cls from './NotificationButton.module.scss'
 import { memo, useState } from 'react'
 import { Popover } from '@/shared/ui/Popups'
 import { Button, ButtonTheme } from '@/shared/ui'
-import { Icon } from '@/shared/ui/Icon/Icon'
+import { Icon } from '@/shared/ui/Icon'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Drawer } from '@/shared/ui/Drawer/Drawer'
+import { Drawer } from '@/shared/ui/Drawer'
 import { useIsMobile } from '@/shared/lib/hooks/useIsMobile/useIsMobile'
 
 interface NotificationButtonProps {

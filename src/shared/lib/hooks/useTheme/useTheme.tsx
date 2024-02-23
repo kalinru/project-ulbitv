@@ -1,5 +1,6 @@
+import { ThemeContext } from '../../context/ThemeContext'
+import { Theme } from '../../../consts/theme'
 import { useContext } from 'react'
-import { Theme, ThemeContext } from './ThemeContext'
 
 interface useThemeResult {
   theme: Theme

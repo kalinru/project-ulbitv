@@ -7,7 +7,6 @@ import {
 import { type ThunkExtraArg, type StateSchema } from './StateSchema'
 import { counterReducer } from '@/entities/Counter'
 import { userReducer } from '@/entities/User'
-import { type TypedUseSelectorHook, useSelector } from 'react-redux'
 import { createReducerManager } from './reducerManager'
 import { $api } from '@/shared/api/api'
 import { UIReducer } from '@/features/UI'
@@ -49,4 +48,3 @@ export function createReduxStore (
 }
 
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
-export const useAppSelector: TypedUseSelectorHook<StateSchema> = useSelector

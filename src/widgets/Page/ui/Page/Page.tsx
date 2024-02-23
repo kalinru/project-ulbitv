@@ -6,7 +6,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { UIActions, getUIScrollPositionByPath } from '@/features/UI'
 import { useLocation } from 'react-router-dom'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
-import { useAppSelector } from '@/app/providers/StoreProvider/config/store'
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { type StateSchema } from '@/app/providers/StoreProvider'
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle'
 

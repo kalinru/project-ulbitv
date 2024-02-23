@@ -111,6 +111,13 @@ module.exports = {
                 ],
             }
         ],
+        "ulbi-tv-plugin-kalinru/fsd-layer-imports": [
+            "error", 
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            }
+        ],
         // "@typescript-eslint/no-non-null-assertion": "off"
     },
     "globals": {

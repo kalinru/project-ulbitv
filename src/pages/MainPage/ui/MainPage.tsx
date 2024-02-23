@@ -1,7 +1,6 @@
-import { BugButton } from '@/app/providers/ErrorBoundry'
 import { Counter } from '@/entities/Counter'
 import { useTranslation } from 'react-i18next'
-import { ListBox } from '@/shared/ui/Popups/components/ListBox/ListBox'
+import { ListBox } from '@/shared/ui/Popups'
 import { Page } from '@/widgets/Page'
 import { RatingCard } from '@/entities/RatingCard'
 
@@ -61,7 +60,6 @@ const MainPage = () => {
                  { value: 'orange', content: 'orange', disabled: true },
                  { value: 'meat', content: 'meat' }
                ]}/>
-      <div><BugButton /></div>
     </Page>
   )
 }
