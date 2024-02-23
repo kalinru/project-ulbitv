@@ -959,6 +959,20 @@
       "rate": 5,
       "feedback": "фыаыфаыаф",
       "id": "ftXTMSh"
+    },
+    {
+      "articleId": "15",
+      "rate": 5,
+      "userId": "1",
+      "feedback": "Мой отзыв 112312312312",
+      "id": "-h37Pc2"
+    },
+    {
+      "articleId": "11",
+      "rate": 2,
+      "userId": "1",
+      "feedback": "111",
+      "id": "QycHy-Z"
     }
   ],
   "profile-ratings": [

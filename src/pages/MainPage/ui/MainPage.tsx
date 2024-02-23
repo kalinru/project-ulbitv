@@ -3,6 +3,8 @@ import { Counter } from '@/entities/Counter'
 import { useTranslation } from 'react-i18next'
 import { ListBox } from '@/shared/ui/Popups/components/ListBox/ListBox'
 import { Page } from '@/widgets/Page/Page'
+import { StarRating } from '@/shared/ui/StarRating/StarRating'
+import { RatingCard } from '@/entities/RatingCard'
 
 const MainPage = () => {
   const { t } = useTranslation()
@@ -10,6 +12,10 @@ const MainPage = () => {
   return (
     <Page>
       <div>{t('Главная')}</div>
+      <RatingCard feedbackTitle='Оставьте пожайлуста ваш отзыв о статье'
+                  hasFeedback
+                  title='Оцените стаьью'
+                  />
       <div><Counter/></div>
       <ListBox onChange={console.log}
                direction='top left'
