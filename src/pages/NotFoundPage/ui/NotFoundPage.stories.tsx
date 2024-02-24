@@ -8,9 +8,7 @@ import { NotFoundPage } from './NotFoundPage'
 const meta = {
   title: 'pages/NotFoundPage',
   component: NotFoundPage,
-  parameters: {
-    layout: 'centered'
-  },
+  parameters: {},
   tags: ['autodocs']
 } satisfies Meta<typeof NotFoundPage>
 

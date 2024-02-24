@@ -9,9 +9,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'widgets/Sidebar',
   component: Sidebar,
-  parameters: {
-    layout: 'centered'
-  },
+  parameters: {},
   tags: ['autodocs']
 } satisfies Meta<typeof Sidebar>
 

@@ -5,9 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'shared/Code',
   component: Code,
-  parameters: {
-    layout: 'centered'
-  },
+  parameters: {},
   tags: ['autodocs']
 } satisfies Meta<typeof Code>
 
@@ -23,9 +21,7 @@ import { Code } from './Code'
 const meta = {
   title: 'shared/Code',
   component: Code,
-  parameters: {
-    layout: 'centered'
-  },
+  parameters: {},
   tags: ['autodocs']
 } satisfies Meta<typeof Code>
 

@@ -5,9 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'shared/ArticleDetailsPageHeader',
   component: ArticleDetailsPageHeader,
-  parameters: {
-    layout: 'centered'
-  },
+  parameters: {},
   tags: ['autodocs']
 } satisfies Meta<typeof ArticleDetailsPageHeader>
 

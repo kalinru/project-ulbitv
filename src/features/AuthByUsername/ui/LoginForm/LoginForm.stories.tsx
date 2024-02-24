@@ -7,9 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'features/LoginForm',
   component: LoginForm,
-  parameters: {
-    layout: 'centered'
-  },
+  parameters: {},
   tags: ['autodocs']
 } satisfies Meta<typeof LoginForm>
 

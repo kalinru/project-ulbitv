@@ -7,9 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'shared/Avatar',
   component: Avatar,
-  parameters: {
-    layout: 'centered'
-  },
+  parameters: {},
   tags: ['autodocs']
 } satisfies Meta<typeof Avatar>
 

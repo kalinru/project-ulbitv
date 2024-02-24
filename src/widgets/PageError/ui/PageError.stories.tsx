@@ -8,9 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'widgets/PageError',
   component: PageError,
-  parameters: {
-    layout: 'centered'
-  },
+  parameters: {},
   tags: ['autodocs']
 } satisfies Meta<typeof PageError>
 

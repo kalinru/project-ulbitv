@@ -9,9 +9,7 @@ import MainPage from './MainPage'
 const meta = {
   title: 'pages/MainPage',
   component: MainPage,
-  parameters: {
-    layout: 'centered'
-  },
+  parameters: {},
   tags: ['autodocs']
 } satisfies Meta<typeof MainPage>
 

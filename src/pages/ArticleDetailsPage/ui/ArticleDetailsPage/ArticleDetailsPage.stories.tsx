@@ -9,9 +9,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'pages/ArticleDetailsPage',
   component: ArticleDetailsPage,
-  parameters: {
-    layout: 'centered'
-  },
+  parameters: {},
   tags: ['autodocs']
 } satisfies Meta<typeof ArticleDetailsPage>
 

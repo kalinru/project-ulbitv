@@ -9,9 +9,7 @@ import { ProfileCard } from './ProfileCard'
 const meta = {
   title: 'entities/ProfileCard',
   component: ProfileCard,
-  parameters: {
-    layout: 'centered'
-  },
+  parameters: {},
   tags: ['autodocs']
 } satisfies Meta<typeof ProfileCard>
 

@@ -6,9 +6,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'entities/CurrencySelect',
   component: CurrencySelect,
-  parameters: {
-    layout: 'centered'
-  },
+  parameters: {},
   tags: ['autodocs']
 } satisfies Meta<typeof CurrencySelect>
 

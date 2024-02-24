@@ -12,9 +12,7 @@ import ProfilePage from './ProfilePage'
 const meta = {
   title: 'pages/ProfilePage',
   component: ProfilePage,
-  parameters: {
-    layout: 'centered'
-  },
+  parameters: {},
   tags: ['autodocs']
 } satisfies Meta<typeof ProfilePage>
 

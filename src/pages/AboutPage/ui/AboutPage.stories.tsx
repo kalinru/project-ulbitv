@@ -9,9 +9,7 @@ import AboutPage from './AboutPage'
 const meta = {
   title: 'pages/AboutPage',
   component: AboutPage,
-  parameters: {
-    layout: 'centered'
-  },
+  parameters: {},
   tags: ['autodocs']
 } satisfies Meta<typeof AboutPage>
 

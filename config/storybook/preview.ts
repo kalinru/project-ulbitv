@@ -14,11 +14,20 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/i
       }
-    }
+    },
+    layout: 'fullscreen',
+    themes: {
+      default: 'light',
+      list: [
+        { name: 'light', class: ['app', Theme.LIGHT], color: '#dddddd' },
+        { name: 'dark', class: ['app', Theme.DARK], color: '#333333' },
+        { name: 'contrast', class: ['app', Theme.CONTRAST], color: '#aaaaaa' }
+      ],
+    },
   },
   decorators: [
     StyleDecorator,
-    ThemeDecorator(Theme.LIGHT),
+    // ThemeDecorator(Theme.LIGHT),
     RouterDecorator,
     SuspenseDecorator
   ]

@@ -21,9 +21,7 @@ const article = {
 const meta = {
   title: 'features/ArticleRecommendationsList',
   component: ArticleRecommendationsList,
-  parameters: {
-    layout: 'centered'
-  },
+  parameters: {},
   tags: ['autodocs']
 } satisfies Meta<typeof ArticleRecommendationsList>
 

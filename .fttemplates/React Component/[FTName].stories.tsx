@@ -4,9 +4,7 @@ import { [FTName] } from './[FTName]'
 const meta = {
   title: 'shared/[FTName]',
   component: [FTName],
-  parameters: {
-    layout: 'centered'
-  },
+  parameters: {},
   tags: ['autodocs']
 } satisfies Meta<typeof [FTName]>
 
