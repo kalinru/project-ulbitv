@@ -8,6 +8,12 @@ interface UseModalProps {
 
 const ANIMATION_TIME = 200
 
+/**
+ * Переиспользуемый хук для модальных компонентов (drawer/modal)
+ * @param animationDelay
+ * @param isOpen
+ * @param onClose
+ */
 export const useModal = ({
   animationDelay = ANIMATION_TIME,
   isOpen,
