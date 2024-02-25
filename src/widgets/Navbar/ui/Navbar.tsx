@@ -39,7 +39,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         <Text className={cls.appName} style={TextStyle.SECONDARY} size={TextSize.XL}>
           {t('Articles App')}
         </Text>
-        <AppLink to={RoutePath.article_create} theme={AppLinkTheme.SECONDARY}>
+        <AppLink to={RoutePath.article_create()} theme={AppLinkTheme.SECONDARY}>
           {t('Добавить статью')}
         </AppLink>
         <HStack gap='16' className={cls.actions}>

@@ -23,11 +23,14 @@ export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = memo(
   const article = useAppSelector(getArticleDetailsData)
 
   const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles)
+    navigate(RoutePath.articles())
   }, [navigate])
 
   const onEditArticle = useCallback(() => {
-    navigate(RoutePath.articles + '/' + article?.id + '/edit')
+    if (!article?.id) {
+      return
+    }
+    navigate(RoutePath.article_edit(article.id))
   }, [article?.id, navigate])
 
   return (

@@ -41,12 +41,12 @@ export const AvatarDropdown: FC<avatarDropdownProps> = memo(({ className }) => {
                 ...(isAdminPanelAvailable
                   ? [{
                       content: t('Админка'),
-                      href: RoutePath.admin_panel
+                      href: RoutePath.admin_panel()
                     }]
                   : []),
                 {
                   content: t('Профиль'),
-                  href: RoutePath.profile + authData.id
+                  href: RoutePath.profile(authData.id)
                 },
                 {
                   content: t('Выйти'),

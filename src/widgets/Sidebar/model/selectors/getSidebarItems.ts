@@ -14,12 +14,12 @@ export const getSidebarItems = createSelector(
   (userData) => {
     const items: ISidebarItem[] = [
       {
-        path: RoutePath.main,
+        path: RoutePath.main(),
         text: 'Главная',
         Icon: MainIcon
       },
       {
-        path: RoutePath.about,
+        path: RoutePath.about(),
         text: 'О нас',
         Icon: AboutIcon
       }
@@ -28,13 +28,13 @@ export const getSidebarItems = createSelector(
     if (userData) {
       items.push(
         {
-          path: RoutePath.articles,
+          path: RoutePath.articles(),
           text: 'Статьи',
           Icon: ArticleIcon,
           authOnly: true
         },
         {
-          path: RoutePath.profile + userData?.id,
+          path: RoutePath.profile(userData?.id),
           text: 'Профиль',
           Icon: PersonIcon,
           authOnly: true

@@ -85,7 +85,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo(({
                   target={target}
                   to={getRouteArticleDetails(article.id)}
               > */}
-            <AppLink to={RoutePath.article_details + article.id} target={target}>
+            <AppLink to={RoutePath.article_details(article.id)} target={target}>
               <Button theme={ButtonTheme.OUTLINE}>
                 {t('Читать далее...')}
               </Button>
@@ -99,7 +99,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo(({
   }
 
   return (
-    <AppLink to={RoutePath.article_details + article.id}
+    <AppLink to={RoutePath.article_details(article.id)}
              target={target}
              className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
       <Card className={cls.card}>
