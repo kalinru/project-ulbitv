@@ -7,8 +7,6 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import { VStack } from '@/shared/ui/Stack'
 import { Page } from '@/widgets/Page'
 
-import cls from './ProfilePage.module.scss'
-
 interface ProfilePageProps {
   className?: string
 }
@@ -17,7 +15,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
   const { id: profileId } = useParams<{ id: string }>()
 
   return (
-    <Page className={classNames(cls.ProfilePage, {}, [className])}
+    <Page className={classNames('', {}, [className])}
           data-testid='ProfilePage'>
       <VStack max gap='16'>
         <EditableProfileCard id={profileId} />

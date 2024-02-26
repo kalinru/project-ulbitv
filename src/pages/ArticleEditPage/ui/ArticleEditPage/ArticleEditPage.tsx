@@ -6,8 +6,6 @@ import { useParams } from 'react-router-dom'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Page } from '@/widgets/Page'
 
-import cls from './ArticleEditPage.module.scss'
-
 interface ArticleEditPageProps {
   className?: string
 }
@@ -18,7 +16,7 @@ const ArticleEditPage: FC<ArticleEditPageProps> = memo(({ className }) => {
   const isEdit = Boolean(id)
 
   return (
-    <Page className={classNames(cls.ArticleEditPage, {}, [className])}>
+    <Page className={classNames('', {}, [className])}>
       {isEdit
         ? t('Редактирование статьи с ID = ') + id
         : t('Создание новой статьи')}

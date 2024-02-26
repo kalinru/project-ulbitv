@@ -13,8 +13,6 @@ import { HStack, VStack } from '@/shared/ui/Stack'
 import { StarRating } from '@/shared/ui/StarRating'
 import { Text, TextSize } from '@/shared/ui/Text'
 
-import cls from './RatingCard.module.scss'
-
 interface RatingCardProps {
   className?: string
   rate?: number
@@ -73,7 +71,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
   )
 
   return (
-    <Card className={classNames(cls.RatingCard, {}, [className])} max>
+    <Card className={classNames('', {}, [className])} max>
       <VStack align='center' gap='8' max>
         <Text size={TextSize.XL}>{starsCount ? t('Спасибо за оценку!') : title}</Text>
         <StarRating size={40} onSelect={onSelectStars} selectedStars={starsCount}/>

@@ -13,8 +13,6 @@ import {
 } from '../../model/selectors/articlesPageSelectors'
 import { getArticles } from '../../model/slices/articlesPageSlice'
 
-import cls from './ArticleListWrapper.module.scss'
-
 interface ArticleListWrapperProps {
   className?: string
 }
@@ -32,7 +30,7 @@ export const ArticleListWrapper: FC<ArticleListWrapperProps> = memo(({ className
   }
 
   return (
-    <div className={classNames(cls.ArticleListWrapper, {}, [className])}>
+    <div className={classNames('', {}, [className])}>
       <ArticleList className={className}
                    articles={articles}
                    view={view}

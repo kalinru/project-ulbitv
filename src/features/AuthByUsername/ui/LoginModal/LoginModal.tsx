@@ -6,8 +6,6 @@ import { Modal } from '@/shared/ui/Modal'
 
 import { LoginFormAsync } from '../LoginForm/LoginForm.async'
 
-import cls from './LoginModal.module.scss'
-
 interface LoginModalProps {
   className?: string
   isOpen?: boolean
@@ -22,7 +20,7 @@ export const LoginModal = ({ className, isOpen, onClose }: LoginModalProps) => {
   }, [onClose])
 
   return (
-    <Modal className={classNames(cls.LoginModal, {}, [className])}
+    <Modal className={classNames('', {}, [className])}
            lazy
            isOpen={isOpen}
            onClose={onClose}>

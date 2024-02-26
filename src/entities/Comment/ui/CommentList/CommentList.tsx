@@ -8,8 +8,6 @@ import { VStack } from '@/shared/ui/Stack'
 import { type IComment } from '../../model/types/comment'
 import { CommentCard } from '../CommentCard/CommentCard'
 
-import cls from './CommentList.module.scss'
-
 interface CommentListProps {
   className?: string
   comments?: IComment[]
@@ -21,16 +19,16 @@ export const CommentList: FC<CommentListProps> = memo(({ className, comments, is
 
   if (isLoading) {
     return (
-      <VStack gap='16' max className={classNames(cls.CommentList, {}, [className])}>
-        <CommentCard isLoading className={cls.comment} />
-        <CommentCard isLoading className={cls.comment} />
-        <CommentCard isLoading className={cls.comment} />
+      <VStack gap='16' max className={classNames('', {}, [className])}>
+        <CommentCard isLoading className={''} />
+        <CommentCard isLoading className={''} />
+        <CommentCard isLoading className={''} />
       </VStack>
     )
   }
 
   return (
-    <VStack gap='16' max className={classNames(cls.CommentList, {}, [className])}>
+    <VStack gap='16' max className={classNames('', {}, [className])}>
       {comments?.map((comment) => (
         <CommentCard key={comment.id}
                      comment={comment}

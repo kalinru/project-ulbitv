@@ -10,8 +10,6 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { Avatar } from '@/shared/ui/Avatar'
 import { Dropdown } from '@/shared/ui/Popups'
 
-import cls from './AvatarDropdown.module.scss'
-
 interface avatarDropdownProps {
   className?: string
 }
@@ -36,7 +34,7 @@ export const AvatarDropdown: FC<avatarDropdownProps> = memo(({ className }) => {
   return (
     <Dropdown trigger={<Avatar src={authData.avatar} size={30} fallbackInverted/>}
               direction='bottom left'
-              className={classNames(cls.AvatarDropdown, {}, [className])}
+              className={classNames('', {}, [className])}
               items={[
                 ...(isAdminPanelAvailable
                   ? [{
