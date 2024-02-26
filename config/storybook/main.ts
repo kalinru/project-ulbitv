@@ -20,7 +20,10 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: true
-  }
+  },
+  core: {
+    disableTelemetry: true, // 👈 Disables telemetry
+  },
   // babel: async (options) => ({
   //   ...options,
   //   presets: [
