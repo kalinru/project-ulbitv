@@ -22,11 +22,11 @@ export const AppImage: FC<AppImageProps> = memo(({
     img.src = src ?? ''
 
     img.onload = () => {
-      // setIsLoading(false)
+      setIsLoading(false)
     }
 
     img.onerror = () => {
-      // setIsLoading(false)
+      setIsLoading(false)
       setHasError(true)
     }
   }, [src])

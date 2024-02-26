@@ -1,45 +1,44 @@
 .popup {
-    position: relative;
+  position: relative;
 }
 
 .trigger {
-    background: none;
-    outline: none;
-    margin: 0;
-    padding: 0;
-    border: none;
-    cursor: pointer;
+  background: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
 }
 
 .active {
-    background: var(--bg-color-inverted);
-    color: var(--primary-color-inverted);
-  }
-  
-  .selected {
-    background: var(--bg-color-inverted);
-    color: var(--secondary-color);
-  }
-  
-  .disabled {
-    opacity: 0.4;
-  }
-  
-  .optionsBottomLeft {
-    right: 0;
-  }
-  
-  .optionsBottomRight {
-  
-  }
-  
-  .optionsTopLeft {
-    bottom: 100%;
-    left: 0;
-  }
-  
-  .optionsTopRight {
-    bottom: 100%;
-    right: 0;
-  }
-  
+  background: var(--bg-color-inverted);
+  color: var(--primary-color-inverted);
+}
+
+.selected {
+  background: var(--bg-color-inverted);
+  color: var(--secondary-color);
+}
+
+.disabled {
+  opacity: 0.4;
+}
+
+.optionsBottomLeft {
+  right: 0;
+}
+
+.optionsBottomRight {
+  right: 100%;
+}
+
+.optionsTopLeft {
+  bottom: 100%;
+  left: 0;
+}
+
+.optionsTopRight {
+  bottom: 100%;
+  right: 0;
+}
