@@ -10,10 +10,11 @@ import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle'
+import { type TestProps } from '@/shared/types/tests'
 
 import cls from './Page.module.scss'
 
-interface PageProps {
+interface PageProps extends TestProps {
   children?: ReactNode
   className?: string
   onScrollEnd?: () => void
@@ -21,7 +22,7 @@ interface PageProps {
 
 const PAGE_ID = 'PAGE_ID'
 
-export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
+export const Page = memo(({ className, children, onScrollEnd, ...restProps }: PageProps) => {
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>
   const dispatch = useAppDispatch()
@@ -51,7 +52,8 @@ export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
     <main ref={wrapperRef}
           className={classNames(cls.Page, {}, [className])}
           id={PAGE_ID}
-          onScroll={onScroll}>
+          onScroll={onScroll}
+          data-testid={restProps['data-testid'] ?? 'Page'}>
       {children}
       {onScrollEnd
         ? (

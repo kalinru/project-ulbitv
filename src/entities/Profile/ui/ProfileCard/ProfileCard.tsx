@@ -79,7 +79,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
     <VStack max gap='8' className={classNames(cls.ProfileCard, mods, [className])}>
       {data?.avatar && (
       <HStack justify='center' max className={cls.avatarWrapper}>
-        <Avatar src={data?.avatar}/>
+        <Avatar src={data?.avatar} size={100}/>
       </HStack>
       )}
       <Input value={data?.first}

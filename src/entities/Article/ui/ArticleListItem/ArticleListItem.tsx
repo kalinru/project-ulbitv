@@ -6,9 +6,11 @@ import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
 import { RoutePath } from '@/shared/consts/router'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { AppLink, Button, ButtonTheme } from '@/shared/ui'
+import { AppImage } from '@/shared/ui/AppImage'
 import { Avatar } from '@/shared/ui/Avatar'
 import { Card } from '@/shared/ui/Card'
 import { Icon } from '@/shared/ui/Icon'
+import { Skeleton } from '@/shared/ui/Skeleton'
 import { Text } from '@/shared/ui/Text'
 
 import {
@@ -67,18 +69,13 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo(({
           </div>
           <Text className={cls.title}>{article.title}</Text>
           {types}
-          <img src={article.img} alt={article.title} className={cls.img} />
-          {/* <AppImage
-              fallback={<Skeleton width="100%" height={250} />}
-              src={article.img}
-              className={cls.img}
-              alt={article.title}
-          /> */}
+          <AppImage fallback={<Skeleton width="100%" height={250} />}
+                    src={article.img}
+                    className={cls.img}
+                    alt={article.title}/>
           {textBlock && (
-          <ArticleTextBlock
-                  data={textBlock}
-                  className={cls.textBlock}
-              />
+          <ArticleTextBlock data={textBlock}
+                            className={cls.textBlock}/>
           )}
           <div className={cls.footer}>
             {/* <AppLink
@@ -104,7 +101,10 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo(({
              className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
       <Card className={cls.card}>
         <div className={cls.imageWrapper}>
-          <img className={cls.img} src={article.img} alt={article.title} />
+          <AppImage fallback={<Skeleton width={200} height={200} />}
+                    src={article.img}
+                    className={cls.img}
+                    alt={article.title}/>
           <Text className={cls.createdAt}>{article.createdAt}</Text>
         </div>
         <div className={cls.infoWrapper}>
