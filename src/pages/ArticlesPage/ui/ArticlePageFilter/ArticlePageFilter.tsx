@@ -4,12 +4,11 @@ import { useTranslation } from 'react-i18next'
 
 import {
   type ArticleView,
-  ArticleViewSelector,
   type ArticleSortField,
-  ArticleSortSelector,
-  ArticleTypeTabs,
   type ArticleType
 } from '@/entities/Article'
+import { ArticleSortSelector } from '@/features/ArticleSortSelector'
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
@@ -84,7 +83,7 @@ export const ArticlePageFilter: FC<ArticlePageFilterProps> = memo(({ className }
                              sort={sort}
                              onChangeOrder={onChangeOrder}
                              onChangeSort={onChangeSort}/>
-        <ArticleViewSelector view={view} onViewClick={onChangeView} />
+
       </div>
       <Card className={cls.search}>
         <Input placeholder={t('Поиск')} onChange={onChangeSearch} value={search} />

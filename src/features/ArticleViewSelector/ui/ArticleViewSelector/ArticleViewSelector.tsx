@@ -1,12 +1,11 @@
 import { memo, type FC } from 'react'
 
+import { ArticleView } from '@/entities/Article'
 import ListIcon from '@/shared/assets/icons/list-24-24.svg'
 import TileIcon from '@/shared/assets/icons/tiled-24-24.svg'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Button } from '@/shared/ui'
 import { Icon } from '@/shared/ui/Icon'
-
-import { ArticleView } from '../../model/consts/consts'
 
 import cls from './ArticleViewSelector.module.scss'
 

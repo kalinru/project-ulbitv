@@ -215,3 +215,15 @@ Clear.args = {
 - [profileRating](/src/features/profileRating)
 - [ThemeSwitcher](/src/features/ThemeSwitcher)
 - [UI](/src/features/UI)
+
+
+----
+
+## Notes
+
+package.json:
+"postinstall": "rmdir /s /q .\\node_modules\\.cache",
+"postinstall": "node ./scripts/clear-cache.js",
+
+# Todos
+TODO Разобраться с source map - в браузере дубажится только кривой js код

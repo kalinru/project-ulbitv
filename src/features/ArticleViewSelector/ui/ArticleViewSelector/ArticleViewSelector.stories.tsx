@@ -1,4 +1,4 @@
-import { ArticleView } from '../../model/consts/consts'
+import { ArticleView } from '@/entities/Article'
 
 import { ArticleViewSelector } from './ArticleViewSelector'
 

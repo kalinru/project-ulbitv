@@ -1,4 +1,4 @@
-import { ArticleSortField } from '../../model/consts/consts'
+import { ArticleSortField } from '@/entities/Article'
 
 import { ArticleSortSelector } from './ArticleSortSelector'
 

@@ -7,21 +7,25 @@ interface BuildBabelLoaderProps extends BuildOptions {
 }
 
 export function buildBabelLoader ({isDev, isTsx}: BuildBabelLoaderProps): webpack.RuleSetRule {
+  const isProd = !isDev
   return {
     test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
     exclude: /node_modules/,
     use: {
       loader: 'babel-loader',
       options: {
+        cacheDirectory: true,
         presets: ['@babel/preset-env'],
         plugins: [
-          [
-            'i18next-extract',
-            {
-              localles: ['ru-RU', 'en'],
-              keyAsDefaultValue: true
-            }
-          ],
+          // TODO проверить работает ли, если нет выпилить
+          // [
+          //   'i18next-extract',
+          //   {
+          //     locales: ['ru', 'en'],
+          //     keyAsDefaultValue: true,
+          //     outputPath: 'public/locales/{{locale}}/{{ns}}.json'
+          //   }
+          // ],
           [
             '@babel/plugin-transform-typescript',
             {
@@ -29,7 +33,7 @@ export function buildBabelLoader ({isDev, isTsx}: BuildBabelLoaderProps): webpac
             }
           ],
           '@babel/plugin-transform-runtime',
-          isTsx && !isDev && [
+          isTsx && isProd && [
             babelRemovePropsPlugin,
             {
               props: ['data-testid']
