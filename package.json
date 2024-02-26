@@ -17,6 +17,7 @@
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
+    "test:unit:staged": "jest --config ./config/jest/jest.config.ts --findRelatedTests --coverage",
     "test:ui": "npx loki test",
     "test:ui:ok": "npx loki approve",
     "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
@@ -30,7 +31,11 @@
     "postinstall": "rimraf ./node_modules/.cache"
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": "eslint"
+    "**/*.{ts,tsx}": [
+      "eslint",
+      "npm run test:unit:staged"
+    ],
+    "**/*.scss": "npx stylelint"
   },
   "keywords": [],
   "author": "",
