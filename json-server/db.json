@@ -809,6 +809,15 @@
   ],
   "users": [
     {
+      "id": "testUser",
+      "username": "testUser-username",
+      "password": "testUser-password",
+      "roles": [
+        "ADMIN"
+      ],
+      "avatar": "https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625"
+    },
+    {
       "id": "1",
       "username": "admin",
       "password": "123",
@@ -875,6 +884,17 @@
     }
   ],
   "profile": [
+    {
+      "id": "testUser",
+      "first": "testUser-first",
+      "lastname": "testUser-lastname",
+      "age": 777,
+      "currency": "RUB",
+      "country": "Russian",
+      "city": "Moscow",
+      "username": "testUser-username",
+      "avatar": "https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625"
+    },
     {
       "id": "1",
       "first": "admin4ickd",

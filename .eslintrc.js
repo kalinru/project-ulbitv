@@ -149,6 +149,7 @@ module.exports = {
                 ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
             }
         ],
+        "@typescript-eslint/method-signature-style": "off"
         // "@typescript-eslint/no-non-null-assertion": "off"
     },
     "globals": {

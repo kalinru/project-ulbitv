@@ -2,3 +2,4 @@ webpack.config.ts
 vite.config.ts
 /config
 /scripts
+cypress.config.ts
