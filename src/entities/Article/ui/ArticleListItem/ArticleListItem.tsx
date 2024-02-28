@@ -98,7 +98,8 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo(({
   return (
     <AppLink to={RoutePath.article_details(article.id)}
              target={target}
-             className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+             className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+             data-testid='ArticleListItem'>
       <Card className={cls.card}>
         <div className={cls.imageWrapper}>
           <AppImage fallback={<Skeleton width={200} height={200} />}

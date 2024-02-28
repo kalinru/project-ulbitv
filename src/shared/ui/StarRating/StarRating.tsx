@@ -59,7 +59,9 @@ export const StarRating: FC<StarRatingProps> = memo(({
               width={size}
               onClick={onClick(starsCount)}
               onMouseLeave={onLeave}
-              onMouseEnter={onHover(starsCount)}/>
+              onMouseEnter={onHover(starsCount)}
+              data-testid={`StarRating.${starsCount}`}
+              data-selected={currentStartCount >= starsCount}/>
       ))}
     </div>
   )

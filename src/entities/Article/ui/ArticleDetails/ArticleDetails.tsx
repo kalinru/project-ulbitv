@@ -108,7 +108,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) 
           alt={article?.title}
         />
       </HStack>
-      <VStack gap='4' max>
+      <VStack gap='4' max data-testid='ArticleDetails.Info'>
         <Text size={TextSize.XL} element='h1'>
           {article?.title}
         </Text>
