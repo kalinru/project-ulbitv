@@ -34,6 +34,7 @@
   },
   "lint-staged": {
     "**/*.{ts,tsx}": [
+      "prettier --list-different",
       "eslint",
       "npm run test:unit:staged"
     ],
