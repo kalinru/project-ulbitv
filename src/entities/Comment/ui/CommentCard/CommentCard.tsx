@@ -18,38 +18,48 @@ interface CommentCardProps {
   isLoading?: boolean
 }
 
-export const CommentCard: FC<CommentCardProps> = memo(({ className, comment, isLoading }) => {
-  if (isLoading) {
+export const CommentCard: FC<CommentCardProps> = memo(
+  ({ className, comment, isLoading }) => {
+    if (isLoading) {
+      return (
+        <VStack
+          gap="8"
+          max
+          className={classNames(cls.CommentCard, {}, [className, cls.loading])}
+          data-testid="CommentCard.Loading"
+        >
+          <div className={cls.header}>
+            <Skeleton width={30} height={30} border="50%" />
+            <Skeleton height={16} width={100} className={cls.commentUser} />
+          </div>
+          <Skeleton width={'100%'} height={40} className={cls.commentText} />
+        </VStack>
+      )
+    }
+
+    if (!comment) {
+      return null
+    }
+
     return (
-      <VStack gap='8' max className={classNames(cls.CommentCard, {}, [className, cls.loading])}
-      data-testid='CommentCard.Loading'>
-        <div className={cls.header}>
-          <Skeleton width={30} height={30} border='50%' />
-          <Skeleton height={16} width={100} className={cls.commentUser} />
+      <VStack
+        gap="8"
+        max
+        className={classNames(cls.CommentCard, {}, [className])}
+        data-testid="CommentCard.Content"
+      >
+        <AppLink to={RoutePath.profile(comment.user.id)} className={cls.header}>
+          {comment.user.avatar && (
+            <Avatar size={20} src={comment.user.avatar} />
+          )}
+          <Text className={cls.commentUser}>{comment.user.username}</Text>
+        </AppLink>
+        <div className={cls.commentText}>
+          <Text>{comment.text}</Text>
         </div>
-        <Skeleton width={'100%'} height={40} className={cls.commentText} />
       </VStack>
     )
-  }
-
-  if (!comment) {
-    return null
-  }
-
-  return (
-    <VStack gap='8' max className={classNames(cls.CommentCard, {}, [className])}
-            data-testid='CommentCard.Content'>
-      <AppLink to={RoutePath.profile(comment.user.id)} className={cls.header}>
-        {comment.user.avatar && (
-          <Avatar size={20} src={comment.user.avatar} />
-        )}
-        <Text className={cls.commentUser}>{comment.user.username}</Text>
-      </AppLink>
-      <div className={cls.commentText}>
-        <Text>{comment.text}</Text>
-      </div>
-    </VStack>
-  )
-})
+  },
+)
 
 CommentCard.displayName = 'CommentCard'

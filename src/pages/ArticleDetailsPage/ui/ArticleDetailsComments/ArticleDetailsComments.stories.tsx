@@ -8,7 +8,7 @@ const meta = {
   title: 'shared/ArticleDetailsComments',
   component: ArticleDetailsComments,
   parameters: {},
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof ArticleDetailsComments>
 
 export default meta
@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>
 
 export const Normal: Story = {
   args: {
-    id: '1'
+    id: '1',
   },
-  decorators: [StoreDecorator({})]
+  decorators: [StoreDecorator({})],
 }

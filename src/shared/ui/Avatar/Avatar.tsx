@@ -19,21 +19,39 @@ interface AvatarProps {
 
 const DEFAULT_SIZE = 100
 
-export const Avatar = ({ className, src, size = DEFAULT_SIZE, alt, fallbackInverted }: AvatarProps) => {
-  const styles = useMemo<CSSProperties>(() => ({
-    width: size,
-    height: size
-  }), [size])
+export const Avatar = ({
+  className,
+  src,
+  size = DEFAULT_SIZE,
+  alt,
+  fallbackInverted,
+}: AvatarProps) => {
+  const styles = useMemo<CSSProperties>(
+    () => ({
+      width: size,
+      height: size,
+    }),
+    [size],
+  )
 
-  const fallback = <Skeleton width={size} height={size} border='50%' />
-  const errorFallback = <Icon Svg={AvatarIcon} width={size} height={size} inverted={fallbackInverted}/>
+  const fallback = <Skeleton width={size} height={size} border="50%" />
+  const errorFallback = (
+    <Icon
+      Svg={AvatarIcon}
+      width={size}
+      height={size}
+      inverted={fallbackInverted}
+    />
+  )
 
   return (
-    <AppImage src={src}
-              style={styles}
-              alt={alt}
-              errorFallback={errorFallback}
-              fallback={fallback}
-              className={classNames(cls.Avatar, {}, [className])}/>
+    <AppImage
+      src={src}
+      style={styles}
+      alt={alt}
+      errorFallback={errorFallback}
+      fallback={fallback}
+      className={classNames(cls.Avatar, {}, [className])}
+    />
   )
 }

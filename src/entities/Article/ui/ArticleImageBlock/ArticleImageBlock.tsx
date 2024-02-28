@@ -12,17 +12,19 @@ interface ArticleImageBlockProps {
   data: IArticleImageBlock
 }
 
-export const ArticleImageBlock: FC<ArticleImageBlockProps> = memo(({ className, data }) => {
-  return (
-    <div className={classNames(cls.ArticleImageBlock, {}, [className])}>
-      <img src={data.src} alt={data.title} className={cls.img}/>
-      {data.title && (
-        <div>
-          <Text size={TextSize.S}>{data.title}</Text>
-        </div>
-      )}
-    </div>
-  )
-})
+export const ArticleImageBlock: FC<ArticleImageBlockProps> = memo(
+  ({ className, data }) => {
+    return (
+      <div className={classNames(cls.ArticleImageBlock, {}, [className])}>
+        <img src={data.src} alt={data.title} className={cls.img} />
+        {data.title && (
+          <div>
+            <Text size={TextSize.S}>{data.title}</Text>
+          </div>
+        )}
+      </div>
+    )
+  },
+)
 
 ArticleImageBlock.displayName = 'ArticleImageBlock'

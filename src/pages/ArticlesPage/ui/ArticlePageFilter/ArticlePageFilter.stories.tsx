@@ -6,12 +6,12 @@ const meta = {
   title: 'shared/ArticlePageFilter',
   component: ArticlePageFilter,
   parameters: {},
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof ArticlePageFilter>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Normal: Story = {
-  args: { }
+  args: {},
 }

@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import {
   DynamicModuleLoader,
-  type ReducersList
+  type ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
@@ -28,7 +28,7 @@ export interface LoginFormProps {
 }
 
 const initialReducers: ReducersList = {
-  loginForm: loginReducer
+  loginForm: loginReducer,
 }
 
 const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
@@ -39,19 +39,27 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
   const isLoading = useAppSelector(getLoginIsLoading)
   const error = useAppSelector(getLoginError)
 
-  const onChangeUsername = useCallback((value: string) => {
-    dispatch(loginActions.setUsername(value))
-  }, [dispatch])
+  const onChangeUsername = useCallback(
+    (value: string) => {
+      dispatch(loginActions.setUsername(value))
+    },
+    [dispatch],
+  )
 
-  const onChangePassword = useCallback((value: string) => {
-    dispatch(loginActions.setPassword(value))
-  }, [dispatch])
+  const onChangePassword = useCallback(
+    (value: string) => {
+      dispatch(loginActions.setPassword(value))
+    },
+    [dispatch],
+  )
 
   const login = useCallback(async () => {
-    const result = await dispatch(loginByUsername({
-      username,
-      password
-    }))
+    const result = await dispatch(
+      loginByUsername({
+        username,
+        password,
+      }),
+    )
     if (result.meta.requestStatus === 'fulfilled') {
       onSuccess?.()
     }
@@ -64,30 +72,36 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
   return (
     <DynamicModuleLoader reducers={initialReducers}>
       <div className={classNames(cls.LoginForm, {}, [className])}>
-        <h1>
-          {t('Авторизация')}
-        </h1>
-        {!!error &&
+        <h1>{t('Авторизация')}</h1>
+        {!!error && (
+          <div>
+            <Text style={TextStyle.DANGER}>
+              {t(
+                'Пользователь не найден или Вы ввели неверный логиг или пароль',
+              )}
+            </Text>
+          </div>
+        )}
+        <Input
+          type="text"
+          placeholder={t('Логин')}
+          value={username}
+          onChange={onChangeUsername}
+          autoFocus
+        />
+        <Input
+          type="text"
+          placeholder={t('Пароль')}
+          value={password}
+          onChange={onChangePassword}
+          autoFocus
+        />
         <div>
-          <Text style={TextStyle.DANGER}>
-            {t('Пользователь не найден или Вы ввели неверный логиг или пароль')}
-          </Text>
-        </div>
-      }
-        <Input type="text"
-             placeholder={t('Логин')}
-             value={username}
-             onChange={onChangeUsername}
-             autoFocus/>
-        <Input type="text"
-             placeholder={t('Пароль')}
-             value={password}
-             onChange={onChangePassword}
-             autoFocus/>
-        <div>
-          <Button theme={ButtonTheme.OUTLINE}
-                disabled={isLoading}
-                onClick={onLoginClick}>
+          <Button
+            theme={ButtonTheme.OUTLINE}
+            disabled={isLoading}
+            onClick={onLoginClick}
+          >
             {t('Войти')}
           </Button>
         </div>

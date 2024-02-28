@@ -11,17 +11,22 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
   primary?: boolean
 }
 
-export const Icon: FC<IconProps> = memo(({ className, Svg, inverted, primary, ...restProps }) => {
-  return (
-    <Svg
-      className={classNames(
-        cls.Icon, {
-          [cls.inverted]: inverted,
-          [cls.primary]: primary
-        }, [className]
-      )}
-      {...restProps}/>
-  )
-})
+export const Icon: FC<IconProps> = memo(
+  ({ className, Svg, inverted, primary, ...restProps }) => {
+    return (
+      <Svg
+        className={classNames(
+          cls.Icon,
+          {
+            [cls.inverted]: inverted,
+            [cls.primary]: primary,
+          },
+          [className],
+        )}
+        {...restProps}
+      />
+    )
+  },
+)
 
 Icon.displayName = 'Icon'

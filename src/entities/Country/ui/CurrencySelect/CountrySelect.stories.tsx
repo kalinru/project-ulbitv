@@ -8,7 +8,7 @@ const meta = {
   title: 'entities/CountrySelect',
   component: CountrySelect,
   parameters: {},
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof CountrySelect>
 
 export default meta
@@ -16,6 +16,6 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
-    value: Country.Russian
-  }
+    value: Country.Russian,
+  },
 }

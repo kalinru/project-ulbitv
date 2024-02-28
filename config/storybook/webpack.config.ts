@@ -11,14 +11,14 @@ export default ({ config }: { config: webpack.Configuration }) => {
     entry: '',
     src: path.resolve(__dirname, '..', '..', 'src'),
     locales: '',
-    buildLocales: ''
+    buildLocales: '',
   }
 
   config!.resolve!.modules!.unshift(paths.src)
   config!.resolve!.extensions!.push('.ts', '.tsx')
   config!.resolve!.alias = {
     ...config!.resolve!.alias,
-    '@': paths.src
+    '@': paths.src,
   }
 
   // remove svg from existing rule
@@ -26,13 +26,13 @@ export default ({ config }: { config: webpack.Configuration }) => {
   config!.module!.rules = config!.module!.rules!.map((rule: RuleSetRule) => {
     if (
       String(rule.test) ===
-    String(
-      /\.(svg|ico|jpg|jpeg|png|apng|gif|eot|otf|webp|ttf|woff|woff2|cur|ani|pdf)(\?.*)?$/
-    )
+      String(
+        /\.(svg|ico|jpg|jpeg|png|apng|gif|eot|otf|webp|ttf|woff|woff2|cur|ani|pdf)(\?.*)?$/,
+      )
     ) {
       return {
         ...rule,
-        test: /\.(ico|jpg|jpeg|png|apng|gif|eot|otf|webp|ttf|woff|woff2|cur|ani|pdf)(\?.*)?$/
+        test: /\.(ico|jpg|jpeg|png|apng|gif|eot|otf|webp|ttf|woff|woff2|cur|ani|pdf)(\?.*)?$/,
       }
     }
 
@@ -43,15 +43,17 @@ export default ({ config }: { config: webpack.Configuration }) => {
   config!.module!.rules.push({
     test: /\.svg$/i,
     issuer: /\.[jt]sx?$/,
-    use: ['@svgr/webpack']
+    use: ['@svgr/webpack'],
   })
-  config!.module!.rules.push(buildCssLoader({isDev: true}))
+  config!.module!.rules.push(buildCssLoader({ isDev: true }))
 
-  config.plugins?.push(new DefinePlugin({
-    __IS_DEV__: JSON.stringify(true),
-    __API__: JSON.stringify('http://localhost:8000'),
-    __PROJECT__: JSON.stringify('storybook')
-  }))
+  config.plugins?.push(
+    new DefinePlugin({
+      __IS_DEV__: JSON.stringify(true),
+      __API__: JSON.stringify('http://localhost:8000'),
+      __PROJECT__: JSON.stringify('storybook'),
+    }),
+  )
 
   // config.resolve.alias = {
   //   entities: path.resolve(__dirname, "..", "..", "src", "entities"),

@@ -19,13 +19,13 @@ export enum TextSize {
   S = 'size_s',
   M = 'size_m',
   L = 'size_l',
-  XL = 'size_xl'
+  XL = 'size_xl',
 }
 
 export enum TextStyle {
   DEFAULT = '',
   DANGER = 'danger',
-  SECONDARY = 'secondary'
+  SECONDARY = 'secondary',
 }
 
 // type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4'
@@ -44,26 +44,28 @@ export const Text = memo((props: TextProps) => {
     size = TextSize.M,
     element: Element = 'span',
     children,
-    'data-testid': dataTestId = 'Text'
+    'data-testid': dataTestId = 'Text',
   } = props
 
   // const Element = header ? mapSizeToHeaderTag[header] :
 
   let mods = {
     [cls[size]]: true,
-    [cls[style]]: true
+    [cls[style]]: true,
   }
 
   if (Element) {
     mods = {
       ...mods,
-      [cls[Element]]: true
+      [cls[Element]]: true,
     }
   }
 
   return (
-    <Element className={classNames(cls.Text, mods, [className])}
-             data-testid={`${dataTestId}.Text`}>
+    <Element
+      className={classNames(cls.Text, mods, [className])}
+      data-testid={`${dataTestId}.Text`}
+    >
       {children}
     </Element>
   )

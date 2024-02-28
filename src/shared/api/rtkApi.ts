@@ -6,13 +6,13 @@ export const rtkApi = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({
     baseUrl: __API__,
-    prepareHeaders: header => {
+    prepareHeaders: (header) => {
       const token = localStorage.getItem(USER_LOCAL_STORAGE_KEY) ?? ''
       if (token) {
         header.set('Authorization', token)
       }
       return header
-    }
+    },
   }),
-  endpoints: (builder) => ({})
+  endpoints: (builder) => ({}),
 })

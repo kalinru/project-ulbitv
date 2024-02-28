@@ -17,7 +17,7 @@ const ANIMATION_TIME = 200
 export const useModal = ({
   animationDelay = ANIMATION_TIME,
   isOpen,
-  onClose
+  onClose,
 }: UseModalProps) => {
   const [isClosing, setIsClosing] = useState<boolean>(false)
   const [isMounted, setIsMounted] = useState<boolean>(false)
@@ -34,11 +34,14 @@ export const useModal = ({
     }
   }, [animationDelay, onClose])
 
-  const onKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      close()
-    }
-  }, [close])
+  const onKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        close()
+      }
+    },
+    [close],
+  )
 
   useEffect(() => {
     if (isOpen) {
@@ -60,6 +63,6 @@ export const useModal = ({
   return {
     isClosing,
     isMounted,
-    close
+    close,
   }
 }

@@ -1,4 +1,9 @@
-import { memo, type FC, useCallback, type HTMLAttributeAnchorTarget } from 'react'
+import {
+  memo,
+  type FC,
+  useCallback,
+  type HTMLAttributeAnchorTarget,
+} from 'react'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
 
@@ -23,7 +28,7 @@ const getSkeletons = (view: ArticleView) => {
   return new Array(view === ArticleView.SMALL ? 9 : 3)
     .fill(0)
     .map((item, idx) => (
-      <ArticleListItemSkeleton key={idx} view={view} className={cls.card}/>
+      <ArticleListItemSkeleton key={idx} view={view} className={cls.card} />
     ))
 }
 
@@ -32,33 +37,40 @@ const getSkeletons = (view: ArticleView) => {
  * (урок 63 - используется устаревший react-virtualized)
  * там же есть видео реализции на React virtuoso https://1drv.ms/v/s!AsJfm7HR-TbV4xcTzX43JvEBNiS1?e=XDTWDL
  */
-export const ArticleList: FC<ArticleListProps> = memo(({
-  className,
-  articles,
-  isLoading,
-  view = ArticleView.SMALL,
-  target = '',
-  virtualized = true
-}) => {
-  const renderArticle = useCallback((article: IArticle) => {
-    return (
-      <ArticleListItem article={article}
-                       view={view}
-                       className={cls.card}
-                       target={target}
-                       key={article.id}/>
+export const ArticleList: FC<ArticleListProps> = memo(
+  ({
+    className,
+    articles,
+    isLoading,
+    view = ArticleView.SMALL,
+    target = '',
+    virtualized = true,
+  }) => {
+    const renderArticle = useCallback(
+      (article: IArticle) => {
+        return (
+          <ArticleListItem
+            article={article}
+            view={view}
+            className={cls.card}
+            target={target}
+            key={article.id}
+          />
+        )
+      },
+      [target, view],
     )
-  }, [target, view])
 
-  return (
-    <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}
-         data-testid='ArticleList'>
-      {articles.length
-        ? articles.map(renderArticle)
-        : null}
-      {isLoading && getSkeletons(view)}
-    </div>
-  )
-})
+    return (
+      <div
+        className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+        data-testid="ArticleList"
+      >
+        {articles.length ? articles.map(renderArticle) : null}
+        {isLoading && getSkeletons(view)}
+      </div>
+    )
+  },
+)
 
 ArticleList.displayName = 'ArticleList'

@@ -11,27 +11,23 @@ const article = {
   views: 1022,
   createdAt: '26.02.2022',
   userId: '1',
-  type: [
-    'SCIENCE'
-  ],
+  type: ['SCIENCE'],
   blocks: [],
-  id: 'guOLlgD'
+  id: 'guOLlgD',
 }
 
 const meta = {
   title: 'features/ArticleRecommendationsList',
   component: ArticleRecommendationsList,
   parameters: {},
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof ArticleRecommendationsList>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Normal: Story = {
-  args: {
-
-  },
+  args: {},
   decorators: [StoreDecorator({})],
   parameters: {
     mockData: [
@@ -43,9 +39,9 @@ export const Normal: Story = {
           { ...article, id: 1 },
           { ...article, id: 2 },
           { ...article, id: 3 },
-          { ...article, id: 4 }
-        ]
-      }
-    ]
-  }
+          { ...article, id: 4 },
+        ],
+      },
+    ],
+  },
 }

@@ -12,8 +12,8 @@ const preview: Preview = {
     controls: {
       matchers: {
         color: /(background|color)$/i,
-        date: /Date$/i
-      }
+        date: /Date$/i,
+      },
     },
     layout: 'fullscreen',
     themes: {
@@ -21,7 +21,7 @@ const preview: Preview = {
       list: [
         { name: 'light', class: ['app', Theme.LIGHT], color: '#dddddd' },
         { name: 'dark', class: ['app', Theme.DARK], color: '#333333' },
-        { name: 'contrast', class: ['app', Theme.CONTRAST], color: '#aaaaaa' }
+        { name: 'contrast', class: ['app', Theme.CONTRAST], color: '#aaaaaa' },
       ],
     },
   },
@@ -29,8 +29,8 @@ const preview: Preview = {
     StyleDecorator,
     // ThemeDecorator(Theme.LIGHT),
     RouterDecorator,
-    SuspenseDecorator
-  ]
+    SuspenseDecorator,
+  ],
 }
 
 export default preview

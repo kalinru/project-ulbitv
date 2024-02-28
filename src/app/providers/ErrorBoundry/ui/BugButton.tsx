@@ -24,9 +24,8 @@ export const BugButton = ({ className }: BugButtonProps) => {
   }, [error])
 
   return (
-    <Button className={classNames('', {}, [className])}
-            onClick={throwError}>
-      { t('Выкинуть ошибку') }
+    <Button className={classNames('', {}, [className])} onClick={throwError}>
+      {t('Выкинуть ошибку')}
     </Button>
   )
 }

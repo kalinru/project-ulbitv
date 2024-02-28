@@ -13,15 +13,14 @@ const meta = {
   title: 'pages/ProfilePage',
   component: ProfilePage,
   parameters: {},
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof ProfilePage>
 
 export default meta
-  type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>
 
 export const Normal: Story = {
-  args: {
-  }
+  args: {},
 }
 Normal.decorators = [
   StoreDecorator({
@@ -36,15 +35,14 @@ Normal.decorators = [
         currency: Currency.RUB,
         first: 'vasya',
         lastname: 'ivanov',
-        username: 'vasya_ivanov'
-      }
-    }
-  })
+        username: 'vasya_ivanov',
+      },
+    },
+  }),
 ]
 
 export const Dark: Story = {
-  args: {
-  }
+  args: {},
 }
 Dark.decorators = [
   ThemeDecorator(Theme.DARK),
@@ -60,8 +58,8 @@ Dark.decorators = [
         currency: Currency.RUB,
         first: 'vasya',
         lastname: 'ivanov',
-        username: 'vasya_ivanov'
-      }
-    }
-  })
+        username: 'vasya_ivanov',
+      },
+    },
+  }),
 ]

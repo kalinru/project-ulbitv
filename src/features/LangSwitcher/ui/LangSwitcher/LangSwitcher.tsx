@@ -8,7 +8,10 @@ interface LangSwitcherProps {
   short?: boolean
 }
 
-export const LangSwitcher = ({ className, short = true }: LangSwitcherProps) => {
+export const LangSwitcher = ({
+  className,
+  short = true,
+}: LangSwitcherProps) => {
   const { t, i18n } = useTranslation()
 
   const toogle = async (): Promise<void> => {
@@ -17,10 +20,11 @@ export const LangSwitcher = ({ className, short = true }: LangSwitcherProps) => 
 
   return (
     <Button
-          theme={ButtonTheme.BACKGROUND_INVERTED}
-          className={classNames('', {}, [className])}
-          // eslint-disable-next-line @typescript-eslint/no-misused-promises
-          onClick={toogle}>
+      theme={ButtonTheme.BACKGROUND_INVERTED}
+      className={classNames('', {}, [className])}
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
+      onClick={toogle}
+    >
       {t(short ? 'Текущий Язык Коротко' : 'Текущий Язык')}
     </Button>
   )

@@ -46,8 +46,7 @@
     "./config/jest/setupTests.ts",
     // "./config/storybook/*.ts",
     "./src/**/*.ts",
-    "./src/**/*.tsx", 
-    "config/storybook/preview.tsx",
+    "./src/**/*.tsx",
+    "config/storybook/preview.tsx"
   ]
 }
-  

@@ -5,15 +5,13 @@ import { useSearchParams } from 'react-router-dom'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import {
   DynamicModuleLoader,
-  type ReducersList
+  type ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { Page } from '@/widgets/Page'
 
-import {
-  fetchNextArticlesPage
-} from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage'
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage'
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice'
 import { ArticleListWrapper } from '../ArticleListWrapper/ArticleListWrapper'
@@ -26,7 +24,7 @@ interface ArticlesPageProps {
 }
 
 const reducers: ReducersList = {
-  articlesPage: articlesPageReducer
+  articlesPage: articlesPageReducer,
 }
 
 const ArticlesPage: FC<ArticlesPageProps> = memo(({ className }) => {
@@ -43,10 +41,13 @@ const ArticlesPage: FC<ArticlesPageProps> = memo(({ className }) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <Page className={classNames(cls.ArticlesPage, {}, [className])} onScrollEnd={onLoadNextPart}
-            data-testid='ArticlesPage'>
+      <Page
+        className={classNames(cls.ArticlesPage, {}, [className])}
+        onScrollEnd={onLoadNextPart}
+        data-testid="ArticlesPage"
+      >
         <ArticlePageFilter />
-        <ArticleListWrapper className={cls.list}/>
+        <ArticleListWrapper className={cls.list} />
       </Page>
     </DynamicModuleLoader>
   )

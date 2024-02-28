@@ -6,12 +6,12 @@ const meta = {
   title: 'pages/ArticlesPage',
   component: ArticlesPage,
   parameters: {},
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof ArticlesPage>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Normal: Story = {
-  args: { }
+  args: {},
 }

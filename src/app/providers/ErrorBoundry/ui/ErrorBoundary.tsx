@@ -11,24 +11,23 @@ interface ErrorBoundaryState {
   hasError: boolean
 }
 
-class ErrorBoundary
-  extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
-  constructor (props: ErrorBoundaryProps) {
+class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
+  constructor(props: ErrorBoundaryProps) {
     super(props)
     this.state = { hasError: false }
   }
 
-  static getDerivedStateFromError (_error: Error): ErrorBoundaryState {
+  static getDerivedStateFromError(_error: Error): ErrorBoundaryState {
     // Update state so the next render will show the fallback UI.
     return { hasError: true }
   }
 
-  componentDidCatch (error: Error, errorInfo: ErrorInfo): void {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
     // You can also log the error to an error reporting service
     console.log(error, errorInfo)
   }
 
-  render (): ReactNode {
+  render(): ReactNode {
     const { hasError } = this.state
     const { children } = this.props
     if (hasError) {

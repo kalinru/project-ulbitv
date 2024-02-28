@@ -23,11 +23,11 @@ const App = (): JSX.Element => {
 
   return (
     <div className={classNames('app', {}, [theme])}>
-      <Suspense fallback=''>
+      <Suspense fallback="">
         <Navbar />
         <div className="content-page">
           <Sidebar />
-          { inited && <AppRouter /> }
+          {inited && <AppRouter />}
         </div>
       </Suspense>
     </div>

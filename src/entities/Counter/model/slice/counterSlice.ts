@@ -5,7 +5,7 @@ import { buildSlice } from '@/shared/lib/store'
 import { type CounterSchema } from '../types/counterSchema'
 
 const initialState: CounterSchema = {
-  value: 0
+  value: 0,
 }
 
 // export const counterSlice = createSlice({
@@ -25,20 +25,20 @@ export const counterSlice = buildSlice({
   name: 'counter',
   initialState,
   reducers: {
-    incremented: state => {
+    incremented: (state) => {
       state.value += 1
     },
-    decremented: state => {
+    decremented: (state) => {
       state.value -= 1
     },
     add: (state, { payload }: PayloadAction<number>) => {
       state.value += payload
-    }
-  }
+    },
+  },
 })
 
 export const {
   actions: counterActions,
   reducer: counterReducer,
-  useActions: useCounterActions
+  useActions: useCounterActions,
 } = counterSlice

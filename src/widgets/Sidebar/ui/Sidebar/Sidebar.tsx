@@ -22,33 +22,41 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   const items = useAppSelector(getSidebarItems)
 
   const onToggle = () => {
-    setCollapsed(value => !value)
+    setCollapsed((value) => !value)
   }
 
-  const itemsElement = useMemo(() => items.map((item) => (
-    <SidebarItem key={item.path}
-                 collapsed={collapsed}
-                 item={item}/>
-  )), [collapsed, items])
+  const itemsElement = useMemo(
+    () =>
+      items.map((item) => (
+        <SidebarItem key={item.path} collapsed={collapsed} item={item} />
+      )),
+    [collapsed, items],
+  )
 
   return (
-    <aside className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
-         data-testid='sidebar'>
-      <Button onClick={onToggle}
-              theme={ButtonTheme.BACKGROUND_INVERTED}
-              style={{ color: 'white' }}
-              className={cls.collapsedBtn}
-              square
-              size={ButtonSize.L}
-              data-testid='sidebar-toggle'>
-        { collapsed ? '>' : '<' }
+    <aside
+      className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
+        className,
+      ])}
+      data-testid="sidebar"
+    >
+      <Button
+        onClick={onToggle}
+        theme={ButtonTheme.BACKGROUND_INVERTED}
+        style={{ color: 'white' }}
+        className={cls.collapsedBtn}
+        square
+        size={ButtonSize.L}
+        data-testid="sidebar-toggle"
+      >
+        {collapsed ? '>' : '<'}
       </Button>
-      <VStack role='navigation' className={cls.items} gap='8'>
+      <VStack role="navigation" className={cls.items} gap="8">
         {itemsElement}
       </VStack>
       <div className={cls.switchers}>
         <ThemeSwitcher />
-        <LangSwitcher short={collapsed}/>
+        <LangSwitcher short={collapsed} />
       </div>
     </aside>
   )

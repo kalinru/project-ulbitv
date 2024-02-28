@@ -18,10 +18,8 @@ export const PageError = ({ className }: PageErrorProps) => {
 
   return (
     <div className={classNames(cls.PageError, {}, [className])}>
-      <p>{ t('Что-то пошло не так') }</p>
-      <Button onClick={reloadPage}>
-        { t('Обновить страницу') }
-      </Button>
+      <p>{t('Что-то пошло не так')}</p>
+      <Button onClick={reloadPage}>{t('Обновить страницу')}</Button>
     </div>
   )
 }

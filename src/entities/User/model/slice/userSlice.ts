@@ -5,7 +5,7 @@ import { USER_LOCAL_STORAGE_KEY } from '@/shared/consts/localStorage'
 import { type User, type UserSchema } from '../types/user'
 
 const initialState: UserSchema = {
-  inited: false
+  inited: false,
 }
 
 export const counterSlice = createSlice({
@@ -25,8 +25,8 @@ export const counterSlice = createSlice({
     logout: (state) => {
       state.authData = undefined
       localStorage.removeItem(USER_LOCAL_STORAGE_KEY)
-    }
-  }
+    },
+  },
 })
 
 export const { actions: userActions } = counterSlice

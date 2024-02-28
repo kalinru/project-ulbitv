@@ -3,7 +3,7 @@
  * https://jestjs.io/docs/configuration
  */
 
-import path from "path";
+import path from 'path'
 
 export default {
   // All imported modules in your tests should be mocked automatically
@@ -20,19 +20,10 @@ export default {
   testEnvironment: 'jsdom',
 
   // An array of file extensions your modules use
-  moduleFileExtensions: [
-    'js',
-    'jsx',
-    'ts',
-    'tsx',
-    'json',
-    'node'
-  ],
+  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
 
   // An array of regexp pattern strings used to skip coverage collection
-  coveragePathIgnorePatterns: [
-    '\\\\node_modules\\\\'
-  ],
+  coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
 
   // The root directory that Jest should scan for tests and modules within
   rootDir: '../../',
@@ -44,13 +35,9 @@ export default {
   ],
 
   // The glob patterns Jest uses to detect test files
-  testMatch: [
-    '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
-  ],
+  testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
 
-  modulePaths: [
-    '<rootDir>src'
-  ],
+  modulePaths: ['<rootDir>src'],
 
   setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
 
@@ -60,7 +47,7 @@ export default {
     '\\.(s?css)$': 'identity-obj-proxy',
     '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
     'entities/(.*)': '<rootDir>src/entities/$1',
-    'axios': 'axios/dist/node/axios.cjs',
+    axios: 'axios/dist/node/axios.cjs',
     '^@/(.*)$': '<rootDir>src/$1',
   },
 
@@ -68,19 +55,22 @@ export default {
   globals: {
     __IS_DEV__: true,
     __API__: '',
-    __PROJECT__: 'jest'
+    __PROJECT__: 'jest',
   },
 
   // Use this configuration option to add custom reporters to Jest
-  "reporters": [
-    "default",
-    ["jest-html-reporters", {
-      "publicPath": "<rootDir>/reports/unit",
-      "filename": "report.html",
-      "openReport": false,
-      inlineSource: true
-    }]
-  ]
+  reporters: [
+    'default',
+    [
+      'jest-html-reporters',
+      {
+        publicPath: '<rootDir>/reports/unit',
+        filename: 'report.html',
+        openReport: false,
+        inlineSource: true,
+      },
+    ],
+  ],
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,

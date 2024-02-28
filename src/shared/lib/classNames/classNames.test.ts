@@ -10,6 +10,8 @@ describe('classNames', () => {
   })
 
   test('param 1 and 2', () => {
-    expect(classNames('someClass', { class1: true, class2: false })).toBe('someClass class1')
+    expect(classNames('someClass', { class1: true, class2: false })).toBe(
+      'someClass class1',
+    )
   })
 })

@@ -22,8 +22,8 @@ describe('fetchNextArticlesPage.test', () => {
         search: '',
         sort: ArticleSortField.CREATED,
         type: ArticleType.ALL,
-        _inited: true
-      }
+        _inited: true,
+      },
     })
 
     await thunk.callThunk(undefined)
@@ -45,8 +45,8 @@ describe('fetchNextArticlesPage.test', () => {
         search: '',
         sort: ArticleSortField.CREATED,
         type: ArticleType.ALL,
-        _inited: true
-      }
+        _inited: true,
+      },
     })
 
     await thunk.callThunk(undefined)

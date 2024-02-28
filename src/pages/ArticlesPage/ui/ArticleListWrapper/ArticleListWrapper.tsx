@@ -9,7 +9,7 @@ import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector
 import {
   getArticlesPageView,
   getArticlesPageIsLoading,
-  getArticlesPageError
+  getArticlesPageError,
 } from '../../model/selectors/articlesPageSelectors'
 import { getArticles } from '../../model/slices/articlesPageSlice'
 
@@ -17,26 +17,30 @@ interface ArticleListWrapperProps {
   className?: string
 }
 
-export const ArticleListWrapper: FC<ArticleListWrapperProps> = memo(({ className }) => {
-  const { t } = useTranslation()
+export const ArticleListWrapper: FC<ArticleListWrapperProps> = memo(
+  ({ className }) => {
+    const { t } = useTranslation()
 
-  const view = useAppSelector(getArticlesPageView)
-  const isLoading = useAppSelector(getArticlesPageIsLoading)
-  const error = useAppSelector(getArticlesPageError)
-  const articles = useAppSelector(getArticles.selectAll)
+    const view = useAppSelector(getArticlesPageView)
+    const isLoading = useAppSelector(getArticlesPageIsLoading)
+    const error = useAppSelector(getArticlesPageError)
+    const articles = useAppSelector(getArticles.selectAll)
 
-  if (error) {
-    return <div>{t('Ошибка при загрузке статей')}</div>
-  }
+    if (error) {
+      return <div>{t('Ошибка при загрузке статей')}</div>
+    }
 
-  return (
-    <div className={classNames('', {}, [className])}>
-      <ArticleList className={className}
-                   articles={articles}
-                   view={view}
-                   isLoading={isLoading}/>
-    </div>
-  )
-})
+    return (
+      <div className={classNames('', {}, [className])}>
+        <ArticleList
+          className={className}
+          articles={articles}
+          view={view}
+          isLoading={isLoading}
+        />
+      </div>
+    )
+  },
+)
 
 ArticleListWrapper.displayName = 'ArticleListWrapper'

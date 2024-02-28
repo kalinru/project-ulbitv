@@ -1,4 +1,3 @@
 describe('userrSlice', () => {
-  test('test 1', () => {
-  })
+  test('test 1', () => {})
 })

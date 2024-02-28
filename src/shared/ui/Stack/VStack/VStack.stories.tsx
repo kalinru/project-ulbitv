@@ -6,12 +6,12 @@ const meta = {
   title: 'shared/VStack',
   component: VStack,
   parameters: {},
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof VStack>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Normal: Story = {
-  args: { }
+  args: {},
 }

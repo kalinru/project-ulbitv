@@ -17,10 +17,11 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo((props) => {
 
   return (
     <Button
-          theme={ButtonTheme.CLEAR}
-          onClick={toggleTheme}
-          className={classNames('', {}, [className])}>
-      { theme === Theme.LIGHT ? <LightIcon /> : <DarkIcon /> }
+      theme={ButtonTheme.CLEAR}
+      onClick={toggleTheme}
+      className={classNames('', {}, [className])}
+    >
+      {theme === Theme.LIGHT ? <LightIcon /> : <DarkIcon />}
     </Button>
   )
 })

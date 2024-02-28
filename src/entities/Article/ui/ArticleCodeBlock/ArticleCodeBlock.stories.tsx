@@ -8,7 +8,7 @@ const meta = {
   title: 'entities/ArticleCodeBlock',
   component: ArticleCodeBlock,
   parameters: {},
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof ArticleCodeBlock>
 
 export default meta
@@ -16,6 +16,6 @@ type Story = StoryObj<typeof meta>
 
 export const Normal: Story = {
   args: {
-    data: { code: 'code', id: '1', type: ArticleBlockType.CODE }
-  }
+    data: { code: 'code', id: '1', type: ArticleBlockType.CODE },
+  },
 }

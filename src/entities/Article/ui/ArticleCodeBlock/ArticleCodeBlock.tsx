@@ -12,12 +12,14 @@ interface ArticleCodeBlockProps {
   data: IArticleCodeBlock
 }
 
-export const ArticleCodeBlock: FC<ArticleCodeBlockProps> = memo(({ className, data }) => {
-  return (
-    <div className={classNames(cls.ArticleCodeBlock, {}, [className])}>
-      <Code text={data.code} />
-    </div>
-  )
-})
+export const ArticleCodeBlock: FC<ArticleCodeBlockProps> = memo(
+  ({ className, data }) => {
+    return (
+      <div className={classNames(cls.ArticleCodeBlock, {}, [className])}>
+        <Code text={data.code} />
+      </div>
+    )
+  },
+)
 
 ArticleCodeBlock.displayName = 'ArticleCodeBlock'

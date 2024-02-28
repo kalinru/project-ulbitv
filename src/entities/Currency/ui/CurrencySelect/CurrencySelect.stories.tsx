@@ -7,7 +7,7 @@ const meta = {
   title: 'entities/CurrencySelect',
   component: CurrencySelect,
   parameters: {},
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof CurrencySelect>
 
 export default meta
@@ -15,6 +15,6 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
-    value: Currency.EUR
-  }
+    value: Currency.EUR,
+  },
 }

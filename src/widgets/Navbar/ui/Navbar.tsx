@@ -36,13 +36,17 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   if (authData) {
     return (
       <header className={classNames(cls.Navbar, {}, [className])}>
-        <Text className={cls.appName} style={TextStyle.SECONDARY} size={TextSize.XL}>
+        <Text
+          className={cls.appName}
+          style={TextStyle.SECONDARY}
+          size={TextSize.XL}
+        >
           {t('Articles App')}
         </Text>
         <AppLink to={RoutePath.article_create()} theme={AppLinkTheme.SECONDARY}>
           {t('Добавить статью')}
         </AppLink>
-        <HStack gap='16' className={cls.actions}>
+        <HStack gap="16" className={cls.actions}>
           <NotificationButton />
           <AvatarDropdown />
         </HStack>
@@ -52,15 +56,16 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   return (
     <header className={classNames(cls.Navbar, {}, [className])}>
-      <Button className={cls.links}
-              theme={ButtonTheme.OUTLINE}
-              onClick={onOpenModal}>
-        { t('Войти') }
+      <Button
+        className={cls.links}
+        theme={ButtonTheme.OUTLINE}
+        onClick={onOpenModal}
+      >
+        {t('Войти')}
       </Button>
-      {isAuthModalOpened &&
-      <LoginModal isOpen={isAuthModalOpened}
-                  onClose={onCloseModal}/>
-      }
+      {isAuthModalOpened && (
+        <LoginModal isOpen={isAuthModalOpened} onClose={onCloseModal} />
+      )}
     </header>
   )
 })

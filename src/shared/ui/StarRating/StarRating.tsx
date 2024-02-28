@@ -16,55 +16,58 @@ interface StarRatingProps {
 
 const stars = [1, 2, 3, 4, 5]
 
-export const StarRating: FC<StarRatingProps> = memo(({
-  className,
-  size = 30,
-  selectedStars = 0,
-  onSelect
-}) => {
-  const [currentStartCount, setCurrentStartCount] = useState(selectedStars)
-  const [isSelected, setIsSelected] = useState(Boolean(selectedStars))
+export const StarRating: FC<StarRatingProps> = memo(
+  ({ className, size = 30, selectedStars = 0, onSelect }) => {
+    const [currentStartCount, setCurrentStartCount] = useState(selectedStars)
+    const [isSelected, setIsSelected] = useState(Boolean(selectedStars))
 
-  const onHover = (startCount: number) => () => {
-    if (!isSelected) {
-      setCurrentStartCount(startCount)
+    const onHover = (startCount: number) => () => {
+      if (!isSelected) {
+        setCurrentStartCount(startCount)
+      }
     }
-  }
 
-  const onLeave = () => {
-    if (!isSelected) {
-      setCurrentStartCount(0)
+    const onLeave = () => {
+      if (!isSelected) {
+        setCurrentStartCount(0)
+      }
     }
-  }
 
-  const onClick = (startCount: number) => () => {
-    if (!isSelected) {
-      onSelect?.(startCount)
-      setCurrentStartCount(startCount)
-      setIsSelected(true)
+    const onClick = (startCount: number) => () => {
+      if (!isSelected) {
+        onSelect?.(startCount)
+        setCurrentStartCount(startCount)
+        setIsSelected(true)
+      }
     }
-  }
 
-  return (
-    <div className={classNames(cls.StarRating, {}, [className])}>
-      {stars.map(starsCount => (
-        <Icon key={starsCount}
-              Svg={StarIcon}
-              className={classNames(cls.starIcon, {
+    return (
+      <div className={classNames(cls.StarRating, {}, [className])}>
+        {stars.map((starsCount) => (
+          <Icon
+            key={starsCount}
+            Svg={StarIcon}
+            className={classNames(
+              cls.starIcon,
+              {
                 [cls.hovered]: currentStartCount >= starsCount,
                 [cls.normal]: currentStartCount < starsCount,
-                [cls.isSelected]: isSelected
-              }, [])}
-              height={size}
-              width={size}
-              onClick={onClick(starsCount)}
-              onMouseLeave={onLeave}
-              onMouseEnter={onHover(starsCount)}
-              data-testid={`StarRating.${starsCount}`}
-              data-selected={currentStartCount >= starsCount}/>
-      ))}
-    </div>
-  )
-})
+                [cls.isSelected]: isSelected,
+              },
+              [],
+            )}
+            height={size}
+            width={size}
+            onClick={onClick(starsCount)}
+            onMouseLeave={onLeave}
+            onMouseEnter={onHover(starsCount)}
+            data-testid={`StarRating.${starsCount}`}
+            data-selected={currentStartCount >= starsCount}
+          />
+        ))}
+      </div>
+    )
+  },
+)
 
 StarRating.displayName = 'StarRating'

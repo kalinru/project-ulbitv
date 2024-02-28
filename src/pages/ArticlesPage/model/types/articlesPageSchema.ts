@@ -4,7 +4,7 @@ import {
   type ArticleView,
   type IArticle,
   type ArticleType,
-  type ArticleSortField
+  type ArticleSortField,
 } from '@/entities/Article'
 import { type SortOrder } from '@/shared/types/sort'
 

@@ -9,19 +9,17 @@ const meta = {
   title: 'pages/NotFoundPage',
   component: NotFoundPage,
   parameters: {},
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof NotFoundPage>
 
 export default meta
-  type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>
 
 export const Normal: Story = {
-  args: {
-  }
+  args: {},
 }
 
 export const Dark: Story = {
-  args: {
-  }
+  args: {},
 }
 Dark.decorators = [ThemeDecorator(Theme.DARK)]

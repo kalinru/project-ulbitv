@@ -10,44 +10,41 @@ const meta = {
   title: 'widgets/Sidebar',
   component: Sidebar,
   parameters: {},
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof Sidebar>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Light: Story = {
-  args: {
-  },
+  args: {},
   decorators: [
     StoreDecorator({
       user: {
-        authData: {}
-      }
-    })
-  ]
+        authData: {},
+      },
+    }),
+  ],
 }
 
 export const Dark: Story = {
-  args: {
-  }
+  args: {},
 }
 Dark.decorators = [
   ThemeDecorator(Theme.DARK),
   StoreDecorator({
     user: {
-      authData: {}
-    }
-  })
+      authData: {},
+    },
+  }),
 ]
 
 export const NonAuthenticated: Story = {
-  args: {
-  }
+  args: {},
 }
 NonAuthenticated.decorators = [
   ThemeDecorator(Theme.DARK),
   StoreDecorator({
-    user: {}
-  })
+    user: {},
+  }),
 ]

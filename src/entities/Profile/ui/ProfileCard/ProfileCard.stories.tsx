@@ -10,11 +10,11 @@ const meta = {
   title: 'entities/ProfileCard',
   component: ProfileCard,
   parameters: {},
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof ProfileCard>
 
 export default meta
-  type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>
 
 export const Normal: Story = {
   args: {
@@ -26,19 +26,19 @@ export const Normal: Story = {
       currency: Currency.RUB,
       first: 'vasya',
       lastname: 'ivanov',
-      username: 'vasya_ivanov'
-    }
-  }
+      username: 'vasya_ivanov',
+    },
+  },
 }
 
 export const Loading: Story = {
   args: {
-    isLoading: true
-  }
+    isLoading: true,
+  },
 }
 
 export const Error: Story = {
   args: {
-    error: 'true'
-  }
+    error: 'true',
+  },
 }

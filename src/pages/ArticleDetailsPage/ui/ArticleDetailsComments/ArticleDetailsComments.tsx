@@ -13,9 +13,7 @@ import { VStack } from '@/shared/ui/Stack'
 import { Text, TextSize, TextStyle } from '@/shared/ui/Text'
 
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments'
-import {
-  addCommentForArticle
-} from '../../model/services/addCommentForArticle/addCommentForArticle'
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle'
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice'
 
@@ -24,33 +22,37 @@ interface ArticleDetailsCommentsProps {
   id?: string
 }
 
-export const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = memo(({ className, id }) => {
-  const { t } = useTranslation('article-details')
-  const dispatch = useAppDispatch()
-  const comments = useAppSelector(getArticleComments.selectAll)
-  const commentsIsLoading = useAppSelector(getArticleCommentsIsLoading)
-  // const error = useAppSelector(getArticleCommentsError)
+export const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = memo(
+  ({ className, id }) => {
+    const { t } = useTranslation('article-details')
+    const dispatch = useAppDispatch()
+    const comments = useAppSelector(getArticleComments.selectAll)
+    const commentsIsLoading = useAppSelector(getArticleCommentsIsLoading)
+    // const error = useAppSelector(getArticleCommentsError)
 
-  const onSendComment = useCallback((text: string) => {
-    void dispatch(addCommentForArticle(text))
-  }, [dispatch])
+    const onSendComment = useCallback(
+      (text: string) => {
+        void dispatch(addCommentForArticle(text))
+      },
+      [dispatch],
+    )
 
-  useInitialEffect(() => {
-    void dispatch(fetchCommentsByArticleId(id))
-  }, [id])
+    useInitialEffect(() => {
+      void dispatch(fetchCommentsByArticleId(id))
+    }, [id])
 
-  return (
-    <VStack gap='16' max className={classNames('', {}, [className])}>
-      <Text size={TextSize.XL}
-            style={TextStyle.SECONDARY}>
-        {t('Комментарии')}
-      </Text>
-      <Suspense fallback={<Loader />}>
-        <AddCommentForm onSendComment={onSendComment} />
-      </Suspense>
-      <CommentList comments={comments} isLoading={commentsIsLoading} />
-    </VStack>
-  )
-})
+    return (
+      <VStack gap="16" max className={classNames('', {}, [className])}>
+        <Text size={TextSize.XL} style={TextStyle.SECONDARY}>
+          {t('Комментарии')}
+        </Text>
+        <Suspense fallback={<Loader />}>
+          <AddCommentForm onSendComment={onSendComment} />
+        </Suspense>
+        <CommentList comments={comments} isLoading={commentsIsLoading} />
+      </VStack>
+    )
+  },
+)
 
 ArticleDetailsComments.displayName = 'ArticleDetailsComments'

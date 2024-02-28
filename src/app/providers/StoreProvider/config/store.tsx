@@ -2,7 +2,7 @@ import {
   type ReducersMapObject,
   configureStore,
   type Reducer,
-  type CombinedState
+  type CombinedState,
 } from '@reduxjs/toolkit'
 
 import { counterReducer } from '@/entities/Counter'
@@ -14,33 +14,34 @@ import { rtkApi } from '@/shared/api/rtkApi'
 import { createReducerManager } from './reducerManager'
 import { type ThunkExtraArg, type StateSchema } from './StateSchema'
 
-export function createReduxStore (
+export function createReduxStore(
   initialState: StateSchema,
-  asyncReducers: ReducersMapObject<StateSchema>
+  asyncReducers: ReducersMapObject<StateSchema>,
 ) {
   const reducer: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
     ui: UIReducer,
-    [rtkApi.reducerPath]: rtkApi.reducer
+    [rtkApi.reducerPath]: rtkApi.reducer,
   }
 
   const reducerManager = createReducerManager(reducer)
 
   const extraArgument: ThunkExtraArg = {
-    api: $api
+    api: $api,
   }
 
   const store = configureStore({
     reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
     preloadedState: initialState,
     devTools: __IS_DEV__,
-    middleware: getDefaultMiddleware => getDefaultMiddleware({
-      thunk: {
-        extraArgument
-      }
-    }).concat(rtkApi.middleware)
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        thunk: {
+          extraArgument,
+        },
+      }).concat(rtkApi.middleware),
   })
 
   // @ts-expect-error fixme

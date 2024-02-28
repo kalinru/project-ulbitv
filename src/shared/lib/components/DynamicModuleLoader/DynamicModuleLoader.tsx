@@ -6,7 +6,7 @@ import { useDispatch, useStore } from 'react-redux'
 import {
   type ReduxStoreWithManager,
   type StateSchema,
-  type StateSchemaKey
+  type StateSchemaKey,
 } from '@/app/providers/StoreProvider'
 
 export type ReducersList = {
@@ -20,11 +20,7 @@ interface DynamicModuleLoaderProps {
 }
 
 export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
-  const {
-    children,
-    reducers,
-    removeAfterUnmount
-  } = props
+  const { children, reducers, removeAfterUnmount } = props
 
   const dispatch = useDispatch()
   const store = useStore() as ReduxStoreWithManager
@@ -50,7 +46,5 @@ export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  return (<>
-    {children}
-  </>)
+  return <>{children}</>
 }

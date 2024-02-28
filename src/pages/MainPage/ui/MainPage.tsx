@@ -9,58 +9,69 @@ const MainPage = () => {
   const { t } = useTranslation()
 
   return (
-    <Page data-testid='MainPage'>
+    <Page data-testid="MainPage">
       <div>{t('Главная')}</div>
-      <RatingCard feedbackTitle={t('Оставьте пожайлуста ваш отзыв о статье')}
-                  hasFeedback
-                  title={t('Оцените статью')}
-                  />
-      <div><Counter/></div>
-      <ListBox onChange={console.log}
-               direction='top left'
-               defaultValue={t('choose value')}
-               value={undefined}
-               items={[
-                 { value: 'milk', content: 'milk' },
-                 { value: 'bread', content: 'bread' },
-                 { value: 'banana', content: 'banana' },
-                 { value: 'orange', content: 'orange', disabled: true },
-                 { value: 'meat', content: 'meat' }
-               ]}/>
+      <RatingCard
+        feedbackTitle={t('Оставьте пожайлуста ваш отзыв о статье')}
+        hasFeedback
+        title={t('Оцените статью')}
+      />
+      <div>
+        <Counter />
+      </div>
+      <ListBox
+        onChange={console.log}
+        direction="top left"
+        defaultValue={t('choose value')}
+        value={undefined}
+        items={[
+          { value: 'milk', content: 'milk' },
+          { value: 'bread', content: 'bread' },
+          { value: 'banana', content: 'banana' },
+          { value: 'orange', content: 'orange', disabled: true },
+          { value: 'meat', content: 'meat' },
+        ]}
+      />
 
-      <ListBox onChange={console.log}
-               direction='top right'
-               defaultValue={t('choose value')}
-               value={undefined}
-               items={[
-                 { value: 'milk', content: 'milk' },
-                 { value: 'bread', content: 'bread' },
-                 { value: 'banana', content: 'banana' },
-                 { value: 'orange', content: 'orange', disabled: true },
-                 { value: 'meat', content: 'meat' }
-               ]}/>
-      <ListBox onChange={console.log}
-               direction='bottom left'
-               defaultValue={t('choose value')}
-               value={undefined}
-               items={[
-                 { value: 'milk', content: 'milk' },
-                 { value: 'bread', content: 'bread' },
-                 { value: 'banana', content: 'banana' },
-                 { value: 'orange', content: 'orange', disabled: true },
-                 { value: 'meat', content: 'meat' }
-               ]}/>
-      <ListBox onChange={console.log}
-               direction='bottom right'
-               defaultValue={t('choose value')}
-               value={undefined}
-               items={[
-                 { value: 'milk', content: 'milk' },
-                 { value: 'bread', content: 'bread' },
-                 { value: 'banana', content: 'banana' },
-                 { value: 'orange', content: 'orange', disabled: true },
-                 { value: 'meat', content: 'meat' }
-               ]}/>
+      <ListBox
+        onChange={console.log}
+        direction="top right"
+        defaultValue={t('choose value')}
+        value={undefined}
+        items={[
+          { value: 'milk', content: 'milk' },
+          { value: 'bread', content: 'bread' },
+          { value: 'banana', content: 'banana' },
+          { value: 'orange', content: 'orange', disabled: true },
+          { value: 'meat', content: 'meat' },
+        ]}
+      />
+      <ListBox
+        onChange={console.log}
+        direction="bottom left"
+        defaultValue={t('choose value')}
+        value={undefined}
+        items={[
+          { value: 'milk', content: 'milk' },
+          { value: 'bread', content: 'bread' },
+          { value: 'banana', content: 'banana' },
+          { value: 'orange', content: 'orange', disabled: true },
+          { value: 'meat', content: 'meat' },
+        ]}
+      />
+      <ListBox
+        onChange={console.log}
+        direction="bottom right"
+        defaultValue={t('choose value')}
+        value={undefined}
+        items={[
+          { value: 'milk', content: 'milk' },
+          { value: 'bread', content: 'bread' },
+          { value: 'banana', content: 'banana' },
+          { value: 'orange', content: 'orange', disabled: true },
+          { value: 'meat', content: 'meat' },
+        ]}
+      />
     </Page>
   )
 }

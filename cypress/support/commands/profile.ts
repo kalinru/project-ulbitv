@@ -20,8 +20,9 @@ export const resetProfile = (profileId: string) => {
       country: 'Russian',
       city: 'Moscow',
       username: 'testUser-username',
-      avatar: 'https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625'
-    }
+      avatar:
+        'https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625',
+    },
   })
 }
 

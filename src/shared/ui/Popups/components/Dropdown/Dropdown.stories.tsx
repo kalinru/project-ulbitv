@@ -8,7 +8,7 @@ const meta = {
   title: 'shared/Dropdown',
   component: Dropdown,
   parameters: {},
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof Dropdown>
 
 export default meta
@@ -18,13 +18,12 @@ export const Normal: Story = {
   args: {
     items: [
       {
-        content: 'adasdasfas'
+        content: 'adasdasfas',
       },
       {
-        content: 'bdasd asdasa'
-      }
+        content: 'bdasd asdasa',
+      },
     ],
-    trigger: <Button>Trigger</Button>
-  }
-
+    trigger: <Button>Trigger</Button>,
+  },
 }

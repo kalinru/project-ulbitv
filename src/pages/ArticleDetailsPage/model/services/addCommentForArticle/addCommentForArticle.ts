@@ -7,8 +7,11 @@ import { getUserAuthData } from '@/entities/User'
 
 import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchCommentsByArticleId'
 
-export const addCommentForArticle =
-createAsyncThunk<IComment, string, ThunkConfig<string>>(
+export const addCommentForArticle = createAsyncThunk<
+  IComment,
+  string,
+  ThunkConfig<string>
+>(
   'articleDetails/addCommentForArticle',
   async (text, { extra, rejectWithValue, getState, dispatch }) => {
     const userData = getUserAuthData(getState())
@@ -22,7 +25,7 @@ createAsyncThunk<IComment, string, ThunkConfig<string>>(
       const response = await extra.api.post<IComment>('/comments', {
         articleId: article.id,
         userId: userData.id,
-        text
+        text,
       })
 
       const comment = response.data
@@ -36,5 +39,5 @@ createAsyncThunk<IComment, string, ThunkConfig<string>>(
     } catch (e) {
       return rejectWithValue('error')
     }
-  }
+  },
 )

@@ -19,45 +19,41 @@ interface SelectProps<T extends string> {
   onChange?: (value: T) => void
 }
 
-export const Select = typedMemo(<T extends string>({
-  className,
-  label,
-  readOnly,
-  options,
-  value,
-  onChange
-}: SelectProps<T>) => {
-  const mods: Mods = {
+export const Select = typedMemo(
+  <T extends string>({
+    className,
+    label,
+    readOnly,
+    options,
+    value,
+    onChange,
+  }: SelectProps<T>) => {
+    const mods: Mods = {}
 
-  }
+    const onChangeHandler = (event: ChangeEvent<HTMLSelectElement>) => {
+      onChange?.(event.target.value as T)
+    }
 
-  const onChangeHandler = (event: ChangeEvent<HTMLSelectElement>) => {
-    onChange?.(event.target.value as T)
-  }
+    const optionsElement = useMemo(() => {
+      return options?.map((option) => (
+        <option className={cls.option} key={option.value} value={option.value}>
+          {option.label}
+        </option>
+      ))
+    }, [options])
 
-  const optionsElement = useMemo(() => {
-    return options?.map((option) => (
-      <option className={cls.option}
-              key={option.value}
-              value={option.value}>
-        {option.label}
-      </option>
-    ))
-  }, [options])
-
-  return (
-    <div className={classNames(cls.Wrapper, mods, [className])}>
-      {label && (
-        <div className={cls.label}>
-          {label}
-        </div>
-      )}
-      <select className={cls.select}
-              disabled={readOnly}
-              value={value}
-              onChange={onChangeHandler}>
-        {optionsElement}
-      </select>
-    </div>
-  )
-})
+    return (
+      <div className={classNames(cls.Wrapper, mods, [className])}>
+        {label && <div className={cls.label}>{label}</div>}
+        <select
+          className={cls.select}
+          disabled={readOnly}
+          value={value}
+          onChange={onChangeHandler}
+        >
+          {optionsElement}
+        </select>
+      </div>
+    )
+  },
+)

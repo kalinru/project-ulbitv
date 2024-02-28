@@ -10,15 +10,18 @@ import {
   getArticlesPageOrder,
   getArticlesPageSearch,
   getArticlesPageSort,
-  getArticlesPageType
+  getArticlesPageType,
 } from '../../selectors/articlesPageSelectors'
 
 interface FetchArticlesProps {
   replace?: boolean
 }
 
-export const fetchArticles =
-createAsyncThunk<IArticle[], FetchArticlesProps, ThunkConfig<string>>(
+export const fetchArticles = createAsyncThunk<
+  IArticle[],
+  FetchArticlesProps,
+  ThunkConfig<string>
+>(
   'articlesPage/fetchArticles',
   async ({ replace }, { extra, rejectWithValue, getState }) => {
     const limit = getArticlesPageLimit(getState())
@@ -30,7 +33,10 @@ createAsyncThunk<IArticle[], FetchArticlesProps, ThunkConfig<string>>(
 
     try {
       addQueryParams({
-        sort, order, search, type
+        sort,
+        order,
+        search,
+        type,
       })
       const response = await extra.api.get<IArticle[]>('/articles', {
         params: {
@@ -40,8 +46,8 @@ createAsyncThunk<IArticle[], FetchArticlesProps, ThunkConfig<string>>(
           _sort: sort,
           _order: order,
           q: search,
-          type: type === ArticleType.ALL ? undefined : type
-        }
+          type: type === ArticleType.ALL ? undefined : type,
+        },
       })
       const data = response.data
 
@@ -53,5 +59,5 @@ createAsyncThunk<IArticle[], FetchArticlesProps, ThunkConfig<string>>(
     } catch (e) {
       return rejectWithValue('error')
     }
-  }
+  },
 )

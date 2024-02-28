@@ -9,7 +9,10 @@ export type FlexAlign = 'start' | 'center' | 'end'
 export type FlexDirection = 'row' | 'column'
 export type FlexGap = '4' | '8' | '16' | '32'
 
-type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+type DivProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+>
 
 // TODO сделать вывод типа исходя из переданного пропса component (общий тип -  HTMLAttributes<HTMLElement>)
 export interface FlexProps extends DivProps {
@@ -39,11 +42,11 @@ export const Flex: FC<FlexProps> = ({
     cls[`justify-${justify}`],
     cls[`align-${align}`],
     cls[`direction-${direction}`],
-    gap && cls[`gap-${gap}`]
+    gap && cls[`gap-${gap}`],
   ]
 
   const mods: Mods = {
-    [cls.max]: max
+    [cls.max]: max,
   }
 
   return (

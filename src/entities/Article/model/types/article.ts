@@ -24,7 +24,10 @@ export interface IArticleImageBlock extends IArticleBlockBase {
   src: string
 }
 
-export type TArticleBlock = IArticleTextBlock | IArticleCodeBlock | IArticleImageBlock
+export type TArticleBlock =
+  | IArticleTextBlock
+  | IArticleCodeBlock
+  | IArticleImageBlock
 
 export interface IArticle {
   user?: User

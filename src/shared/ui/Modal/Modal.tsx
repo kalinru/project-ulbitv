@@ -17,19 +17,13 @@ interface ModalProps {
 }
 
 export const Modal = (props: ModalProps) => {
-  const {
-    children,
-    className,
-    isOpen = false,
-    lazy,
-    onClose
-  } = props
+  const { children, className, isOpen = false, lazy, onClose } = props
 
   const { close, isClosing, isMounted } = useModal({ isOpen, onClose })
 
   const mods: Mods = {
     [cls.opened]: isOpen,
-    [cls.isClosing]: isClosing
+    [cls.isClosing]: isClosing,
   }
 
   if (lazy && !isMounted) {
@@ -40,9 +34,7 @@ export const Modal = (props: ModalProps) => {
     <Portal>
       <div className={classNames(cls.Modal, mods, [className])}>
         <Overlay onClick={close} />
-        <div className={cls.content}>
-          {children}
-        </div>
+        <div className={cls.content}>{children}</div>
       </div>
     </Portal>
   )

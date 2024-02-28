@@ -4,7 +4,10 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 
 import cls from './Input.module.scss'
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
+type HTMLInputProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'value' | 'onChange' | 'readOnly'
+>
 
 interface InputProps extends HTMLInputProps {
   className?: string
@@ -29,24 +32,21 @@ export const Input = memo((props: InputProps) => {
     onChange?.(e.target.value)
   }
   const mods = {
-    [cls.readOnly]: readOnly
+    [cls.readOnly]: readOnly,
   }
 
   return (
     <div className={classNames(cls.Input, mods, [className])}>
-      { !!label &&
-        <div className={cls.label}>
-          {label}
-        </div>
-      }
-      <input value={value}
-             onChange={onChangeHandler}
-             type={type}
-             className={cls.input}
-             readOnly={readOnly}
-             {...restProps}/>
+      {!!label && <div className={cls.label}>{label}</div>}
+      <input
+        value={value}
+        onChange={onChangeHandler}
+        type={type}
+        className={cls.input}
+        readOnly={readOnly}
+        {...restProps}
+      />
     </div>
-
   )
 })
 

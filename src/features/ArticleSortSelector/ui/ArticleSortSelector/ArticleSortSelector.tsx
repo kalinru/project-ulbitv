@@ -17,53 +17,59 @@ interface ArticleSortSelectorProps {
   onChangeSort: (newSort: ArticleSortField) => void
 }
 
-export const ArticleSortSelector: FC<ArticleSortSelectorProps> = memo(({
-  className,
-  sort,
-  order,
-  onChangeOrder,
-  onChangeSort
-}) => {
-  const { t } = useTranslation()
+export const ArticleSortSelector: FC<ArticleSortSelectorProps> = memo(
+  ({ className, sort, order, onChangeOrder, onChangeSort }) => {
+    const { t } = useTranslation()
 
-  const sortFieldOptions = useMemo<Array<SelectOption<ArticleSortField>>>(() => [
-    {
-      value: ArticleSortField.CREATED,
-      label: t('По дате создания')
-    },
-    {
-      value: ArticleSortField.TITLE,
-      label: t('По названию')
-    },
-    {
-      value: ArticleSortField.VIEW,
-      label: t('По количеству просмотров')
-    }
-  ], [t])
+    const sortFieldOptions = useMemo<Array<SelectOption<ArticleSortField>>>(
+      () => [
+        {
+          value: ArticleSortField.CREATED,
+          label: t('По дате создания'),
+        },
+        {
+          value: ArticleSortField.TITLE,
+          label: t('По названию'),
+        },
+        {
+          value: ArticleSortField.VIEW,
+          label: t('По количеству просмотров'),
+        },
+      ],
+      [t],
+    )
 
-  const orderOptions = useMemo<Array<SelectOption<SortOrder>>>(() => [
-    {
-      value: 'asc',
-      label: t('По возрастанию')
-    },
-    {
-      value: 'desc',
-      label: t('По убыванию')
-    }
-  ], [t])
+    const orderOptions = useMemo<Array<SelectOption<SortOrder>>>(
+      () => [
+        {
+          value: 'asc',
+          label: t('По возрастанию'),
+        },
+        {
+          value: 'desc',
+          label: t('По убыванию'),
+        },
+      ],
+      [t],
+    )
 
-  return (
-    <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
-      <Select label={t('Сортировка')}
-              options={sortFieldOptions}
-              onChange={onChangeSort}
-              value={sort}/>
-      <Select label={t('Порядок')}
-              options={orderOptions}
-              onChange={onChangeOrder}
-              value={order} />
-    </div>
-  )
-})
+    return (
+      <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
+        <Select
+          label={t('Сортировка')}
+          options={sortFieldOptions}
+          onChange={onChangeSort}
+          value={sort}
+        />
+        <Select
+          label={t('Порядок')}
+          options={orderOptions}
+          onChange={onChangeOrder}
+          value={order}
+        />
+      </div>
+    )
+  },
+)
 
 ArticleSortSelector.displayName = 'ArticleSortSelector'

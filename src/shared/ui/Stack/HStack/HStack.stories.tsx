@@ -6,12 +6,12 @@ const meta = {
   title: 'shared/HStack',
   component: HStack,
   parameters: {},
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof HStack>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Normal: Story = {
-  args: { }
+  args: {},
 }

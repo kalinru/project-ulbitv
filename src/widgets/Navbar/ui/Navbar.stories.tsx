@@ -10,27 +10,23 @@ const meta = {
   title: 'widgets/Navbar',
   component: Navbar,
   parameters: {},
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof Navbar>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Light: Story = {
-  args: {
-  },
-  decorators: [
-    StoreDecorator({})
-  ]
+  args: {},
+  decorators: [StoreDecorator({})],
 }
 
 export const Dark: Story = {
-  args: {
-  },
+  args: {},
   decorators: [
     ThemeDecorator(Theme.DARK),
     StoreDecorator({
-      user: { authData: { id: '1', username: 'name' } }
-    })
-  ]
+      user: { authData: { id: '1', username: 'name' } },
+    }),
+  ],
 }

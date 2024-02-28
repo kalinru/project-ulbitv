@@ -14,52 +14,52 @@ import { type AppRoutesProps } from '@/shared/types/router'
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.MAIN]: {
     path: RoutePath.main(),
-    element: <MainPage />
+    element: <MainPage />,
   },
   [AppRoutes.ABOUT]: {
     path: RoutePath.about(),
-    element: <AboutPage />
+    element: <AboutPage />,
   },
   [AppRoutes.PROFILE]: {
     path: RoutePath.profile(':id'),
     element: <ProfilePage />,
-    authOnly: true
+    authOnly: true,
   },
   [AppRoutes.ARTICLES]: {
     path: RoutePath.articles(),
     element: <ArticlesPage />,
-    authOnly: true
+    authOnly: true,
   },
   [AppRoutes.ARTICLE_DETAILS]: {
     path: RoutePath.article_details(':id'),
     element: <ArticleDetailsPage />,
-    authOnly: true
+    authOnly: true,
   },
   [AppRoutes.ARTICLE_CREATE]: {
     path: RoutePath.article_create(),
     element: <ArticleEditPage />,
-    authOnly: true
+    authOnly: true,
   },
   [AppRoutes.ARTICLE_EDIT]: {
     path: RoutePath.article_edit(':id'),
     element: <ArticleEditPage />,
-    authOnly: true
+    authOnly: true,
   },
   [AppRoutes.ADMIN_PANEL]: {
     path: RoutePath.admin_panel(),
     element: <AdminPanelPage />,
     authOnly: true,
-    roles: [UserRole.MANAGER, UserRole.ADMIN]
+    roles: [UserRole.MANAGER, UserRole.ADMIN],
   },
   [AppRoutes.FORBIDDEN]: {
     path: RoutePath.forbidden(),
     element: <ForbiddenPage />,
-    authOnly: false
+    authOnly: false,
   },
 
   // last
   [AppRoutes.NOT_FOUND]: {
     path: RoutePath.not_found(),
-    element: <NotFoundPage />
-  }
+    element: <NotFoundPage />,
+  },
 }

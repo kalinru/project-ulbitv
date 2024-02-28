@@ -18,35 +18,41 @@ interface ArticleViewSelectorProps {
 const viewTypes = [
   {
     view: ArticleView.SMALL,
-    icon: TileIcon
+    icon: TileIcon,
   },
   {
     view: ArticleView.BIG,
-    icon: ListIcon
-  }
+    icon: ListIcon,
+  },
 ]
 
-export const ArticleViewSelector: FC<ArticleViewSelectorProps> = memo(({
-  className,
-  view,
-  onViewClick
-}) => {
-  const onClick = (newView: ArticleView) => () => {
-    onViewClick?.(newView)
-  }
+export const ArticleViewSelector: FC<ArticleViewSelectorProps> = memo(
+  ({ className, view, onViewClick }) => {
+    const onClick = (newView: ArticleView) => () => {
+      onViewClick?.(newView)
+    }
 
-  return (
-    <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
-      {viewTypes.map(viewType => (
-        <Button key={viewType.view}
-                square={true}
-                onClick={onClick(viewType.view)}>
-          <Icon Svg={viewType.icon}
-                className={classNames('', { [cls.notActive]: viewType.view !== view }, [])}/>
-        </Button>
-      ))}
-    </div>
-  )
-})
+    return (
+      <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
+        {viewTypes.map((viewType) => (
+          <Button
+            key={viewType.view}
+            square={true}
+            onClick={onClick(viewType.view)}
+          >
+            <Icon
+              Svg={viewType.icon}
+              className={classNames(
+                '',
+                { [cls.notActive]: viewType.view !== view },
+                [],
+              )}
+            />
+          </Button>
+        ))}
+      </div>
+    )
+  },
+)
 
 ArticleViewSelector.displayName = 'ArticleViewSelector'

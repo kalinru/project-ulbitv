@@ -3,7 +3,7 @@ import {
   type EnhancedStore,
   type ReducersMapObject,
   type Reducer,
-  type CombinedState
+  type CombinedState,
 } from '@reduxjs/toolkit'
 import { type AxiosInstance } from 'axios'
 
@@ -14,9 +14,7 @@ import { type AddCommentFormSchema } from '@/features/addCommentForm'
 import { type LoginSchema } from '@/features/AuthByUsername'
 import { type ProfileSchema } from '@/features/editableProfileCard'
 import { type UISchema } from '@/features/UI'
-import {
-  type ArticleDetailsPageSchema
-} from '@/pages/ArticleDetailsPage'
+import { type ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage'
 import { type ArticlesPageSchema } from '@/pages/ArticlesPage'
 import { type rtkApi } from '@/shared/api/rtkApi'
 

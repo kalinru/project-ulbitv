@@ -6,7 +6,7 @@ import { type LoginSchema } from '../types/LoginSchema'
 const initialState: LoginSchema = {
   username: '',
   password: '',
-  isLoading: false
+  isLoading: false,
 }
 
 export const loginSlice = createSlice({
@@ -18,7 +18,7 @@ export const loginSlice = createSlice({
     },
     setPassword: (state, action: PayloadAction<string>) => {
       state.password = action.payload
-    }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -33,7 +33,7 @@ export const loginSlice = createSlice({
         state.error = action.payload
         state.isLoading = false
       })
-  }
+  },
 })
 
 export const { actions: loginActions } = loginSlice

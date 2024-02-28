@@ -8,7 +8,7 @@ const meta = {
   title: 'shared/ArticleTypeTabs',
   component: ArticleTypeTabs,
   parameters: {},
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof ArticleTypeTabs>
 
 export default meta
@@ -16,6 +16,6 @@ type Story = StoryObj<typeof meta>
 
 export const Normal: Story = {
   args: {
-    value: ArticleType.ALL
-  }
+    value: ArticleType.ALL,
+  },
 }

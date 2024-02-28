@@ -6,12 +6,12 @@ const meta = {
   title: 'shared/ArticleListWrapper',
   component: ArticleListWrapper,
   parameters: {},
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof ArticleListWrapper>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Normal: Story = {
-  args: { }
+  args: {},
 }

@@ -9,39 +9,36 @@ import { RoutePath } from '@/shared/consts/router'
 
 import { type ISidebarItem } from '../types/sidebar'
 
-export const getSidebarItems = createSelector(
-  getUserAuthData,
-  (userData) => {
-    const items: ISidebarItem[] = [
+export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
+  const items: ISidebarItem[] = [
+    {
+      path: RoutePath.main(),
+      text: 'Главная',
+      Icon: MainIcon,
+    },
+    {
+      path: RoutePath.about(),
+      text: 'О нас',
+      Icon: AboutIcon,
+    },
+  ]
+
+  if (userData) {
+    items.push(
       {
-        path: RoutePath.main(),
-        text: 'Главная',
-        Icon: MainIcon
+        path: RoutePath.articles(),
+        text: 'Статьи',
+        Icon: ArticleIcon,
+        authOnly: true,
       },
       {
-        path: RoutePath.about(),
-        text: 'О нас',
-        Icon: AboutIcon
-      }
-    ]
-
-    if (userData) {
-      items.push(
-        {
-          path: RoutePath.articles(),
-          text: 'Статьи',
-          Icon: ArticleIcon,
-          authOnly: true
-        },
-        {
-          path: RoutePath.profile(userData?.id),
-          text: 'Профиль',
-          Icon: PersonIcon,
-          authOnly: true
-        }
-      )
-    }
-
-    return items
+        path: RoutePath.profile(userData?.id),
+        text: 'Профиль',
+        Icon: PersonIcon,
+        authOnly: true,
+      },
+    )
   }
-)
+
+  return items
+})

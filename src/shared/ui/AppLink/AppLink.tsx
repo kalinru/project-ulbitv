@@ -16,27 +16,27 @@ interface AppLinkProps extends LinkProps {
   theme?: AppLinkTheme
 }
 
-export const AppLink: FC<AppLinkProps> = memo(forwardRef((
-  props,
-  ref: ForwardedRef<HTMLAnchorElement>
-) => {
-  const {
-    to,
-    className,
-    children,
-    theme = AppLinkTheme.PRIMARY,
-    ...restProps
-  } = props
+export const AppLink: FC<AppLinkProps> = memo(
+  forwardRef((props, ref: ForwardedRef<HTMLAnchorElement>) => {
+    const {
+      to,
+      className,
+      children,
+      theme = AppLinkTheme.PRIMARY,
+      ...restProps
+    } = props
 
-  return (
-    <Link ref={ref}
-          to={to}
-          className={classNames(cls.AppLink, {}, [className, cls[theme]])}
-          {...restProps}
-        >
-      {children}
-    </Link>
-  )
-}))
+    return (
+      <Link
+        ref={ref}
+        to={to}
+        className={classNames(cls.AppLink, {}, [className, cls[theme]])}
+        {...restProps}
+      >
+        {children}
+      </Link>
+    )
+  }),
+)
 
 AppLink.displayName = 'AppLink'

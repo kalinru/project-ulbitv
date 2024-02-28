@@ -21,11 +21,9 @@ export const Code: FC<CodeProps> = memo(({ className, text }) => {
   return (
     <pre className={classNames(cls.Code, {}, [className])}>
       <Button className={cls.copyBtn} onClick={onCopy}>
-        <Icon Svg={CopyIcon} className={cls.copyIcon}/>
+        <Icon Svg={CopyIcon} className={cls.copyIcon} />
       </Button>
-      <code>
-        {text}
-      </code>
+      <code>{text}</code>
     </pre>
   )
 })

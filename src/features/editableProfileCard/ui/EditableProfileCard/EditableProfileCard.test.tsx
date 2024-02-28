@@ -19,7 +19,7 @@ const profile: Profile = {
   currency: Currency.USD,
   country: Country.Russian,
   city: 'Moscow',
-  username: 'admin213'
+  username: 'admin213',
 }
 
 const options = {
@@ -30,29 +30,35 @@ const options = {
       isLoading: false,
       error: undefined,
       readonly: true,
-      validateErrors: undefined
+      validateErrors: undefined,
     },
     user: {
       authData: {
-        id: '1'
-      }
-    }
+        id: '1',
+      },
+    },
   },
-  asyncReducers: { profile: profileReducer }
+  asyncReducers: { profile: profileReducer },
 }
 
 describe('features.EditableProfileCard', () => {
   beforeEach(() => {
-    renderComponent(<EditableProfileCard id='1'/>, options)
+    renderComponent(<EditableProfileCard id="1" />, options)
   })
 
   test('При нажатии на кнопку РЕДАКТИРОВАТЬ появляется кнопка ОТМЕНЫ', async () => {
-    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'))
-    expect(screen.getByTestId('EditableProfileCardHeader.CancelButton')).toBeInTheDocument()
+    await userEvent.click(
+      screen.getByTestId('EditableProfileCardHeader.EditButton'),
+    )
+    expect(
+      screen.getByTestId('EditableProfileCardHeader.CancelButton'),
+    ).toBeInTheDocument()
   })
 
   test('При нажатии ОТМЕНА данные в форме возвращаются к исходным', async () => {
-    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'))
+    await userEvent.click(
+      screen.getByTestId('EditableProfileCardHeader.EditButton'),
+    )
     expect(screen.getByTestId('ProfileCard.first')).toHaveValue('admin')
     expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('rusel')
 
@@ -66,23 +72,35 @@ describe('features.EditableProfileCard', () => {
     expect(screen.getByTestId('ProfileCard.first')).toHaveValue('firstname')
     expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('lastname')
 
-    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.CancelButton'))
+    await userEvent.click(
+      screen.getByTestId('EditableProfileCardHeader.CancelButton'),
+    )
     expect(screen.getByTestId('ProfileCard.first')).toHaveValue('admin')
     expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('rusel')
   })
 
   test('Валидация формы (поле first обязательно)', async () => {
-    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'))
+    await userEvent.click(
+      screen.getByTestId('EditableProfileCardHeader.EditButton'),
+    )
     await userEvent.clear(screen.getByTestId('ProfileCard.first'))
-    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveButton'))
-    expect(screen.getByTestId('EditableProfileCard.Error.Text')).toBeInTheDocument()
+    await userEvent.click(
+      screen.getByTestId('EditableProfileCardHeader.SaveButton'),
+    )
+    expect(
+      screen.getByTestId('EditableProfileCard.Error.Text'),
+    ).toBeInTheDocument()
   })
 
   test('Если данные формы валидны, на сервер отправляется PUT запрос', async () => {
     const mockPuRequest = jest.spyOn($api, 'put')
-    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'))
+    await userEvent.click(
+      screen.getByTestId('EditableProfileCardHeader.EditButton'),
+    )
     await userEvent.type(screen.getByTestId('ProfileCard.first'), 'firstname')
-    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveButton'))
+    await userEvent.click(
+      screen.getByTestId('EditableProfileCardHeader.SaveButton'),
+    )
     expect(mockPuRequest).toHaveBeenCalled()
   })
 })

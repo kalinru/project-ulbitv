@@ -7,7 +7,10 @@ import { getUserAuthData } from '@/entities/User'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { Skeleton } from '@/shared/ui/Skeleton'
 
-import { useArticleRatings, useSetArticleRating } from '../../api/articleRatingApi'
+import {
+  useArticleRatings,
+  useSetArticleRating,
+} from '../../api/articleRatingApi'
 
 export interface ArticleRatingProps {
   className?: string
@@ -19,40 +22,54 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
   const { t } = useTranslation()
 
   const authData = useAppSelector(getUserAuthData)
-  const { isLoading, data: articleRatings } = useArticleRatings({ userId: authData?.id ?? '', articleId })
+  const { isLoading, data: articleRatings } = useArticleRatings({
+    userId: authData?.id ?? '',
+    articleId,
+  })
   const [setArticleRatingMutation] = useSetArticleRating()
 
   const rate = articleRatings?.[0]
 
-  const setArticleRating = useCallback((startCount: number, feedback?: string) => {
-    void setArticleRatingMutation({
-      articleId,
-      rate: startCount,
-      userId: authData?.id ?? '',
-      feedback
-    })
-  }, [articleId, authData?.id, setArticleRatingMutation])
+  const setArticleRating = useCallback(
+    (startCount: number, feedback?: string) => {
+      void setArticleRatingMutation({
+        articleId,
+        rate: startCount,
+        userId: authData?.id ?? '',
+        feedback,
+      })
+    },
+    [articleId, authData?.id, setArticleRatingMutation],
+  )
 
-  const onCancel = useCallback((startCount: number) => {
-    setArticleRating(startCount)
-  }, [setArticleRating])
+  const onCancel = useCallback(
+    (startCount: number) => {
+      setArticleRating(startCount)
+    },
+    [setArticleRating],
+  )
 
-  const onAccept = useCallback((startCount: number, feedback?: string) => {
-    setArticleRating(startCount, feedback)
-  }, [setArticleRating])
+  const onAccept = useCallback(
+    (startCount: number, feedback?: string) => {
+      setArticleRating(startCount, feedback)
+    },
+    [setArticleRating],
+  )
 
   if (isLoading) {
-    return <Skeleton width={'100%'} height={120}/>
+    return <Skeleton width={'100%'} height={120} />
   }
 
   return (
-    <RatingCard className={className}
-                title={t('Оцените статью')}
-                feedbackTitle={t('Пожалуйста, напиши отзыв о статье')}
-                hasFeedback
-                rate={rate?.rate}
-                onAccept={onAccept}
-                onCancel={onCancel} />
+    <RatingCard
+      className={className}
+      title={t('Оцените статью')}
+      feedbackTitle={t('Пожалуйста, напиши отзыв о статье')}
+      hasFeedback
+      rate={rate?.rate}
+      onAccept={onAccept}
+      onCancel={onCancel}
+    />
   )
 })
 

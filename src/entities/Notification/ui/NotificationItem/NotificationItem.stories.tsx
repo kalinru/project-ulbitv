@@ -8,8 +8,8 @@ export default {
   title: 'entities/Notification/NotificationItem',
   component: NotificationItem,
   argTypes: {
-    backgroundColor: { control: 'color' }
-  }
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof NotificationItem>
 
 const Template: ComponentStory<typeof NotificationItem> = (args) => (

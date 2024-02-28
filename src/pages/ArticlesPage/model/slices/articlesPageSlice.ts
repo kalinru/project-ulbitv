@@ -1,7 +1,7 @@
 import {
   type PayloadAction,
   createEntityAdapter,
-  createSlice
+  createSlice,
 } from '@reduxjs/toolkit'
 
 import { type StateSchema } from '@/app/providers/StoreProvider'
@@ -14,11 +14,11 @@ import { fetchArticles } from '../services/fetchArticles/fetchArticles'
 import { type ArticlesPageSchema } from '../types/articlesPageSchema'
 
 const articlesAdapter = createEntityAdapter<IArticle>({
-  selectId: (article: IArticle) => article.id
+  selectId: (article: IArticle) => article.id,
 })
 
 export const getArticles = articlesAdapter.getSelectors<StateSchema>(
-  (state) => state.articlesPage ?? articlesAdapter.getInitialState()
+  (state) => state.articlesPage ?? articlesAdapter.getInitialState(),
 )
 
 const articlesPageSlice = createSlice({
@@ -36,7 +36,7 @@ const articlesPageSlice = createSlice({
     search: '',
     order: 'asc',
     limit: 9,
-    type: ArticleType.ALL
+    type: ArticleType.ALL,
   }),
   reducers: {
     setView: (state, action: PayloadAction<ArticleView>) => {
@@ -59,12 +59,14 @@ const articlesPageSlice = createSlice({
       state.type = action.payload
     },
     initState: (state) => {
-      const view = localStorage.getItem(ARTICLES_VIEW_LOCAL_STORAGE_KEY) as ArticleView ??
-        ArticleView.SMALL
+      const view =
+        (localStorage.getItem(
+          ARTICLES_VIEW_LOCAL_STORAGE_KEY,
+        ) as ArticleView) ?? ArticleView.SMALL
       state.view = view
       state.limit = view === ArticleView.SMALL ? 9 : 4
       state._inited = true
-    }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -89,7 +91,7 @@ const articlesPageSlice = createSlice({
         state.isLoading = false
         state.error = action.payload
       })
-  }
+  },
 })
 
 export const { actions: articlesPageActions } = articlesPageSlice

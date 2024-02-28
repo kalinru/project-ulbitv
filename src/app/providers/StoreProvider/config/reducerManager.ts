@@ -2,18 +2,18 @@ import {
   type ReducersMapObject,
   combineReducers,
   type AnyAction,
-  type Reducer
+  type Reducer,
 } from '@reduxjs/toolkit'
 
 import {
   type StateSchemaKey,
   type StateSchema,
   type ReducerManager,
-  type MountedReducers
+  type MountedReducers,
 } from './StateSchema'
 
-export function createReducerManager (
-  initialReducers: ReducersMapObject<StateSchema>
+export function createReducerManager(
+  initialReducers: ReducersMapObject<StateSchema>,
 ): ReducerManager {
   // Create an object which maps keys to reducers
   const reducers = { ...initialReducers }
@@ -76,6 +76,6 @@ export function createReducerManager (
 
       // Generate a new combined reducer
       combinedReducer = combineReducers(reducers)
-    }
+    },
   }
 }

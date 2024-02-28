@@ -11,8 +11,8 @@ const meta = {
   parameters: {},
   tags: ['autodocs'],
   args: {
-    to: '/'
-  }
+    to: '/',
+  },
 } satisfies Meta<typeof AppLink>
 
 export default meta
@@ -21,29 +21,29 @@ type Story = StoryObj<typeof meta>
 export const Primary: Story = {
   args: {
     theme: AppLinkTheme.PRIMARY,
-    children: 'Button'
-  }
+    children: 'Button',
+  },
 }
 
 export const Secondary: Story = {
   args: {
     theme: AppLinkTheme.SECONDARY,
-    children: 'Button'
-  }
+    children: 'Button',
+  },
 }
 
 export const PrimaryDark: Story = {
   args: {
     theme: AppLinkTheme.PRIMARY,
-    children: 'Button'
-  }
+    children: 'Button',
+  },
 }
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)]
 
 export const SecondaryDark: Story = {
   args: {
     theme: AppLinkTheme.SECONDARY,
-    children: 'Button'
-  }
+    children: 'Button',
+  },
 }
 SecondaryDark.decorators = [ThemeDecorator(Theme.DARK)]

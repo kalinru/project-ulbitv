@@ -8,9 +8,9 @@ declare module '*.scss' {
 // declare module "*.module.css";
 // declare module "*.module.scss";
 
-declare module '*.jpg';
-declare module '*.png';
-declare module '*.jpeg';
+declare module '*.jpg'
+declare module '*.png'
+declare module '*.jpeg'
 declare module '*.svg' {
   import type React from 'react'
   const SVG: React.VFC<React.SVGProps<SVGSVGElement>>
@@ -24,10 +24,12 @@ declare const __API__: string
 // eslint-disable-next-line @typescript-eslint/naming-convention
 declare const __PROJECT__: 'storybook' | 'frontend' | 'jest'
 
-declare type DeepPartial<T> = T extends object ? {
-  [P in keyof T]?: DeepPartial<T[P]>;
-} : T
+declare type DeepPartial<T> = T extends object
+  ? {
+      [P in keyof T]?: DeepPartial<T[P]>
+    }
+  : T
 
 declare type OptionalRecord<K extends keyof any, T> = {
-  [P in K]?: T;
+  [P in K]?: T
 }

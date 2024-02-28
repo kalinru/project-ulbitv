@@ -4,11 +4,13 @@ import { type Story } from '@storybook/react'
 import { ThemeProvider } from '@/app/providers/ThemeProvider'
 import { type Theme } from '@/shared/consts/theme'
 
-// eslint-disable-next-line react/display-name
-export const ThemeDecorator = (theme: Theme) => (Story: Story): JSX.Element => (
-  <ThemeProvider initialTheme={theme}>
-    <div className={`app ${theme}`}>
-      <Story />
-    </div>
-  </ThemeProvider>
-)
+export const ThemeDecorator =
+  (theme: Theme) =>
+  // eslint-disable-next-line react/display-name
+  (Story: Story): JSX.Element => (
+    <ThemeProvider initialTheme={theme}>
+      <div className={`app ${theme}`}>
+        <Story />
+      </div>
+    </ThemeProvider>
+  )

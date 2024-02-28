@@ -1,4 +1,10 @@
-import { memo, type ButtonHTMLAttributes, type FC, forwardRef, type ForwardedRef } from 'react'
+import {
+  memo,
+  type ButtonHTMLAttributes,
+  type FC,
+  forwardRef,
+  type ForwardedRef,
+} from 'react'
 
 import { type Mods, classNames } from '@/shared/lib/classNames/classNames'
 
@@ -25,31 +31,37 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean
 }
 
-export const Button: FC<ButtonProps> = memo(forwardRef((props, ref: ForwardedRef<HTMLButtonElement>) => {
-  const {
-    children,
-    className,
-    theme = ButtonTheme.CLEAR,
-    square = false,
-    size = ButtonSize.M,
-    disabled = false,
-    ...restProps
-  } = props
+export const Button: FC<ButtonProps> = memo(
+  forwardRef((props, ref: ForwardedRef<HTMLButtonElement>) => {
+    const {
+      children,
+      className,
+      theme = ButtonTheme.CLEAR,
+      square = false,
+      size = ButtonSize.M,
+      disabled = false,
+      ...restProps
+    } = props
 
-  const mods: Mods = {
-    [cls.square]: square,
-    [cls.disabled]: disabled
-  }
+    const mods: Mods = {
+      [cls.square]: square,
+      [cls.disabled]: disabled,
+    }
 
-  return (
-    <button
-          disabled={disabled}
-          className={classNames(cls.Button, mods, [className, cls[theme], cls[size]])}
-          {...restProps}
-        >
-      { children }
-    </button>
-  )
-}))
+    return (
+      <button
+        disabled={disabled}
+        className={classNames(cls.Button, mods, [
+          className,
+          cls[theme],
+          cls[size],
+        ])}
+        {...restProps}
+      >
+        {children}
+      </button>
+    )
+  }),
+)
 
 Button.displayName = 'Button'

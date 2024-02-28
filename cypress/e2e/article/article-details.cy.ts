@@ -36,7 +36,7 @@ describe('Пользователь заходит на страницу стат
 
   it('И ставит оценку (пример с стабом на фикстурах)', () => {
     cy.intercept('GET', '**/articles/*', {
-      fixture: 'article-details.json'
+      fixture: 'article-details.json',
     })
     cy.getByTestId('ArticleDetails.Info')
     cy.getByTestId('RatingCard').scrollIntoView()

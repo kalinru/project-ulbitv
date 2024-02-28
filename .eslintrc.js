@@ -39,17 +39,17 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
+        "ulbi-tv-plugin-kalinru",
         "react",
         "@typescript-eslint",
         "i18next",
         "jsx-a11y",
         // "react-hooks",
-        "ulbi-tv-plugin-kalinru",
         "unused-imports",
         "import"
     ],
     "rules": {
-        "react/jsx-indent": [2, 2],
+        // "react/jsx-indent": [2, 2],
         "max-len": ['error', { ignoreComments: true, code: 120 }],
         // 'react/jsx-indent-props': [2, 4],
         // indent: [2, 4],

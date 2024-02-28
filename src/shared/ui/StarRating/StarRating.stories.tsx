@@ -6,12 +6,12 @@ const meta = {
   title: 'shared/StarRating',
   component: StarRating,
   parameters: {},
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof StarRating>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Normal: Story = {
-  args: { }
+  args: {},
 }

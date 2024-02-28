@@ -6,7 +6,7 @@ const meta = {
   title: 'shared/Select',
   component: Select,
   parameters: {},
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof Select>
 
 export default meta
@@ -17,8 +17,8 @@ export const Primary: Story = {
     label: 'Selector',
     options: [
       { label: 'option 1', value: '1' },
-      { label: 'option 2', value: '2' }
+      { label: 'option 2', value: '2' },
     ],
-    value: '2'
-  }
+    value: '2',
+  },
 }

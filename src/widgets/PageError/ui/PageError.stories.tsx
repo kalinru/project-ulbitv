@@ -9,19 +9,17 @@ const meta = {
   title: 'widgets/PageError',
   component: PageError,
   parameters: {},
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof PageError>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Light: Story = {
-  args: {
-  }
+  args: {},
 }
 
 export const Dark: Story = {
-  args: {
-  }
+  args: {},
 }
 Dark.decorators = [ThemeDecorator(Theme.DARK)]

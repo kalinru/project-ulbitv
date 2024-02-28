@@ -10,8 +10,8 @@ export default {
   title: 'features/NotificationButton',
   component: NotificationButton,
   argTypes: {
-    backgroundColor: { control: 'color' }
-  }
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof NotificationButton>
 
 const Template: ComponentStory<typeof NotificationButton> = (args) => (
@@ -31,19 +31,19 @@ Normal.parameters = {
         {
           id: '1',
           title: 'Уведомление',
-          description: 'Поставь лайк и оставь комментарий под Ulbi TV'
+          description: 'Поставь лайк и оставь комментарий под Ulbi TV',
         },
         {
           id: '2',
           title: 'Уведомление 2',
-          description: 'Поставь лайк и оставь комментарий под Ulbi TV'
+          description: 'Поставь лайк и оставь комментарий под Ulbi TV',
         },
         {
           id: '3',
           title: 'Уведомление 3',
-          description: 'Поставь лайк и оставь комментарий под Ulbi TV'
-        }
-      ]
-    }
-  ]
+          description: 'Поставь лайк и оставь комментарий под Ulbi TV',
+        },
+      ],
+    },
+  ],
 }

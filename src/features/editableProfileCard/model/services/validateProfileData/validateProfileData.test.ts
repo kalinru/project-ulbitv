@@ -12,7 +12,7 @@ const data = {
   lastname: 'ulbi tv',
   first: 'asd',
   city: 'asf',
-  currency: Currency.USD
+  currency: Currency.USD,
 }
 
 describe('validateProfileData.test', () => {
@@ -26,7 +26,7 @@ describe('validateProfileData.test', () => {
     const result = validateProfileData({
       ...data,
       first: '',
-      lastname: ''
+      lastname: '',
     })
 
     expect(result).toEqual([ValidateProfileError.INCORRECT_USER_DATA])
@@ -50,7 +50,7 @@ describe('validateProfileData.test', () => {
     expect(result).toEqual([
       ValidateProfileError.INCORRECT_USER_DATA,
       ValidateProfileError.INCORRECT_COUNTRY,
-      ValidateProfileError.INCORRECT_AGE
+      ValidateProfileError.INCORRECT_AGE,
     ])
   })
 })

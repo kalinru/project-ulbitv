@@ -29,56 +29,63 @@ interface ListBoxProps {
   onChange: (item: string) => void
 }
 
-export const ListBox: FC<ListBoxProps> = memo(({
-  className,
-  items,
-  value,
-  defaultValue,
-  label,
-  readOnly,
-  direction = 'bottom right',
-  onChange
-}) => {
-  const optionsClasses = [
-    cls.options,
-    mapDirectionClass[direction]
-  ]
+export const ListBox: FC<ListBoxProps> = memo(
+  ({
+    className,
+    items,
+    value,
+    defaultValue,
+    label,
+    readOnly,
+    direction = 'bottom right',
+    onChange,
+  }) => {
+    const optionsClasses = [cls.options, mapDirectionClass[direction]]
 
-  return (<HStack gap='4'>
-    {label && <span>{label}: </span>}
-    <Listbox value={value}
-             onChange={onChange}
-             disabled={readOnly}
-             as='div'
-             className={classNames(cls.ListBox, {}, [className, popupCls.popup])}>
-      <Listbox.Button as={Button}
-                      className={cls.buttonWrapper}
-                      disabled={readOnly}
-                      theme={ButtonTheme.OUTLINE}>
-        {value ?? defaultValue}
-      </Listbox.Button>
-      <Listbox.Options className={classNames('', {}, optionsClasses)}>
-        {items?.map((item) => (
-          <Listbox.Option
-            key={item.value}
-            value={item.value}
-            disabled={item.disabled}
-            as={Fragment}
+    return (
+      <HStack gap="4">
+        {label && <span>{label}: </span>}
+        <Listbox
+          value={value}
+          onChange={onChange}
+          disabled={readOnly}
+          as="div"
+          className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
+        >
+          <Listbox.Button
+            as={Button}
+            className={cls.buttonWrapper}
+            disabled={readOnly}
+            theme={ButtonTheme.OUTLINE}
           >
-            {({ active, selected }) => (
-              <li className={classNames(cls.option, {
-                [popupCls.active]: active,
-                [popupCls.selected]: selected,
-                [popupCls.disabled]: item.disabled
-              })}>
-                {item.content}
-              </li>
-            )}
-          </Listbox.Option>
-        ))}
-      </Listbox.Options>
-    </Listbox>
-  </HStack>)
-})
+            {value ?? defaultValue}
+          </Listbox.Button>
+          <Listbox.Options className={classNames('', {}, optionsClasses)}>
+            {items?.map((item) => (
+              <Listbox.Option
+                key={item.value}
+                value={item.value}
+                disabled={item.disabled}
+                as={Fragment}
+              >
+                {({ active, selected }) => (
+                  <li
+                    className={classNames(cls.option, {
+                      [popupCls.active]: active,
+                      [popupCls.selected]: selected,
+                      [popupCls.disabled]: item.disabled,
+                    })}
+                  >
+                    {item.content}
+                  </li>
+                )}
+              </Listbox.Option>
+            ))}
+          </Listbox.Options>
+        </Listbox>
+      </HStack>
+    )
+  },
+)
 
 ListBox.displayName = 'ListBox'

@@ -6,7 +6,7 @@ const meta = {
   title: 'shared/Button',
   component: Button,
   parameters: {},
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof Button>
 
 export default meta
@@ -14,60 +14,60 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
-    children: 'Button'
-  }
+    children: 'Button',
+  },
 }
 
 export const Clear: Story = {
   args: {
     children: 'Button',
-    theme: ButtonTheme.CLEAR
-  }
+    theme: ButtonTheme.CLEAR,
+  },
 }
 
 export const Outline: Story = {
   args: {
     children: 'Button',
-    theme: ButtonTheme.OUTLINE
-  }
+    theme: ButtonTheme.OUTLINE,
+  },
 }
 
 export const OutlineSizeL: Story = {
   args: {
     children: 'Button',
     theme: ButtonTheme.OUTLINE,
-    size: ButtonSize.L
-  }
+    size: ButtonSize.L,
+  },
 }
 
 export const OutlineSizeXL: Story = {
   args: {
     children: 'Button',
     theme: ButtonTheme.OUTLINE,
-    size: ButtonSize.XL
-  }
+    size: ButtonSize.XL,
+  },
 }
 
 export const Background: Story = {
   args: {
     children: 'Button',
-    theme: ButtonTheme.BACKGROUND
-  }
+    theme: ButtonTheme.BACKGROUND,
+  },
 }
 
 export const BackgroundInverted: Story = {
   args: {
     children: 'Button',
-    theme: ButtonTheme.BACKGROUND_INVERTED
-  }
+    theme: ButtonTheme.BACKGROUND_INVERTED,
+  },
 }
 
 export const Square: Story = {
   args: {
     children: '>',
     theme: ButtonTheme.BACKGROUND_INVERTED,
-    square: true
-  }
+    square: true,
+  },
 }
 
 export const SquareSizeL: Story = {
@@ -75,8 +75,8 @@ export const SquareSizeL: Story = {
     children: '>',
     theme: ButtonTheme.BACKGROUND_INVERTED,
     square: true,
-    size: ButtonSize.L
-  }
+    size: ButtonSize.L,
+  },
 }
 
 export const SquareSizeXL: Story = {
@@ -84,14 +84,14 @@ export const SquareSizeXL: Story = {
     children: '>',
     theme: ButtonTheme.BACKGROUND_INVERTED,
     square: true,
-    size: ButtonSize.XL
-  }
+    size: ButtonSize.XL,
+  },
 }
 
 export const Disabled: Story = {
   args: {
     children: 'disabled',
     theme: ButtonTheme.OUTLINE,
-    disabled: true
-  }
+    disabled: true,
+  },
 }

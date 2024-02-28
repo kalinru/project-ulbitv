@@ -8,7 +8,7 @@ const meta = {
   title: 'shared/ArticleViewSelector',
   component: ArticleViewSelector,
   parameters: {},
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof ArticleViewSelector>
 
 export default meta
@@ -16,6 +16,6 @@ type Story = StoryObj<typeof meta>
 
 export const Normal: Story = {
   args: {
-    view: ArticleView.SMALL
-  }
+    view: ArticleView.SMALL,
+  },
 }

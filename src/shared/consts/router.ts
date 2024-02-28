@@ -10,7 +10,7 @@ export enum AppRoutes {
   FORBIDDEN = 'forbidden',
 
   // last
-  NOT_FOUND = 'not_found'
+  NOT_FOUND = 'not_found',
 }
 
 export interface RouteParams {
@@ -44,5 +44,5 @@ export const RoutePath: Routes = {
   articles: () => '/articles',
   profile: (id) => `/profile/${id}`,
   admin_panel: () => '/admin',
-  not_found: () => '*'
+  not_found: () => '*',
 }

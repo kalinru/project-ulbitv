@@ -13,16 +13,17 @@ const defaultAsyncReducers: ReducersList = {
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
   addCommentForm: addCommentFormReducer,
-  articleDetailsPage: articleDetailsPageReducer
+  articleDetailsPage: articleDetailsPageReducer,
 }
 
-export const StoreDecorator = (
-  state: DeepPartial<StateSchema>,
-  asynncReducers?: ReducersList
-// eslint-disable-next-line react/display-name
-) => (Story: Story): JSX.Element => (
-  <StoreProvider initialState={state}
-                 asyncReducers={{ ...defaultAsyncReducers, ...asynncReducers }}>
-    <Story />
-  </StoreProvider>
-)
+export const StoreDecorator =
+  (state: DeepPartial<StateSchema>, asynncReducers?: ReducersList) =>
+  // eslint-disable-next-line react/display-name
+  (Story: Story): JSX.Element => (
+    <StoreProvider
+      initialState={state}
+      asyncReducers={{ ...defaultAsyncReducers, ...asynncReducers }}
+    >
+      <Story />
+    </StoreProvider>
+  )

@@ -50,7 +50,9 @@ describe('loginByUsername.test', () => {
     thunk.api.post.mockReturnValue(Promise.resolve({ data: userValue }))
     const result = await thunk.callThunk({ username: '123', password: '123' })
 
-    expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setUserData(userValue))
+    expect(thunk.dispatch).toHaveBeenCalledWith(
+      userActions.setUserData(userValue),
+    )
     expect(thunk.dispatch).toHaveBeenCalledTimes(3)
     // eslint-disable-next-line @typescript-eslint/unbound-method
     expect(thunk.api.post).toHaveBeenCalled()

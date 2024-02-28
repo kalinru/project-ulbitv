@@ -11,5 +11,5 @@ export const getCanEditArticle = createSelector(
       return false
     }
     return String(article.user?.id) === String(user.id)
-  }
+  },
 )

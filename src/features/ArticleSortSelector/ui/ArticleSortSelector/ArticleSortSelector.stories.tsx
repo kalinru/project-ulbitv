@@ -8,7 +8,7 @@ const meta = {
   title: 'shared/ArticleSortSelector',
   component: ArticleSortSelector,
   parameters: {},
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof ArticleSortSelector>
 
 export default meta
@@ -17,6 +17,6 @@ type Story = StoryObj<typeof meta>
 export const Normal: Story = {
   args: {
     order: 'asc',
-    sort: ArticleSortField.CREATED
-  }
+    sort: ArticleSortField.CREATED,
+  },
 }

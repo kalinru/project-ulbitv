@@ -6,7 +6,7 @@ const meta = {
   title: 'shared/Code',
   component: Code,
   parameters: {},
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof Code>
 
 export default meta
@@ -33,6 +33,6 @@ export const Normal: Story = {
     children: ''
   }
 }
-`
-  }
+`,
+  },
 }

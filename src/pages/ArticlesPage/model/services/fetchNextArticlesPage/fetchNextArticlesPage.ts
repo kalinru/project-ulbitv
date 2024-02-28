@@ -5,13 +5,16 @@ import { type ThunkConfig } from '@/app/providers/StoreProvider'
 import {
   getArticlesPageHasMore,
   getArticlesPageIsLoading,
-  getArticlesPageNumber
+  getArticlesPageNumber,
 } from '../../selectors/articlesPageSelectors'
 import { articlesPageActions } from '../../slices/articlesPageSlice'
 import { fetchArticles } from '../fetchArticles/fetchArticles'
 
-export const fetchNextArticlesPage =
-createAsyncThunk<unknown, undefined, ThunkConfig<string>>(
+export const fetchNextArticlesPage = createAsyncThunk<
+  unknown,
+  undefined,
+  ThunkConfig<string>
+>(
   'articlesPage/fetchNextArticlesPage',
   async (_, { getState, dispatch, rejectWithValue }) => {
     const page = getArticlesPageNumber(getState())
@@ -23,5 +26,5 @@ createAsyncThunk<unknown, undefined, ThunkConfig<string>>(
       dispatch(articlesPageActions.setPage(nextPage))
       void dispatch(fetchArticles({}))
     }
-  }
+  },
 )

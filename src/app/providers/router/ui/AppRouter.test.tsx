@@ -18,14 +18,14 @@ describe('app/router/AppRouter', () => {
         removeListener: jest.fn(), // Deprecated
         addEventListener: jest.fn(),
         removeEventListener: jest.fn(),
-        dispatchEvent: jest.fn()
-      }))
+        dispatchEvent: jest.fn(),
+      })),
     })
   })
 
   test('Страница отрендерилась', async () => {
     renderComponent(<AppRouter />, {
-      route: RoutePath.about()
+      route: RoutePath.about(),
     })
 
     const page = await screen.findByTestId('AboutPage')
@@ -44,7 +44,7 @@ describe('app/router/AppRouter', () => {
 
   test('Редирект неавторизованного пользователя на главную', async () => {
     renderComponent(<AppRouter />, {
-      route: RoutePath.profile('1')
+      route: RoutePath.profile('1'),
     })
 
     const page = await screen.findByTestId('MainPage')
@@ -55,8 +55,8 @@ describe('app/router/AppRouter', () => {
     renderComponent(<AppRouter />, {
       route: RoutePath.profile('1'),
       initialState: {
-        user: { inited: true, authData: {} }
-      }
+        user: { inited: true, authData: {} },
+      },
     })
 
     const page = await screen.findByTestId('ProfilePage')
@@ -67,8 +67,8 @@ describe('app/router/AppRouter', () => {
     renderComponent(<AppRouter />, {
       route: RoutePath.admin_panel(),
       initialState: {
-        user: { inited: true, authData: {} }
-      }
+        user: { inited: true, authData: {} },
+      },
     })
 
     const page = await screen.findByTestId('ForbiddenPage')
@@ -79,8 +79,8 @@ describe('app/router/AppRouter', () => {
     renderComponent(<AppRouter />, {
       route: RoutePath.admin_panel(),
       initialState: {
-        user: { inited: true, authData: { roles: [UserRole.ADMIN] } }
-      }
+        user: { inited: true, authData: { roles: [UserRole.ADMIN] } },
+      },
     })
 
     const page = await screen.findByTestId('AdminPanelPage')

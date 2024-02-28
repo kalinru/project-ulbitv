@@ -29,7 +29,9 @@ export const RequireAuth = memo(({ children, roles }: RequireAuthProps) => {
   }
 
   if (!hasRequiredRoles) {
-    return <Navigate to={RoutePath.forbidden()} state={{ from: location }} replace />
+    return (
+      <Navigate to={RoutePath.forbidden()} state={{ from: location }} replace />
+    )
   }
 
   return <>{children}</>

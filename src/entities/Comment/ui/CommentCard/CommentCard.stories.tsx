@@ -6,7 +6,7 @@ const meta = {
   title: 'shared/CommentCard',
   component: CommentCard,
   parameters: {},
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof CommentCard>
 
 export default meta
@@ -20,8 +20,8 @@ export const Normal: Story = {
       text: 'comment 1',
       user: {
         id: '1',
-        username: 'admin'
-      }
-    }
-  }
+        username: 'admin',
+      },
+    },
+  },
 }
