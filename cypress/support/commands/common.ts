@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-namespace */
-import { selectByTestId } from 'cypress/helpers/selectByTestId'
-
 import { type User } from '../../../src/entities/User'
 import { USER_LOCAL_STORAGE_KEY } from '../../../src/shared/consts/localStorage'
+import { selectByTestId } from '../../helpers/selectByTestId'
 
 export const login = (username: string = 'testUser-username', password: string = 'testUser-password') => {
   return cy.request({

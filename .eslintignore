@@ -3,3 +3,4 @@ vite.config.ts
 /config
 /scripts
 cypress.config.ts
+cypress/component/*

@@ -11,7 +11,7 @@ describe('Пользователь заходит на страницу со с�
   })
 
   it('На стабах (фикстурах)', () => {
-    cy.intercept('GET', '**/articles?*', { fixture: 'articles.json' })
+    cy.intercept('GET', '**/articles?*', { fixture: 'article-list.json' })
     cy.getByTestId('ArticleList').should('exist')
     cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 3)
   })
