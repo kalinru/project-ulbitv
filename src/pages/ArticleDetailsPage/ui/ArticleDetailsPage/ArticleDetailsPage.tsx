@@ -1,5 +1,6 @@
 import { memo, type ReactNode } from 'react'
 
+import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 
 import { ArticleDetails } from '@/entities/Article'
@@ -10,6 +11,7 @@ import {
   DynamicModuleLoader,
   type ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { toggleFeatures } from '@/shared/lib/features'
 import { VStack } from '@/shared/ui/Stack'
 import { Page } from '@/widgets/Page'
 
@@ -30,10 +32,19 @@ const reducers: ReducersList = {
 
 const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
   const { id } = useParams<{ id: string }>()
+  const { t } = useTranslation()
+  // const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled')
+  // const isCounterEnabled = getFeatureFlag('isCounterEnabled')
 
   if (!id) {
     return null
   }
+
+  const articleRating = toggleFeatures({
+    name: 'isArticleRatingEnabled',
+    on: () => <ArticleRating articleId={id} />,
+    off: () => <div>{t('Оценка статьи скоро появится')}</div>,
+  })
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
@@ -41,7 +52,7 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
         <VStack gap="16" max>
           <ArticleDetailsPageHeader />
           <ArticleDetails id={id} />
-          <ArticleRating articleId={id} />
+          {articleRating}
           <ArticleRecommendationsList />
           <ArticleDetailsComments id={id} />
         </VStack>
