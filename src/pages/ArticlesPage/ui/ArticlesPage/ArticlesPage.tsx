@@ -11,6 +11,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { Page } from '@/widgets/Page'
 
+import { useArticleById } from '../../model/selectors/articlesPageSelectors'
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage'
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice'
@@ -30,6 +31,9 @@ const reducers: ReducersList = {
 const ArticlesPage: FC<ArticlesPageProps> = memo(({ className }) => {
   const dispatch = useAppDispatch()
   const [searchParams] = useSearchParams()
+
+  const data = useArticleById('7')
+  console.log(data)
 
   const onLoadNextPart = useCallback(() => {
     void dispatch(fetchNextArticlesPage())
