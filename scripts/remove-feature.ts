@@ -84,7 +84,7 @@ const getAttributeNodeByName = (
   jsxAttributes: JsxAttribute[],
   name: string,
 ) => {
-  return jsxAttributes.find((node) => node.getName() === name)
+  return jsxAttributes.find((node) => node.getNameNode().getText() === name)
 }
 
 const getReplacedComponent = (attribute?: JsxAttribute) => {

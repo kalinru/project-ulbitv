@@ -1,3 +1,11 @@
+export { initAuthData } from './model/services/initAuthData'
+export { saveUserSettings } from './model/services/saveUserSettings'
+export {
+  getUserSettings,
+  getUserSettingsByKey,
+  useUserSettings,
+  useUserSettingsByKey,
+} from './model/selectors/userSettings'
 export { UserRole } from './model/consts/consts'
 export {
   getIsUserAdmin,

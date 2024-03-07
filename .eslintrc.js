@@ -12,7 +12,7 @@ module.exports = {
         // "plugin:storybook/recommended", ??? 112 Исправляем проблемы с зависимостями. Обновляем сторибук
         // "plugin:import/recommended",
         // "plugin:import/typescript",
-        "plugin:prettier/recommended"
+        "plugin:prettier/recommended",
     ],
     "overrides": [
         {

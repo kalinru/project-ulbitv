@@ -5,13 +5,13 @@ import { ThemeContext } from '../../context/ThemeContext'
 
 interface useThemeResult {
   theme: Theme
-  toggleTheme: () => void
+  toggleTheme: (saveAction?: (theme: Theme) => void) => void
 }
 
 const useTheme = (): useThemeResult => {
   const { theme, setTheme } = useContext(ThemeContext)
 
-  const toggleTheme = () => {
+  const toggleTheme = (saveAction?: (theme: Theme) => void) => {
     let newTheme: Theme
     switch (theme) {
       case Theme.LIGHT:
@@ -27,6 +27,7 @@ const useTheme = (): useThemeResult => {
         newTheme = Theme.LIGHT
     }
     setTheme?.(newTheme)
+    saveAction?.(newTheme)
   }
 
   return {

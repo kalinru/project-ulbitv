@@ -1,11 +1,12 @@
 import { useMemo, useState, useEffect, type ReactNode } from 'react'
 
+import { useUserSettings } from '@/entities/User'
 import { LOCAL_STORAGE_THEME_KEY } from '@/shared/consts/localStorage'
 import { Theme } from '@/shared/consts/theme'
 import { ThemeContext } from '@/shared/lib/context/ThemeContext'
 
-const defaultTheme =
-  (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) ?? Theme.LIGHT
+// const defaultTheme =
+//   (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) ?? Theme.LIGHT
 
 interface ThemeProviderProps {
   initialTheme?: Theme
@@ -13,7 +14,11 @@ interface ThemeProviderProps {
 }
 
 const ThemeProvider = ({ children, initialTheme }: ThemeProviderProps) => {
-  const [theme, setTheme] = useState(initialTheme ?? defaultTheme)
+  const [isThemeInited, setThemeInited] = useState(false)
+  const { theme: userSettingsTheme } = useUserSettings()
+  const [theme, setTheme] = useState(
+    initialTheme ?? userSettingsTheme ?? Theme.LIGHT,
+  )
 
   const defaultProps = useMemo(
     () => ({
@@ -22,6 +27,13 @@ const ThemeProvider = ({ children, initialTheme }: ThemeProviderProps) => {
     }),
     [theme],
   )
+
+  useEffect(() => {
+    if (!isThemeInited && userSettingsTheme) {
+      setTheme(userSettingsTheme)
+      setThemeInited(true)
+    }
+  }, [initialTheme, isThemeInited, theme, userSettingsTheme])
 
   useEffect(() => {
     document.body.className = theme

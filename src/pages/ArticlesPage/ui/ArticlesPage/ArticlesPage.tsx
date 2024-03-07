@@ -2,6 +2,7 @@ import { memo, type FC, useCallback } from 'react'
 
 import { useSearchParams } from 'react-router-dom'
 
+import { ArticlePageGreeting } from '@/features/ArticlePageGreeting'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import {
   DynamicModuleLoader,
@@ -52,6 +53,7 @@ const ArticlesPage: FC<ArticlesPageProps> = memo(({ className }) => {
       >
         <ArticlePageFilter />
         <ArticleListWrapper className={cls.list} />
+        <ArticlePageGreeting />
       </Page>
     </DynamicModuleLoader>
   )

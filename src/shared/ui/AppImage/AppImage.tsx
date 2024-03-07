@@ -15,8 +15,8 @@ interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
 
 export const AppImage: FC<AppImageProps> = memo(
   ({ className, src, alt = '', fallback, errorFallback, ...restProps }) => {
-    const [isLoading, setIsLoading] = useState(false)
-    const [hasError, setHasError] = useState(true)
+    const [isLoading, setIsLoading] = useState(true)
+    const [hasError, setHasError] = useState(false)
 
     useLayoutEffect(() => {
       const img = new Image()
