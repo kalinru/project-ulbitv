@@ -11,7 +11,7 @@ import {
   DynamicModuleLoader,
   type ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { toggleFeatures } from '@/shared/lib/features'
+import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
 import { VStack } from '@/shared/ui/Stack'
 import { Page } from '@/widgets/Page'
 
@@ -40,11 +40,11 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
     return null
   }
 
-  const articleRating = toggleFeatures({
-    name: 'isArticleRatingEnabled',
-    on: () => <ArticleRating articleId={id} />,
-    off: () => <div>{t('Оценка статьи скоро появится')}</div>,
-  })
+  // const articleRating = toggleFeatures({
+  //   name: 'isArticleRatingEnabled',
+  //   on: () => <ArticleRating articleId={id} />,
+  //   off: () => <div>{t('Оценка статьи скоро появится')}</div>,
+  // })
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
@@ -52,7 +52,11 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
         <VStack gap="16" max>
           <ArticleDetailsPageHeader />
           <ArticleDetails id={id} />
-          {articleRating}
+          <ToggleFeatures
+            feature="isArticleRatingEnabled"
+            on={<ArticleRating articleId={id} />}
+            off={<div>{t('Оценка статьи скоро появится')}</div>}
+          />
           <ArticleRecommendationsList />
           <ArticleDetailsComments id={id} />
         </VStack>

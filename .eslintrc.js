@@ -82,6 +82,7 @@ module.exports = {
                     'as',
                     'element',
                     'border',
+                    'feature',
                 ]
             }
         ],
