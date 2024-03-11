@@ -1,0 +1,32 @@
+.app_contrast_theme {
+  --bg-color: #fff;
+  --bg-color-inverted: #000;
+  --primary-color: #000;
+  --secondary-color: #00f;
+  --primary-color-inverted: #fff;
+  --secondary-color-inverted: #ffbf00;
+
+  // skeleton
+  --skeleton-color: #fff;
+  --skeleton-shadow: rgba(0 0 0 / 20%);
+
+  // code
+  --code-bg: #fff;
+
+  // card
+  --card-bg: #fff;
+
+  // ListBox (select)
+  --listbox-bg: #fff;
+
+  // redesigned
+  --dark-bg-redesigned: #fff3d6;
+  --bg-redesigned: #f0c048;
+  --light-bg-redesigned: #f2d791;
+  --text-redesigned: #1b1311;
+  --hint-redesigned: #b8b2a2;
+  --cancel-redesigned: #ff5e5e;
+  --save-redesigned: #52fa81;
+  --icon-redesigned: #4875f0;
+  --accent-redesigned: #1d59ff;
+}

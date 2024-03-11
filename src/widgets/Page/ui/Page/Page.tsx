@@ -11,6 +11,7 @@ import { useLocation } from 'react-router-dom'
 import { type StateSchema } from '@/app/providers/StoreProvider'
 import { UIActions, getUIScrollPositionByPath } from '@/features/UI'
 import { classNames } from '@/shared/lib/classNames/classNames'
+import { toggleFeatures } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll'
@@ -57,10 +58,16 @@ export const Page = memo(
       )
     }, 200)
 
+    const clazz = toggleFeatures({
+      name: 'isAppRedesigned',
+      on: () => cls.PageRedesigned,
+      off: () => cls.Page,
+    })
+
     return (
       <main
         ref={wrapperRef}
-        className={classNames(cls.Page, {}, [className])}
+        className={classNames(clazz, {}, [className])}
         id={PAGE_ID}
         onScroll={onScroll}
         data-testid={restProps['data-testid'] ?? 'Page'}

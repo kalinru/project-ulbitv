@@ -9,6 +9,7 @@ import { AvatarDropdown } from '@/features/avatarDropdown'
 import { NotificationButton } from '@/features/notificationButton'
 import { RoutePath } from '@/shared/consts/router'
 import { classNames } from '@/shared/lib/classNames/classNames'
+import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
 import { AppLink, AppLinkTheme, Button, ButtonTheme } from '@/shared/ui'
 import { HStack } from '@/shared/ui/Stack'
 import { Text, TextSize, TextStyle } from '@/shared/ui/Text'
@@ -35,22 +36,38 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   if (authData) {
     return (
-      <header className={classNames(cls.Navbar, {}, [className])}>
-        <Text
-          className={cls.appName}
-          style={TextStyle.SECONDARY}
-          size={TextSize.XL}
-        >
-          {t('Articles App')}
-        </Text>
-        <AppLink to={RoutePath.article_create()} theme={AppLinkTheme.SECONDARY}>
-          {t('Добавить статью')}
-        </AppLink>
-        <HStack gap="16" className={cls.actions}>
-          <NotificationButton />
-          <AvatarDropdown />
-        </HStack>
-      </header>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
+            <HStack gap="16" className={cls.actions}>
+              <NotificationButton />
+              <AvatarDropdown />
+            </HStack>
+          </header>
+        }
+        off={
+          <header className={classNames(cls.Navbar, {}, [className])}>
+            <Text
+              className={cls.appName}
+              style={TextStyle.SECONDARY}
+              size={TextSize.XL}
+            >
+              {t('Articles App')}
+            </Text>
+            <AppLink
+              to={RoutePath.article_create()}
+              theme={AppLinkTheme.SECONDARY}
+            >
+              {t('Добавить статью')}
+            </AppLink>
+            <HStack gap="16" className={cls.actions}>
+              <NotificationButton />
+              <AvatarDropdown />
+            </HStack>
+          </header>
+        }
+      />
     )
   }
 

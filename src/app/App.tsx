@@ -1,7 +1,9 @@
 import { Suspense, useEffect } from 'react'
 
 import { getUserIninted, initAuthData } from '@/entities/User'
+import { MainLayout } from '@/shared/layouts/MainLayout'
 import { classNames } from '@/shared/lib/classNames/classNames'
+import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import useTheme from '@/shared/lib/hooks/useTheme/useTheme'
@@ -26,15 +28,32 @@ const App = (): JSX.Element => {
   }
 
   return (
-    <div className={classNames('app', {}, [theme])}>
-      <Suspense fallback="">
-        <Navbar />
-        <div className="content-page">
-          <Sidebar />
-          {inited && <AppRouter />}
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      off={
+        <div className={classNames('app', {}, [theme])}>
+          <Suspense fallback="">
+            <Navbar />
+            <div className="content-page">
+              <Sidebar />
+              <AppRouter />
+            </div>
+          </Suspense>
         </div>
-      </Suspense>
-    </div>
+      }
+      on={
+        <div className={classNames('app_redesigned', {}, [theme])}>
+          <Suspense fallback="">
+            <MainLayout
+              content={<AppRouter />}
+              header={<Navbar />}
+              sidebar={<Sidebar />}
+              toolbar={<div>+</div>}
+            />
+          </Suspense>
+        </div>
+      }
+    />
   )
 }
 
