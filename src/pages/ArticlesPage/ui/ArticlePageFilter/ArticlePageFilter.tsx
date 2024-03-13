@@ -15,8 +15,8 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce'
 import { type SortOrder } from '@/shared/types/sort'
-import { Card } from '@/shared/ui/Card'
-import { Input } from '@/shared/ui/Input'
+import { Card } from '@/shared/ui/deprecated/Card'
+import { Input } from '@/shared/ui/deprecated/Input'
 
 import {
   getArticlesPageOrder,

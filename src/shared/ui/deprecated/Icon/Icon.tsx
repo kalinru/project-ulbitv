@@ -12,7 +12,7 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
 }
 
 export const Icon: FC<IconProps> = memo(
-  ({ className, Svg, inverted, primary, ...restProps }) => {
+  ({ className, Svg, inverted, primary = true, ...restProps }) => {
     return (
       <Svg
         className={classNames(

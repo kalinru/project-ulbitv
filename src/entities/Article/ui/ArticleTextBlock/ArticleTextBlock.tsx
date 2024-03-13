@@ -1,7 +1,7 @@
 import { memo, type FC } from 'react'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Text, TextSize } from '@/shared/ui/Text'
+import { Text, TextSize } from '@/shared/ui/deprecated/Text'
 
 import { type IArticleTextBlock } from '../../model/types/article'
 

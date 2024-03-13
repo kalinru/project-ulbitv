@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 
 import { Counter } from '@/entities/Counter'
 import { RatingCard } from '@/entities/RatingCard'
-import { ListBox } from '@/shared/ui/Popups'
+import { ListBox } from '@/shared/ui/deprecated/Popups'
 import { Page } from '@/widgets/Page'
 
 const MainPage = () => {

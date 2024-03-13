@@ -10,9 +10,10 @@ import { NotificationButton } from '@/features/notificationButton'
 import { RoutePath } from '@/shared/consts/router'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
-import { AppLink, AppLinkTheme, Button, ButtonTheme } from '@/shared/ui'
-import { HStack } from '@/shared/ui/Stack'
-import { Text, TextSize, TextStyle } from '@/shared/ui/Text'
+import { AppLink, AppLinkTheme } from '@/shared/ui/deprecated/AppLink'
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button'
+import { HStack } from '@/shared/ui/deprecated/Stack'
+import { Text, TextSize, TextStyle } from '@/shared/ui/deprecated/Text'
 
 import cls from './Navbar.module.scss'
 

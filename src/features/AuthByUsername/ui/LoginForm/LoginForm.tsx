@@ -9,9 +9,9 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
-import { Button, ButtonTheme } from '@/shared/ui'
-import { Input } from '@/shared/ui/Input'
-import { Text, TextStyle } from '@/shared/ui/Text'
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button'
+import { Input } from '@/shared/ui/deprecated/Input'
+import { Text, TextStyle } from '@/shared/ui/deprecated/Text'
 
 import { loginActions, loginReducer } from '../..//model/slice/loginSlice'
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError'

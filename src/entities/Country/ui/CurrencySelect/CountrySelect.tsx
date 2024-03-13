@@ -3,7 +3,7 @@ import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Select } from '@/shared/ui/Select'
+import { Select } from '@/shared/ui/deprecated/Select'
 
 import { Country } from '../../model/types/country'
 

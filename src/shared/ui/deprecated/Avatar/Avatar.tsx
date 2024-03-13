@@ -1,8 +1,8 @@
 import { type CSSProperties, useMemo } from 'react'
 
+import AvatarIcon from '@/shared/assets/icons/user-filled.svg'
 import { classNames } from '@/shared/lib/classNames/classNames'
 
-import AvatarIcon from '../../assets/icons/user-filled.svg'
 import { AppImage } from '../AppImage'
 import { Icon } from '../Icon'
 import { Skeleton } from '../Skeleton'

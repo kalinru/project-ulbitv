@@ -4,8 +4,8 @@ import { ArticleView } from '@/entities/Article'
 import ListIcon from '@/shared/assets/icons/list-24-24.svg'
 import TileIcon from '@/shared/assets/icons/tiled-24-24.svg'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Button } from '@/shared/ui'
-import { Icon } from '@/shared/ui/Icon'
+import { Button } from '@/shared/ui/deprecated/Button/Button'
+import { Icon } from '@/shared/ui/deprecated/Icon'
 
 import cls from './ArticleViewSelector.module.scss'
 
@@ -42,6 +42,8 @@ export const ArticleViewSelector: FC<ArticleViewSelectorProps> = memo(
           >
             <Icon
               Svg={viewType.icon}
+              width={24}
+              height={24}
               className={classNames(
                 '',
                 { [cls.notActive]: viewType.view !== view },

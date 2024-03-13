@@ -3,7 +3,7 @@ import { memo, type FC } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { VStack } from '@/shared/ui/Stack'
+import { VStack } from '@/shared/ui/deprecated/Stack'
 
 import { type IComment } from '../../model/types/comment'
 import { CommentCard } from '../CommentCard/CommentCard'
