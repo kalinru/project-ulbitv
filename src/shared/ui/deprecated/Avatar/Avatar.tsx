@@ -19,6 +19,9 @@ interface AvatarProps {
 
 const DEFAULT_SIZE = 100
 
+/**
+ * @deprecated
+ */
 export const Avatar = ({
   className,
   src,

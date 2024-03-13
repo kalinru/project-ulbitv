@@ -19,6 +19,9 @@ interface SelectProps<T extends string> {
   onChange?: (value: T) => void
 }
 
+/**
+ * @deprecated
+ */
 export const Select = typedMemo(
   <T extends string>({
     className,

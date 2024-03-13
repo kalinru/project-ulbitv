@@ -17,6 +17,9 @@ interface PopoverProps {
   direction?: DropdownDirection
 }
 
+/**
+ * @deprecated
+ */
 export const Popover = memo(
   ({
     children,

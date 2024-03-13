@@ -16,6 +16,9 @@ interface ModalProps {
   onClose?: () => void
 }
 
+/**
+ * @deprecated
+ */
 export const Modal = (props: ModalProps) => {
   const { children, className, isOpen = false, lazy, onClose } = props
 

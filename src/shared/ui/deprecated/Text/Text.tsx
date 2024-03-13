@@ -37,6 +37,9 @@ export enum TextStyle {
 //   h1: TextSize.XL
 // }
 
+/**
+ * @deprecated
+ */
 export const Text = memo((props: TextProps) => {
   const {
     className,

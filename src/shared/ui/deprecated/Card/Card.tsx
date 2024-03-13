@@ -15,6 +15,9 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   max?: boolean
 }
 
+/**
+ * @deprecated
+ */
 export const Card: FC<CardProps> = memo(
   ({ className, children, theme = CardTheme.DEFAULT, max, ...restProps }) => {
     return (

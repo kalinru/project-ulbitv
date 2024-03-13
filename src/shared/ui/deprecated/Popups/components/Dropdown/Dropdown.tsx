@@ -25,6 +25,9 @@ interface DropdownProps {
   direction?: DropdownDirection
 }
 
+/**
+ * @deprecated
+ */
 export const Dropdown: FC<DropdownProps> = memo(
   ({ className, trigger, items, direction = 'bottom right' }) => {
     const menuClasses = [mapDirectionClass[direction]]

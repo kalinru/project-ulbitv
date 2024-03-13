@@ -13,6 +13,9 @@ interface CodeProps {
   text: string
 }
 
+/**
+ * @deprecated
+ */
 export const Code: FC<CodeProps> = memo(({ className, text }) => {
   const onCopy = useCallback(() => {
     void navigator.clipboard.writeText(text)

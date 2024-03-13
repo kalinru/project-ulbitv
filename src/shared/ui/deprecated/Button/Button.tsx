@@ -31,6 +31,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean
 }
 
+/**
+ * @deprecated
+ */
 export const Button: FC<ButtonProps> = memo(
   forwardRef((props, ref: ForwardedRef<HTMLButtonElement>) => {
     const {

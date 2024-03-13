@@ -29,6 +29,9 @@ interface ListBoxProps {
   onChange: (item: string) => void
 }
 
+/**
+ * @deprecated
+ */
 export const ListBox: FC<ListBoxProps> = memo(
   ({
     className,

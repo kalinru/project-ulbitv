@@ -11,6 +11,9 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
   primary?: boolean
 }
 
+/**
+ * @deprecated
+ */
 export const Icon: FC<IconProps> = memo(
   ({ className, Svg, inverted, primary = true, ...restProps }) => {
     return (

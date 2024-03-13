@@ -12,6 +12,9 @@ interface AppLogoProps {
   size?: number
 }
 
+/**
+ * @deprecated
+ */
 export const AppLogo = memo(({ className, size = 50 }: AppLogoProps) => {
   return (
     <HStack
