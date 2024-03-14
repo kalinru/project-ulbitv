@@ -1,11 +1,20 @@
+/* eslint-disable import/order */
 import { createSelector } from '@reduxjs/toolkit'
 
 import { getUserAuthData } from '@/entities/User'
-import AboutIcon from '@/shared/assets/icons/about.svg'
-import ArticleIcon from '@/shared/assets/icons/article-20-20.svg'
+
+import AboutIconDeprecated from '@/shared/assets/icons/about-20-20.svg'
+import ArticleIconDeprecated from '@/shared/assets/icons/article-20-20.svg'
+import MainIconDeprecated from '@/shared/assets/icons/main-20-20.svg'
+import ProfileIconDeprecated from '@/shared/assets/icons/profile-20-20.svg'
+
+import ArticleIcon from '@/shared/assets/icons/article.svg'
+import ProfileIcon from '@/shared/assets/icons/avatar.svg'
 import MainIcon from '@/shared/assets/icons/home.svg'
-import PersonIcon from '@/shared/assets/icons/person.svg'
+import AboutIcon from '@/shared/assets/icons/Info.svg'
+
 import { RoutePath } from '@/shared/consts/router'
+import { toggleFeatures } from '@/shared/lib/features'
 
 import { type ISidebarItem } from '../types/sidebar'
 
@@ -14,12 +23,20 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
     {
       path: RoutePath.main(),
       text: 'Главная',
-      Icon: MainIcon,
+      Icon: toggleFeatures({
+        name: 'isAppRedesigned',
+        off: () => MainIconDeprecated,
+        on: () => MainIcon,
+      }),
     },
     {
       path: RoutePath.about(),
       text: 'О нас',
-      Icon: AboutIcon,
+      Icon: toggleFeatures({
+        name: 'isAppRedesigned',
+        off: () => AboutIconDeprecated,
+        on: () => AboutIcon,
+      }),
     },
   ]
 
@@ -28,13 +45,21 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
       {
         path: RoutePath.articles(),
         text: 'Статьи',
-        Icon: ArticleIcon,
+        Icon: toggleFeatures({
+          name: 'isAppRedesigned',
+          off: () => ArticleIconDeprecated,
+          on: () => ArticleIcon,
+        }),
         authOnly: true,
       },
       {
         path: RoutePath.profile(userData?.id),
         text: 'Профиль',
-        Icon: PersonIcon,
+        Icon: toggleFeatures({
+          name: 'isAppRedesigned',
+          off: () => ProfileIconDeprecated,
+          on: () => ProfileIcon,
+        }),
         authOnly: true,
       },
     )

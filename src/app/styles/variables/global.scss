@@ -29,6 +29,8 @@
   --danger: red;
 
   // redesigned
+  // TODO разделить старые и новые переменные, чтобы не тянуть в бандл все и
+  // чтобы избавиться от окончания --redesigned (тоже самое в темах (themes))
 
   // s
   --font-s-redesigned: var(--font-size-s) / var(--font-line-height-s) var(--font-family-text-redesigned);
