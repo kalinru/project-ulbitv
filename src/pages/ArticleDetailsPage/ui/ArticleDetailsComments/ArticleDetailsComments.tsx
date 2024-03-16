@@ -9,8 +9,8 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { Loader } from '@/shared/ui/deprecated/Loader'
-import { VStack } from '@/shared/ui/deprecated/Stack'
 import { Text, TextSize, TextStyle } from '@/shared/ui/deprecated/Text'
+import { VStack } from '@/shared/ui/redesigned/Stack'
 
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments'
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle'

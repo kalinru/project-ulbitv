@@ -1,0 +1,47 @@
+.primary {
+  color: var(--text-redesigned);
+}
+
+.danger { // .error
+  .text {
+    color: var(--danger);
+  }
+}
+
+.secondary { // .accent
+  .text {
+    color: var(--accent-redesigned);
+  }
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
+}
+
+.s {
+  font: var(--font-s-redesigned);
+}
+
+.m {
+  font: var(--font-m-redesigned);
+}
+
+.l {
+  font: var(--font-l-redesigned);
+}
+
+.xl {
+  font: var(--font-xl-redesigned);
+}
+
+.bold {
+  font-weight: 700;
+}

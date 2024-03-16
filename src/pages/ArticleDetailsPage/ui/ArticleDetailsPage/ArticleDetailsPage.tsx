@@ -12,7 +12,7 @@ import {
   type ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
-import { VStack } from '@/shared/ui/deprecated/Stack'
+import { VStack } from '@/shared/ui/redesigned/Stack'
 import { Page } from '@/widgets/Page'
 
 import { articleDetailsPageReducer } from '../../model/slices'

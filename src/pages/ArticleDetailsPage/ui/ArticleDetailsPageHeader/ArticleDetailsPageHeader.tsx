@@ -8,7 +8,7 @@ import { RoutePath } from '@/shared/consts/router'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { Button } from '@/shared/ui/deprecated/Button/Button'
-import { HStack } from '@/shared/ui/deprecated/Stack'
+import { HStack } from '@/shared/ui/redesigned/Stack'
 
 import { getCanEditArticle } from '../../model/selectors/article'
 

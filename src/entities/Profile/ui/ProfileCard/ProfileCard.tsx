@@ -10,8 +10,8 @@ import { type Mods, classNames } from '@/shared/lib/classNames/classNames'
 import { Avatar } from '@/shared/ui/deprecated/Avatar'
 import { Input } from '@/shared/ui/deprecated/Input'
 import { Loader } from '@/shared/ui/deprecated/Loader'
-import { HStack, VStack } from '@/shared/ui/deprecated/Stack'
 import { Text, TextStyle } from '@/shared/ui/deprecated/Text'
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack'
 
 import { type Profile } from '../../model/types/profile'
 

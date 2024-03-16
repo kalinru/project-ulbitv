@@ -6,7 +6,7 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import { type DropdownDirection } from '@/shared/types/ui'
 
 import { HStack } from '../../../../redesigned/Stack'
-import { Button, ButtonTheme } from '../../../Button/Button'
+import { Button } from '../../../Button/Button'
 import { mapDirectionClass } from '../../styles/consts'
 import popupCls from '../../styles/popup.module.scss'
 
@@ -29,9 +29,6 @@ interface ListBoxProps {
   onChange: (item: string) => void
 }
 
-/**
- * @deprecated
- */
 export const ListBox: FC<ListBoxProps> = memo(
   ({
     className,
@@ -43,7 +40,11 @@ export const ListBox: FC<ListBoxProps> = memo(
     direction = 'bottom right',
     onChange,
   }) => {
-    const optionsClasses = [cls.options, mapDirectionClass[direction]]
+    const optionsClasses = [
+      cls.options,
+      mapDirectionClass[direction],
+      popupCls.menu,
+    ]
 
     return (
       <HStack gap="4">
@@ -59,7 +60,6 @@ export const ListBox: FC<ListBoxProps> = memo(
             as={Button}
             className={cls.buttonWrapper}
             disabled={readOnly}
-            theme={ButtonTheme.OUTLINE}
           >
             {value ?? defaultValue}
           </Listbox.Button>

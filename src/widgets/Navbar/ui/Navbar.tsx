@@ -12,8 +12,8 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
 import { AppLink, AppLinkTheme } from '@/shared/ui/deprecated/AppLink'
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button'
-import { HStack } from '@/shared/ui/deprecated/Stack'
 import { Text, TextSize, TextStyle } from '@/shared/ui/deprecated/Text'
+import { HStack } from '@/shared/ui/redesigned/Stack'
 
 import cls from './Navbar.module.scss'
 
