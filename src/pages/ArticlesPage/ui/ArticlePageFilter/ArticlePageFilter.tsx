@@ -1,32 +1,15 @@
-import { memo, type FC, useCallback } from 'react'
+import { memo, type FC } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
-import {
-  type ArticleView,
-  type ArticleSortField,
-  type ArticleType,
-} from '@/entities/Article'
 import { ArticleSortSelector } from '@/features/ArticleSortSelector'
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs'
 import { ArticleViewSelector } from '@/features/ArticleViewSelector'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
-import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce'
-import { type SortOrder } from '@/shared/types/sort'
 import { Card } from '@/shared/ui/deprecated/Card'
 import { Input } from '@/shared/ui/deprecated/Input'
 
-import {
-  getArticlesPageOrder,
-  getArticlesPageSearch,
-  getArticlesPageSort,
-  getArticlesPageType,
-  getArticlesPageView,
-} from '../../model/selectors/articlesPageSelectors'
-import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles'
-import { articlesPageActions } from '../../model/slices/articlesPageSlice'
+import { useArticleFilters } from '../../lib/hooks/useArticleFilters'
 
 import cls from './ArticlePageFilter.module.scss'
 
@@ -37,61 +20,18 @@ interface ArticlePageFilterProps {
 export const ArticlePageFilter: FC<ArticlePageFilterProps> = memo(
   ({ className }) => {
     const { t } = useTranslation()
-    const dispatch = useAppDispatch()
-    const view = useAppSelector(getArticlesPageView)
-    const sort = useAppSelector(getArticlesPageSort)
-    const order = useAppSelector(getArticlesPageOrder)
-    const search = useAppSelector(getArticlesPageSearch)
-    const type = useAppSelector(getArticlesPageType)
-
-    const fetchData = useCallback(() => {
-      void dispatch(fetchArticles({ replace: true }))
-    }, [dispatch])
-
-    const debouncedFetchData = useDebounce(fetchData, 500)
-
-    const onChangeView = useCallback(
-      (view: ArticleView) => {
-        dispatch(articlesPageActions.setView(view))
-      },
-      [dispatch],
-    )
-
-    const onChangeOrder = useCallback(
-      (order: SortOrder) => {
-        dispatch(articlesPageActions.setOrder(order))
-        dispatch(articlesPageActions.setPage(1))
-        fetchData()
-      },
-      [dispatch, fetchData],
-    )
-
-    const onChangeSort = useCallback(
-      (sort: ArticleSortField) => {
-        dispatch(articlesPageActions.setSort(sort))
-        dispatch(articlesPageActions.setPage(1))
-        fetchData()
-      },
-      [dispatch, fetchData],
-    )
-
-    const onChangeSearch = useCallback(
-      (search: string) => {
-        dispatch(articlesPageActions.setSearch(search))
-        dispatch(articlesPageActions.setPage(1))
-        debouncedFetchData()
-      },
-      [dispatch, debouncedFetchData],
-    )
-
-    const onChangeType = useCallback(
-      (type: ArticleType) => {
-        dispatch(articlesPageActions.setType(type))
-        dispatch(articlesPageActions.setPage(1))
-        fetchData()
-      },
-      [dispatch, fetchData],
-    )
+    const {
+      onChangeOrder,
+      onChangeSearch,
+      onChangeSort,
+      onChangeType,
+      onChangeView,
+      order,
+      search,
+      sort,
+      type,
+      view,
+    } = useArticleFilters()
 
     return (
       <div className={classNames(cls.ArticlePageFilter, {}, [className])}>

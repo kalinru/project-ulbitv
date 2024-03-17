@@ -4,7 +4,7 @@ import { NotificationList } from '@/entities/Notification'
 import NotificationIconDeprecated from '@/shared/assets/icons/notification-20-20.svg'
 import NotificationIcon from '@/shared/assets/icons/notification.svg'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
+import { ToggleFeatures } from '@/shared/lib/features'
 import { useIsMobile } from '@/shared/lib/hooks/useIsMobile/useIsMobile'
 import {
   ButtonTheme,

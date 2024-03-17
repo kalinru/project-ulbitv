@@ -1,3 +1,13 @@
-.notActive {
-  opacity: 0.5;
+.ArticleViewSelector {
+  display: flex;
+
+  .notActive {
+    opacity: 0.5;
+  }
+}
+
+.ArticleViewSelectorRedesigned {
+  .notActive {
+    color: var(--light-bg-redesigned);
+  }
 }

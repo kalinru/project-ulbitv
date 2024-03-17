@@ -6,9 +6,8 @@
   padding: 0;
 }
 
-.normal {
+.default {
   background: var(--dark-bg-redesigned);
-  border-radius: 12px;
 }
 
 .light {
@@ -17,6 +16,10 @@
 
 .outlined {
   border: 1px solid var(--accent-redesigned);
+}
+
+.normal {
+  border-radius: 12px;
 }
 
 .round {
@@ -45,6 +48,10 @@
 
 .gap_16 {
   padding: 16px;
+}
+
+.gap_24 {
+  padding: 24px;
 }
 
 .gap_32 {

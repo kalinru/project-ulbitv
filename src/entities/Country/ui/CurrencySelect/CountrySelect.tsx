@@ -2,8 +2,9 @@ import { memo, useCallback } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
-import { classNames } from '@/shared/lib/classNames/classNames'
-import { Select } from '@/shared/ui/deprecated/Select'
+import { ToggleFeatures } from '@/shared/lib/features'
+import { Select as SelectDeprecated } from '@/shared/ui/deprecated/Select'
+import { ListBox } from '@/shared/ui/redesigned/Popups'
 
 import { Country } from '../../model/types/country'
 
@@ -31,14 +32,22 @@ export const CountrySelect = memo(
       [onChange],
     )
 
+    const props = {
+      className,
+      value,
+      defaultValue: t('Укажите страну'),
+      label: t('Укажите страну'),
+      items: options,
+      onChange: onChangeHandler,
+      readOnly,
+      direction: 'top right' as const,
+    }
+
     return (
-      <Select
-        className={classNames('', {}, [className])}
-        label={t('Страна')}
-        readOnly={readOnly}
-        value={value}
-        onChange={onChangeHandler}
-        options={options}
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={<ListBox {...props} />}
+        off={<SelectDeprecated {...props} />}
       />
     )
   },

@@ -11,7 +11,7 @@ import {
 } from '@/entities/User'
 import { RoutePath } from '@/shared/consts/router'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
+import { ToggleFeatures } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar'
 import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups'

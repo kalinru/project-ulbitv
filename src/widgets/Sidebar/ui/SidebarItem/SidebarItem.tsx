@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 
 import { getUserAuthData } from '@/entities/User'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
+import { ToggleFeatures } from '@/shared/lib/features'
 import {
   AppLink as AppLinkDeprecated,
   AppLinkTheme,

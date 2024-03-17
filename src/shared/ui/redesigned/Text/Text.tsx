@@ -8,12 +8,14 @@ interface TextProps {
   className?: string
   style?: TextStyle
   size?: TextSize
-  // header?: HeaderTagType
+  align?: TextAlign
   element?: keyof JSX.IntrinsicElements
   children?: ReactNode
 
   'data-testid'?: string
 }
+
+export type TextAlign = 'right' | 'left' | 'center'
 
 export type TextSize = 's' | 'm' | 'l' | 'xl'
 
@@ -25,6 +27,7 @@ export const Text = memo((props: TextProps) => {
     className,
     style = 'primary',
     size = 'm',
+    align = 'left',
     element: Element = 'span',
     children,
     'data-testid': dataTestId = 'Text',
@@ -32,7 +35,12 @@ export const Text = memo((props: TextProps) => {
 
   return (
     <Element
-      className={classNames('', {}, [className, cls[size], cls[style]])}
+      className={classNames('', {}, [
+        className,
+        cls[size],
+        cls[style],
+        cls[align],
+      ])}
       data-testid={`${dataTestId}.Text`}
     >
       {children}
