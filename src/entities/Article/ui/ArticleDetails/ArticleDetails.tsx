@@ -80,8 +80,8 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(
             height={200}
             border="50%"
           />
-          <Skeleton width={300} height={32} />
-          <Skeleton width={600} height={24} />
+          <Skeleton width={200} height={32} />
+          <Skeleton width="80%" height={24} />
           <Skeleton width="100%" height={200} />
           <Skeleton width="100%" height={200} />
         </>

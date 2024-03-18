@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom'
 import { ArticleDetails } from '@/entities/Article'
 import { ArticleRating } from '@/features/ArticleRating'
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList'
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import {
   DynamicModuleLoader,
@@ -16,8 +17,10 @@ import { VStack } from '@/shared/ui/redesigned/Stack'
 import { Page } from '@/widgets/Page'
 
 import { articleDetailsPageReducer } from '../../model/slices'
+import { AdditionalInfoContainer } from '../AdditionalInfoContainer/AdditionalInfoContainer'
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments'
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader'
+import { DetailsContainer } from '../DetailsContainer/DetailsContainer'
 
 import cls from './ArticleDetailsPage.module.scss'
 
@@ -33,34 +36,44 @@ const reducers: ReducersList = {
 const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
   const { id } = useParams<{ id: string }>()
   const { t } = useTranslation()
-  // const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled')
-  // const isCounterEnabled = getFeatureFlag('isCounterEnabled')
 
   if (!id) {
     return null
   }
 
-  // const articleRating = toggleFeatures({
-  //   name: 'isArticleRatingEnabled',
-  //   on: () => <ArticleRating articleId={id} />,
-  //   off: () => <div>{t('Оценка статьи скоро появится')}</div>,
-  // })
-
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        <VStack gap="16" max>
-          <ArticleDetailsPageHeader />
-          <ArticleDetails id={id} />
-          <ToggleFeatures
-            feature="isArticleRatingEnabled"
-            on={<ArticleRating articleId={id} />}
-            off={<div>{t('Оценка статьи скоро появится')}</div>}
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <StickyContentLayout
+            content={
+              <Page
+                className={classNames(cls.ArticleDetailsPage, {}, [className])}
+              >
+                <VStack gap="16" max>
+                  <DetailsContainer />
+                  <ArticleRating articleId={id} />
+                  <ArticleRecommendationsList />
+                  <ArticleDetailsComments id={id} />
+                </VStack>
+              </Page>
+            }
+            right={<AdditionalInfoContainer />}
           />
-          <ArticleRecommendationsList />
-          <ArticleDetailsComments id={id} />
-        </VStack>
-      </Page>
+        }
+        off={
+          <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <VStack gap="16" max>
+              <ArticleDetailsPageHeader />
+              <ArticleDetails id={id} />
+              <div>{t('Оценка статьи скоро появится')}</div>
+              <ArticleRecommendationsList />
+              <ArticleDetailsComments id={id} />
+            </VStack>
+          </Page>
+        }
+      />
     </DynamicModuleLoader>
   )
 })

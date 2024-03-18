@@ -4,5 +4,8 @@
   "Страница не найдена": "Page not found",
   "Главная": "Main",
   "О сайте": "About us",
-  "Пользователь не найден или Вы ввели неверный логиг или пароль": "User not found or You pass invalid username or password"
+  "Пользователь не найден или Вы ввели неверный логиг или пароль": "User not found or You pass invalid username or password",
+  "{{count}} просмотров_zero": "{{count}} views",
+  "{{count}} просмотров_one": "{{count}} view",
+  "{{count}} просмотров_other": "{{count}} views"
 }
