@@ -2,6 +2,7 @@ export enum AppRoutes {
   MAIN = 'main',
   ABOUT = 'about',
   PROFILE = 'profile',
+  SETTINGS = 'settings',
   ARTICLES = 'articles',
   ARTICLE_DETAILS = 'article_details',
   ARTICLE_CREATE = 'article_create',
@@ -17,6 +18,7 @@ export interface RouteParams {
   main: []
   about: []
   profile: [string]
+  settings: []
   articles: []
   article_details: [string]
   article_create: []
@@ -43,6 +45,7 @@ export const RoutePath: Routes = {
   forbidden: () => '/forbidden',
   articles: () => '/articles',
   profile: (id) => `/profile/${id}`,
+  settings: () => '/settings',
   admin_panel: () => '/admin',
   not_found: () => '*',
 }

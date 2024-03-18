@@ -53,6 +53,10 @@ export const AvatarDropdown: FC<avatarDropdownProps> = memo(({ className }) => {
       href: RoutePath.profile(authData.id),
     },
     {
+      content: t('Настройки'),
+      href: RoutePath.settings(),
+    },
+    {
       content: t('Выйти'),
       onClick: onLogout,
     },

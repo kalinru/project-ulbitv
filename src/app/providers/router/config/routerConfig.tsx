@@ -8,6 +8,7 @@ import { ForbiddenPage } from '@/pages/ForbidddenPage'
 import { MainPage } from '@/pages/MainPage'
 import { NotFoundPage } from '@/pages/NotFoundPage'
 import { ProfilePage } from '@/pages/ProfilePage'
+import { SettingsPage } from '@/pages/SettingsPage'
 import { RoutePath, AppRoutes } from '@/shared/consts/router'
 import { type AppRoutesProps } from '@/shared/types/router'
 
@@ -23,6 +24,11 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.PROFILE]: {
     path: RoutePath.profile(':id'),
     element: <ProfilePage />,
+    authOnly: true,
+  },
+  [AppRoutes.SETTINGS]: {
+    path: RoutePath.settings(),
+    element: <SettingsPage />,
     authOnly: true,
   },
   [AppRoutes.ARTICLES]: {
