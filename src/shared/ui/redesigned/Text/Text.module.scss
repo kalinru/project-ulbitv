@@ -3,15 +3,15 @@
 }
 
 .danger { // .error
-  .text {
-    color: var(--danger);
-  }
+  color: var(--danger);
 }
 
-.secondary { // .accent
-  .text {
-    color: var(--accent-redesigned);
-  }
+.secondary {
+  color: var(--hint-redesigned);
+}
+
+.accent {
+  color: var(--accent-redesigned);
 }
 
 .left {

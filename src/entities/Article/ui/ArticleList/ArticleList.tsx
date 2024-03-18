@@ -6,6 +6,8 @@ import {
 } from 'react'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
+import { ToggleFeatures } from '@/shared/lib/features'
+import { HStack } from '@/shared/ui/redesigned/Stack'
 
 import { ArticleView } from '../../model/consts/consts'
 import { type IArticle } from '../../model/types/article'
@@ -62,13 +64,29 @@ export const ArticleList: FC<ArticleListProps> = memo(
     )
 
     return (
-      <div
-        className={classNames(cls.ArticleList, {}, [className, cls[view]])}
-        data-testid="ArticleList"
-      >
-        {articles.length ? articles.map(renderArticle) : null}
-        {isLoading && getSkeletons(view)}
-      </div>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <HStack
+            wrap="wrap"
+            gap="16"
+            className={classNames(cls.ArticleListRedesigned, {}, [])}
+            data-testid="ArticleList"
+          >
+            {articles.length ? articles.map(renderArticle) : null}
+            {isLoading && getSkeletons(view)}
+          </HStack>
+        }
+        off={
+          <div
+            className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+            data-testid="ArticleList"
+          >
+            {articles.length ? articles.map(renderArticle) : null}
+            {isLoading && getSkeletons(view)}
+          </div>
+        }
+      />
     )
   },
 )

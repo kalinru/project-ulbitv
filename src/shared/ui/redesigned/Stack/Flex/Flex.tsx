@@ -8,6 +8,7 @@ export type FlexJustify = 'start' | 'center' | 'end' | 'between'
 export type FlexAlign = 'start' | 'center' | 'end'
 export type FlexDirection = 'row' | 'column'
 export type FlexGap = '4' | '8' | '16' | '24' | '32'
+export type FlexWrap = 'nowrap' | 'wrap'
 
 type DivProps = DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,
@@ -22,6 +23,7 @@ export interface FlexProps extends DivProps {
   direction?: FlexDirection
   gap?: FlexGap
   max?: boolean
+  wrap?: FlexWrap
   component?: keyof HTMLElementTagNameMap
 }
 
@@ -33,6 +35,7 @@ export const Flex: FC<FlexProps> = ({
   direction = 'row',
   gap,
   max,
+  wrap = 'nowrap',
   // TODO реализвать возможность передачи тега, который будет рендерится (какая-то ошибка не дает)
   component,
   ...restProps
@@ -43,6 +46,7 @@ export const Flex: FC<FlexProps> = ({
     cls[`align-${align}`],
     cls[`direction-${direction}`],
     gap && cls[`gap-${gap}`],
+    cls[wrap],
   ]
 
   const mods: Mods = {

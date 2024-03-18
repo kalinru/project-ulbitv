@@ -30,14 +30,15 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = memo(
       off: () => CardDeprecated,
     })
 
+    const clazz = toggleFeatures({
+      name: 'isAppRedesigned',
+      on: () => 'ArticleListItemRedesigned',
+      off: () => 'ArticleListItem',
+    })
+
     if (view === ArticleView.BIG) {
       return (
-        <div
-          className={classNames(cls.ArticleListItem, {}, [
-            className,
-            cls[view],
-          ])}
-        >
+        <div className={classNames(clazz, {}, [className, cls[view]])}>
           <Card className={cls.card}>
             <div className={cls.header}>
               <Skeleton border="50%" height={30} width={30} />
@@ -55,9 +56,7 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = memo(
     }
 
     return (
-      <div
-        className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
-      >
+      <div className={classNames(clazz, {}, [className, cls[view]])}>
         <Card className={cls.card}>
           <div className={cls.imageWrapper}>
             <Skeleton className={cls.img} width={200} height={200} />
