@@ -46,6 +46,7 @@
 .outline {
   background: none;
   border-radius: 34px;
+  border: 2px solid var(--icon-redesigned);
 
   &:hover {
     border: 2px solid var(--accent-redesigned);
@@ -81,6 +82,10 @@
 .square.xl {
   width: var(--font-line-height-xl);
   height: var(--font-line-height-xl);
+}
+
+.s {
+  font: var(--font-s-redesigned);
 }
 
 .m {

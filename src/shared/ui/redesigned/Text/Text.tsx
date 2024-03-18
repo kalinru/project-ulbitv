@@ -9,6 +9,7 @@ interface TextProps {
   style?: TextStyle
   size?: TextSize
   align?: TextAlign
+  bold?: boolean
   element?: keyof JSX.IntrinsicElements
   children?: ReactNode
 
@@ -28,6 +29,7 @@ export const Text = memo((props: TextProps) => {
     style = 'primary',
     size = 'm',
     align = 'left',
+    bold,
     element: Element = 'span',
     children,
     'data-testid': dataTestId = 'Text',
@@ -35,7 +37,7 @@ export const Text = memo((props: TextProps) => {
 
   return (
     <Element
-      className={classNames('', {}, [
+      className={classNames('', { [cls.bold]: bold }, [
         className,
         cls[size],
         cls[style],
