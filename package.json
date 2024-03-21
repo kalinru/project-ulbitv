@@ -36,10 +36,10 @@
   "lint-staged": {
     "**/*.{ts,tsx}": [
       "prettier --list-different",
-      "eslint",
+      "eslint --fix",
       "npm run test:unit:staged"
     ],
-    "**/*.scss": "npx stylelint"
+    "**/*.scss": "npx stylelint --fix"
   },
   "keywords": [],
   "author": "",
