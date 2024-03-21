@@ -1,7 +1,9 @@
 import { memo, type FC } from 'react'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Text, TextSize } from '@/shared/ui/deprecated/Text'
+import { ToggleFeatures } from '@/shared/lib/features'
+import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 import { type IArticleImageBlock } from '../../model/types/article'
 
@@ -19,7 +21,13 @@ export const ArticleImageBlock: FC<ArticleImageBlockProps> = memo(
         <img src={data.src} alt={data.title} className={cls.img} />
         {data.title && (
           <div>
-            <Text size={TextSize.S}>{data.title}</Text>
+            <ToggleFeatures
+              feature="isAppRedesigned"
+              on={<Text size="s">{data.title}</Text>}
+              off={
+                <TextDeprecated size={TextSize.S}>{data.title}</TextDeprecated>
+              }
+            />
           </div>
         )}
       </div>

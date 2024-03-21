@@ -1,7 +1,9 @@
 import { memo, type FC } from 'react'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Text, TextSize } from '@/shared/ui/deprecated/Text'
+import { ToggleFeatures } from '@/shared/lib/features'
+import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 import { type IArticleTextBlock } from '../../model/types/article'
 
@@ -17,14 +19,39 @@ export const ArticleTextBlock: FC<ArticleTextBlockProps> = memo(
     return (
       <div className={classNames(cls.ArticleTextBlock, {}, [className])}>
         {data.title && (
-          <Text className={cls.title} size={TextSize.L} element="h3">
-            {data.title}
-          </Text>
+          <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+              <Text className={cls.title} size="l" element="h3">
+                {data.title}
+              </Text>
+            }
+            off={
+              <TextDeprecated
+                className={cls.title}
+                size={TextSize.L}
+                element="h3"
+              >
+                {data.title}
+              </TextDeprecated>
+            }
+          />
         )}
         {data.paragraphs.map((paragraph) => (
-          <Text key={paragraph} className={cls.paragraph} element="p">
-            {paragraph}
-          </Text>
+          <ToggleFeatures
+            key={paragraph}
+            feature="isAppRedesigned"
+            on={
+              <Text className={cls.paragraph} element="p">
+                {paragraph}
+              </Text>
+            }
+            off={
+              <TextDeprecated className={cls.paragraph} element="p">
+                {paragraph}
+              </TextDeprecated>
+            }
+          />
         ))}
       </div>
     )

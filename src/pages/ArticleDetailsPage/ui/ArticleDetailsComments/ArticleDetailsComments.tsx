@@ -5,12 +5,18 @@ import { useTranslation } from 'react-i18next'
 import { CommentList } from '@/entities/Comment'
 import { AddCommentForm } from '@/features/addCommentForm'
 import { classNames } from '@/shared/lib/classNames/classNames'
+import { ToggleFeatures } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { Loader } from '@/shared/ui/deprecated/Loader'
-import { Text, TextSize, TextStyle } from '@/shared/ui/deprecated/Text'
+import {
+  Text as TextDeprecated,
+  TextSize,
+  TextStyle,
+} from '@/shared/ui/deprecated/Text'
 import { VStack } from '@/shared/ui/redesigned/Stack'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments'
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle'
@@ -43,9 +49,15 @@ export const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = memo(
 
     return (
       <VStack gap="16" max className={classNames('', {}, [className])}>
-        <Text size={TextSize.XL} style={TextStyle.SECONDARY}>
-          {t('Комментарии')}
-        </Text>
+        <ToggleFeatures
+          feature="isAppRedesigned"
+          on={<Text size="xl">{t('Комментарии')}</Text>}
+          off={
+            <TextDeprecated size={TextSize.XL} style={TextStyle.SECONDARY}>
+              {t('Комментарии')}
+            </TextDeprecated>
+          }
+        />
         <Suspense fallback={<Loader />}>
           <AddCommentForm onSendComment={onSendComment} />
         </Suspense>

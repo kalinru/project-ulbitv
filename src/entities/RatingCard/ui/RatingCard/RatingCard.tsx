@@ -2,16 +2,23 @@ import { memo, useCallback, useState } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
-import { classNames } from '@/shared/lib/classNames/classNames'
+import { ToggleFeatures } from '@/shared/lib/features'
 import { useIsMobile } from '@/shared/lib/hooks/useIsMobile/useIsMobile'
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button'
-import { Card } from '@/shared/ui/deprecated/Card'
-import { Input } from '@/shared/ui/deprecated/Input'
+import {
+  Button as ButtonDeprecated,
+  ButtonTheme,
+} from '@/shared/ui/deprecated/Button'
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card'
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input'
 import { StarRating } from '@/shared/ui/deprecated/StarRating'
-import { Text, TextSize } from '@/shared/ui/deprecated/Text'
+import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text'
+import { Button } from '@/shared/ui/redesigned/Button'
+import { Card } from '@/shared/ui/redesigned/Card'
 import { Drawer } from '@/shared/ui/redesigned/Drawer'
+import { Input } from '@/shared/ui/redesigned/Input'
 import { Modal } from '@/shared/ui/redesigned/Modal'
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 interface RatingCardProps {
   className?: string
@@ -64,43 +71,81 @@ export const RatingCard = memo((props: RatingCardProps) => {
   }, [onCancel, starsCount])
 
   const modalContent = (
-    <VStack max gap="32">
-      <Text size={TextSize.XL}>{feedbackTitle}</Text>
-      <Input
-        value={feedback}
-        onChange={setFeedback}
-        placeholder={t('Ваш отзыв')}
-        data-testid="RatingCard.Input"
-      />
-      <HStack justify="end" gap="8" max>
-        <Button
-          onClick={cancelHandler}
-          theme={ButtonTheme.OUTLINE}
-          data-testid="RatingCard.Close"
-        >
-          {t('Закрыть')}
-        </Button>
-        <Button
-          onClick={acceptHandler}
-          theme={ButtonTheme.BACKGROUND_INVERTED}
-          data-testid="RatingCard.Send"
-        >
-          {t('Отправить')}
-        </Button>
-      </HStack>
-    </VStack>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <VStack max gap="32">
+          <Text size="xl">{feedbackTitle}</Text>
+          <Input
+            value={feedback}
+            onChange={setFeedback}
+            placeholder={t('Ваш отзыв')}
+            data-testid="RatingCard.Input"
+          />
+          <HStack justify="end" gap="8" max>
+            <Button
+              onClick={cancelHandler}
+              variant="outline"
+              data-testid="RatingCard.Close"
+            >
+              {t('Закрыть')}
+            </Button>
+            <Button
+              onClick={acceptHandler}
+              variant="outline"
+              data-testid="RatingCard.Send"
+            >
+              {t('Отправить')}
+            </Button>
+          </HStack>
+        </VStack>
+      }
+      off={
+        <VStack max gap="32">
+          <TextDeprecated size={TextSize.XL}>{feedbackTitle}</TextDeprecated>
+          <InputDeprecated
+            value={feedback}
+            onChange={setFeedback}
+            placeholder={t('Ваш отзыв')}
+            data-testid="RatingCard.Input"
+          />
+          <HStack justify="end" gap="8" max>
+            <ButtonDeprecated
+              onClick={cancelHandler}
+              theme={ButtonTheme.OUTLINE}
+              data-testid="RatingCard.Close"
+            >
+              {t('Закрыть')}
+            </ButtonDeprecated>
+            <ButtonDeprecated
+              onClick={acceptHandler}
+              theme={ButtonTheme.BACKGROUND_INVERTED}
+              data-testid="RatingCard.Send"
+            >
+              {t('Отправить')}
+            </ButtonDeprecated>
+          </HStack>
+        </VStack>
+      }
+    />
   )
 
-  return (
-    <Card
-      className={classNames('', {}, [className])}
-      max
-      data-testid="RatingCard"
-    >
+  const content = (
+    <>
       <VStack align="center" gap="8" max>
-        <Text size={TextSize.XL}>
-          {starsCount ? t('Спасибо за оценку!') : title}
-        </Text>
+        <ToggleFeatures
+          feature="isAppRedesigned"
+          on={
+            <Text size="xl">
+              {starsCount ? t('Спасибо за оценку!') : title}
+            </Text>
+          }
+          off={
+            <TextDeprecated size={TextSize.XL}>
+              {starsCount ? t('Спасибо за оценку!') : title}
+            </TextDeprecated>
+          }
+        />
         <StarRating
           size={40}
           onSelect={onSelectStars}
@@ -116,7 +161,23 @@ export const RatingCard = memo((props: RatingCardProps) => {
           {modalContent}
         </Modal>
       )}
-    </Card>
+    </>
+  )
+
+  return (
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <Card fullWidth border="partial" padding="24" data-testid="RatingCard">
+          {content}
+        </Card>
+      }
+      off={
+        <CardDeprecated className={className} max data-testid="RatingCard">
+          {content}
+        </CardDeprecated>
+      }
+    />
   )
 })
 

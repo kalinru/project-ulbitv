@@ -4,8 +4,14 @@ import { useTranslation } from 'react-i18next'
 
 import { ArticleList } from '@/entities/Article'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Text, TextSize, TextStyle } from '@/shared/ui/deprecated/Text'
+import { ToggleFeatures } from '@/shared/lib/features'
+import {
+  Text as TextDeprecated,
+  TextSize,
+  TextStyle,
+} from '@/shared/ui/deprecated/Text'
 import { VStack } from '@/shared/ui/redesigned/Stack'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 import { useGetArticleRecommendationsListQuery } from '../../api/articleRecommendationsApi'
 
@@ -36,13 +42,23 @@ export const ArticleRecommendationsList = memo(
         className={classNames(cls.ArticleRecommendationsList, {}, [className])}
         data-testid="ArticleRecommendationsList"
       >
-        <Text
-          className={cls.commentTitle}
-          size={TextSize.XL}
-          style={TextStyle.SECONDARY}
-        >
-          {t('Рекомендуем')}
-        </Text>
+        <ToggleFeatures
+          feature="isAppRedesigned"
+          on={
+            <Text className={cls.commentTitle} size="xl">
+              {t('Рекомендуем')}
+            </Text>
+          }
+          off={
+            <TextDeprecated
+              className={cls.commentTitle}
+              size={TextSize.XL}
+              style={TextStyle.SECONDARY}
+            >
+              {t('Рекомендуем')}
+            </TextDeprecated>
+          }
+        />
         <ArticleList
           articles={recommendations}
           isLoading={isLoading}

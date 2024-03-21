@@ -1021,6 +1021,27 @@
       "userId": "1",
       "feedback": "111",
       "id": "QycHy-Z"
+    },
+    {
+      "articleId": "4",
+      "rate": 3,
+      "userId": "2",
+      "feedback": "gg",
+      "id": "X5lEsWl"
+    },
+    {
+      "articleId": "2",
+      "rate": 3,
+      "userId": "2",
+      "feedback": "asd",
+      "id": "1Ubsoyy"
+    },
+    {
+      "articleId": "3",
+      "rate": 2,
+      "userId": "2",
+      "feedback": "123",
+      "id": "1vL0mjr"
     }
   ],
   "profile-ratings": [

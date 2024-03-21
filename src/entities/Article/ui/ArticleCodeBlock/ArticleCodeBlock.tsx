@@ -1,7 +1,7 @@
 import { memo, type FC } from 'react'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Code } from '@/shared/ui/deprecated/Code'
+import { Code } from '@/shared/ui/redesigned/Code'
 
 import { type IArticleCodeBlock } from '../../model/types/article'
 

@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { VStack } from '@/shared/ui/redesigned/Stack'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 import { type IComment } from '../../model/types/comment'
 import { CommentCard } from '../CommentCard/CommentCard'
@@ -37,7 +38,7 @@ export const CommentList: FC<CommentListProps> = memo(
             isLoading={isLoading}
           />
         ))}
-        {!comments?.length && t('Нет комментариев')}
+        <Text>{!comments?.length && t('Нет комментариев')}</Text>
       </VStack>
     )
   },

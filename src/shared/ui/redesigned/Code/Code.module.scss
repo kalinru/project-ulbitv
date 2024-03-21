@@ -6,6 +6,17 @@
   overflow: auto;
 }
 
+.CodeRedesigned {
+  padding: 20px;
+  position: relative;
+  background: var(--light-bg-redesigned);
+  overflow: auto;
+  border: 1px solid var(--accent-redesigned);
+  border-radius: 16px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
 .copyBtn {
   position: absolute;
   top: 10px;
@@ -15,4 +26,8 @@
 .copyIcon path {
   stroke: var(--primary-color);
   fill: none;
+}
+
+.code {
+  overflow: auto;
 }
