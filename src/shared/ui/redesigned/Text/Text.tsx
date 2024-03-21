@@ -22,7 +22,6 @@ export type TextSize = 's' | 'm' | 'l' | 'xl'
 
 export type TextStyle = 'primary' | 'danger' | 'secondary' | 'accent'
 
-// TODO добавить align
 export const Text = memo((props: TextProps) => {
   const {
     className,

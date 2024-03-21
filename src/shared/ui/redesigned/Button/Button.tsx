@@ -56,6 +56,7 @@ export const Button: FC<ButtonProps> = memo(
       addonLeft,
       addonRight,
       fullWidth,
+      color = 'normal',
       ...restProps
     } = props
 
@@ -73,6 +74,7 @@ export const Button: FC<ButtonProps> = memo(
           className,
           cls[variant],
           cls[size],
+          cls[color],
         ])}
         {...restProps}
       >

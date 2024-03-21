@@ -99,7 +99,7 @@ export const ArticleListItemRedesigned: FC<ArticleListItemProps> = memo(
         className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
         data-testid="ArticleListItem"
       >
-        <Card className={cls.card} padding="0" border="round">
+        <Card className={cls.card} padding="0" border="partial">
           <AppImage
             fallback={<Skeleton width={'100%'} height={200} />}
             src={article.img}

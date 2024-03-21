@@ -10,11 +10,14 @@ import {
   DynamicModuleLoader,
   type ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { toggleFeatures } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
-import { Text, TextStyle } from '@/shared/ui/deprecated/Text'
+import { Text as TextDeprecated, TextStyle } from '@/shared/ui/deprecated/Text'
+import { Card } from '@/shared/ui/redesigned/Card'
 import { VStack } from '@/shared/ui/redesigned/Stack'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 import { ValidateProfileError } from '../../model/consts/consts'
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm'
@@ -118,23 +121,55 @@ export const EditableProfileCard = memo(
       [dispatch],
     )
 
-    return (
-      <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-        <VStack gap="16" max className={classNames('', {}, [className])}>
-          <EditableProfileCardHeader />
-          {profileValidateErrors?.length && (
-            <div style={{ display: 'flex', gap: 10 }}>
-              {profileValidateErrors.map((error) => (
+    const errors = toggleFeatures({
+      name: 'isAppRedesigned',
+      off: () => {
+        if (!profileValidateErrors?.length) {
+          return null
+        }
+
+        return (
+          <div style={{ display: 'flex', gap: 10 }}>
+            {profileValidateErrors.map((error) => (
+              <TextDeprecated
+                key={error}
+                style={TextStyle.DANGER}
+                data-testid={'EditableProfileCard.Error'}
+              >
+                {validateErrorsTranslates[error]}
+              </TextDeprecated>
+            ))}
+          </div>
+        )
+      },
+      on: () => {
+        if (!profileValidateErrors?.length) {
+          return null
+        }
+
+        return (
+          <Card max padding="24">
+            <VStack gap="8" max>
+              {profileValidateErrors?.map((error) => (
                 <Text
                   key={error}
-                  style={TextStyle.DANGER}
+                  style="danger"
                   data-testid={'EditableProfileCard.Error'}
                 >
                   {validateErrorsTranslates[error]}
                 </Text>
               ))}
-            </div>
-          )}
+            </VStack>
+          </Card>
+        )
+      },
+    })
+
+    return (
+      <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+        <VStack gap="16" max className={classNames('', {}, [className])}>
+          <EditableProfileCardHeader />
+          {errors}
           <ProfileCard
             data={formData}
             isLoading={isLoading}

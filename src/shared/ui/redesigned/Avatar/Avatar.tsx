@@ -32,8 +32,14 @@ export const Avatar = ({
     [size],
   )
 
-  const fallback = <Skeleton width={size} height={size} border="50%" />
-  const errorFallback = <Icon Svg={AvatarIcon} width={size} height={size} />
+  const fallback = useMemo(
+    () => <Skeleton width={size} height={size} border="50%" />,
+    [size],
+  )
+  const errorFallback = useMemo(
+    () => <Icon Svg={AvatarIcon} width={size} height={size} />,
+    [size],
+  )
 
   return (
     <AppImage

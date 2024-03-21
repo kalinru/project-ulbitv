@@ -41,12 +41,27 @@
   border: none;
   outline: none;
   border-radius: 34px;
+
+  &.error {
+    background: var(--cancel-redesigned);
+  }
+
+  &.success {
+    background: var(--save-redesigned);
+  }
+
+  &.error:hover {
+    color: var(--dark-bg-redesigned);
+  }
+
+  &.success:hover {
+    color: var(--dark-bg-redesigned);
+  }
 }
 
 .outline {
   background: none;
   border-radius: 34px;
-  border: 2px solid var(--icon-redesigned);
 
   &:hover {
     border: 2px solid var(--accent-redesigned);
