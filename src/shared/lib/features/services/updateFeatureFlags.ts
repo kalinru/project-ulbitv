@@ -31,9 +31,8 @@ export const updateFeatureFlag = createAsyncThunk<
       }),
     )
 
-    // using forceUpdate
-    // window.location.reload()
     setFeatureFlags(allFeatures)
+    window.location.reload()
 
     return undefined
   } catch (e) {

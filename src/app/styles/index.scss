@@ -41,13 +41,13 @@
 }
 
 *::-webkit-scrollbar-track {
-  background: var(--card-bg);        /* цвет дорожки */
+  background: var(--light-bg-redesigned);        /* цвет дорожки */
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: var(--primary-color-inverted);    /* цвет плашки */
+  background-color: var(--icon-redesigned);    /* цвет плашки */
   border-radius: 20px;       /* закругления плашки */
-  border: 1px solid var(--primary-color);  /* padding вокруг плашки */
+  border: 1px solid var(--accent-redesigned);  /* padding вокруг плашки */
 }
 
 .app *::-webkit-scrollbar {
