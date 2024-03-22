@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from 'react'
+import { Suspense, memo, useEffect } from 'react'
 
 import { getUserIninted, initAuthData } from '@/entities/User'
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout'
@@ -14,8 +14,9 @@ import { Sidebar } from '@/widgets/Sidebar'
 
 import { useAppToolbar } from './lib/useAppToolbar'
 import { AppRouter } from './providers/router'
+import { withTheme } from './providers/ThemeProvider/ui/withTheme'
 
-const App = (): JSX.Element => {
+const App = memo((): JSX.Element => {
   const { theme } = useTheme()
 
   const dispatch = useAppDispatch()
@@ -70,6 +71,8 @@ const App = (): JSX.Element => {
       }
     />
   )
-}
+})
 
-export default App
+App.displayName = 'App'
+
+export default withTheme(App)

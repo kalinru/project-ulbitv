@@ -1,3 +1,4 @@
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator/FeatureFlagsDecorator'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 
 import { ArticleBlockType, ArticleType } from '../../model/consts/consts'
@@ -124,5 +125,47 @@ export const Error: Story = {
         error: 'error example',
       },
     }),
+  ],
+}
+
+export const NormalRedesigned: Story = {
+  args: {
+    id: '1',
+  },
+  decorators: [
+    StoreDecorator({
+      articleDetails: {
+        data: article,
+      },
+    }),
+    FeatureFlagsDecorator({ isAppRedesigned: true }),
+  ],
+}
+
+export const LoadingRedesigned: Story = {
+  args: {
+    id: '1',
+  },
+  decorators: [
+    StoreDecorator({
+      articleDetails: {
+        isLoading: true,
+      },
+    }),
+    FeatureFlagsDecorator({ isAppRedesigned: true }),
+  ],
+}
+
+export const ErrorRedesigned: Story = {
+  args: {
+    id: '1',
+  },
+  decorators: [
+    StoreDecorator({
+      articleDetails: {
+        error: 'error example',
+      },
+    }),
+    FeatureFlagsDecorator({ isAppRedesigned: true }),
   ],
 }

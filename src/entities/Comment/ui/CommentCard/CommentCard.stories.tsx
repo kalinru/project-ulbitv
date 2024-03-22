@@ -1,3 +1,5 @@
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator/FeatureFlagsDecorator'
+
 import { CommentCard } from './CommentCard'
 
 import type { Meta, StoryObj } from '@storybook/react'
@@ -12,7 +14,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Normal: Story = {
+const defaultProps = {
   args: {
     comment: {
       articleId: '1',
@@ -24,4 +26,14 @@ export const Normal: Story = {
       },
     },
   },
+}
+
+export const Normal: Story = {
+  ...defaultProps,
+  decorators: [FeatureFlagsDecorator({ isAppRedesigned: false })],
+}
+
+export const NormalRedesigned: Story = {
+  ...defaultProps,
+  decorators: [FeatureFlagsDecorator({ isAppRedesigned: true })],
 }

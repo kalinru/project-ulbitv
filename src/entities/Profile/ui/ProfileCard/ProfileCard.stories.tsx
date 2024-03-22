@@ -3,6 +3,7 @@ import { type Meta, type StoryObj } from '@storybook/react'
 import { Country } from '@/entities/Country'
 import { Currency } from '@/entities/Currency'
 import AvatarImg from '@/shared/assets/tests/avatar.png'
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 
 import { ProfileCard } from './ProfileCard'
 
@@ -16,7 +17,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Normal: Story = {
+const normalProps = {
   args: {
     data: {
       age: 20,
@@ -29,6 +30,15 @@ export const Normal: Story = {
       username: 'vasya_ivanov',
     },
   },
+}
+
+export const Normal: Story = {
+  ...normalProps,
+}
+
+export const NormalRedesigned: Story = {
+  ...normalProps,
+  decorators: [NewDesignDecorator],
 }
 
 export const Loading: Story = {
