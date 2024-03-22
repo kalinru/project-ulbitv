@@ -49,3 +49,17 @@ export const RoutePath: Routes = {
   admin_panel: () => '/admin',
   not_found: () => '*',
 }
+
+export const AppRouteByPathPattern: Record<string, AppRoutes> = {
+  [RoutePath.main()]: AppRoutes.MAIN,
+  [RoutePath.about()]: AppRoutes.ABOUT,
+  [RoutePath.article_edit(':id')]: AppRoutes.ARTICLE_EDIT,
+  [RoutePath.article_details(':id')]: AppRoutes.ARTICLE_DETAILS,
+  [RoutePath.article_create()]: AppRoutes.ARTICLE_CREATE,
+  [RoutePath.forbidden()]: AppRoutes.FORBIDDEN,
+  [RoutePath.articles()]: AppRoutes.ARTICLES,
+  [RoutePath.profile(':id')]: AppRoutes.PROFILE,
+  [RoutePath.settings()]: AppRoutes.SETTINGS,
+  [RoutePath.admin_panel()]: AppRoutes.ADMIN_PANEL,
+  // [RoutePath.not_found()]: AppRoutes.NOT_FOUND,
+}
