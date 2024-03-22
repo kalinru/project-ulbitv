@@ -10,6 +10,7 @@ import {
 import { ToggleFeatures } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
+import { useForceUpdate } from '@/shared/lib/render/forceUpdate'
 import {
   Button as ButtonDeprecated,
   ButtonTheme,
@@ -46,6 +47,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
   const password = useAppSelector(getLoginPassword)
   const isLoading = useAppSelector(getLoginIsLoading)
   const error = useAppSelector(getLoginError)
+  const forceUpdate = useForceUpdate()
 
   const onChangeUsername = useCallback(
     (value: string) => {
@@ -70,8 +72,9 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     )
     if (result.meta.requestStatus === 'fulfilled') {
       onSuccess?.()
+      forceUpdate()
     }
-  }, [dispatch, onSuccess, password, username])
+  }, [dispatch, forceUpdate, onSuccess, password, username])
 
   const onLoginClick = useCallback(() => {
     void login()

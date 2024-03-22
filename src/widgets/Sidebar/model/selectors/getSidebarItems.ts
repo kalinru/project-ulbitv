@@ -1,7 +1,7 @@
 /* eslint-disable import/order */
 import { createSelector } from '@reduxjs/toolkit'
 
-import { getUserAuthData } from '@/entities/User'
+import { getUserAuthData, type User } from '@/entities/User'
 
 import AboutIconDeprecated from '@/shared/assets/icons/about-20-20.svg'
 import ArticleIconDeprecated from '@/shared/assets/icons/article-20-20.svg'
@@ -17,8 +17,9 @@ import { RoutePath } from '@/shared/consts/router'
 import { toggleFeatures } from '@/shared/lib/features'
 
 import { type ISidebarItem } from '../types/sidebar'
+import { useSelector } from 'react-redux'
 
-export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
+const sidebarItems = (userData?: User) => {
   const items: ISidebarItem[] = [
     {
       path: RoutePath.main(),
@@ -66,4 +67,13 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
   }
 
   return items
+}
+
+export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
+  return sidebarItems(userData)
 })
+
+export const useSidebarItems = () => {
+  const userData = useSelector(getUserAuthData)
+  return sidebarItems(userData)
+}

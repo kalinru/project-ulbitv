@@ -5,13 +5,12 @@ import { ThemeSwitcher } from '@/features/ThemeSwitcher'
 import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { ToggleFeatures } from '@/shared/lib/features'
-import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { Button, ButtonTheme, ButtonSize } from '@/shared/ui/deprecated/Button'
 import { AppLogo } from '@/shared/ui/redesigned/AppLogo'
 import { Icon } from '@/shared/ui/redesigned/Icon'
 import { VStack } from '@/shared/ui/redesigned/Stack'
 
-import { getSidebarItems } from '../../model/selectors/getSidebarItems'
+import { useSidebarItems } from '../../model/selectors/getSidebarItems'
 import { SidebarItem } from '../SidebarItem/SidebarItem'
 
 import cls from './Sidebar.module.scss'
@@ -22,7 +21,9 @@ interface SidebarProps {
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false)
-  const items = useAppSelector(getSidebarItems)
+
+  // const items = useAppSelector(getSidebarItems)
+  const items = useSidebarItems()
 
   const onToggle = () => {
     setCollapsed((value) => !value)
