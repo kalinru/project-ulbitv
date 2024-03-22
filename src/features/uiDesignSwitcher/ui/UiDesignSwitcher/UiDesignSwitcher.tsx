@@ -3,6 +3,7 @@ import { memo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { getUserAuthData } from '@/entities/User'
+import { LOCAL_STORAGE_DESIGN_KEY } from '@/shared/consts/localStorage'
 import { getFeatureFlag, updateFeatureFlag } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
@@ -52,6 +53,7 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
           userId: authData?.id,
         }),
       )
+      localStorage.setItem(LOCAL_STORAGE_DESIGN_KEY, value)
       setIsLoading(false)
       forceUpdate()
     })()

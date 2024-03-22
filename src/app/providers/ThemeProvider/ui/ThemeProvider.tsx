@@ -5,8 +5,7 @@ import { LOCAL_STORAGE_THEME_KEY } from '@/shared/consts/localStorage'
 import { Theme } from '@/shared/consts/theme'
 import { ThemeContext } from '@/shared/lib/context/ThemeContext'
 
-// const defaultTheme =
-//   (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) ?? Theme.LIGHT
+const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme
 
 interface ThemeProviderProps {
   initialTheme?: Theme
@@ -17,7 +16,7 @@ const ThemeProvider = ({ children, initialTheme }: ThemeProviderProps) => {
   const [isThemeInited, setThemeInited] = useState(false)
   const { theme: userSettingsTheme } = useUserSettings()
   const [theme, setTheme] = useState(
-    initialTheme ?? userSettingsTheme ?? Theme.LIGHT,
+    initialTheme ?? userSettingsTheme ?? defaultTheme ?? Theme.LIGHT,
   )
 
   const defaultProps = useMemo(

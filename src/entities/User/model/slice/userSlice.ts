@@ -1,6 +1,9 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit'
 
-import { USER_LOCAL_STORAGE_KEY } from '@/shared/consts/localStorage'
+import {
+  LOCAL_STORAGE_DESIGN_KEY,
+  USER_LOCAL_STORAGE_KEY,
+} from '@/shared/consts/localStorage'
 import { setFeatureFlags } from '@/shared/lib/features'
 
 import { initAuthData } from '../services/initAuthData'
@@ -20,6 +23,10 @@ export const counterSlice = createSlice({
       state.authData = action.payload
       setFeatureFlags(action.payload.features)
       localStorage.setItem(USER_LOCAL_STORAGE_KEY, action.payload.id)
+      localStorage.setItem(
+        LOCAL_STORAGE_DESIGN_KEY,
+        action.payload.features?.isAppRedesigned ? 'new' : 'old',
+      )
     },
     // initAuthData: (state) => {
     //   const user = localStorage.getItem(USER_LOCAL_STORAGE_KEY)
