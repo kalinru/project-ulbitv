@@ -69,6 +69,7 @@ export const Button: FC<ButtonProps> = memo(
 
     return (
       <button
+        ref={ref}
         disabled={disabled}
         className={classNames(cls.Button, mods, [
           className,
