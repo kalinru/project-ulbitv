@@ -15,6 +15,7 @@
     "lint:ts": "eslint \"**/*.{ts,tsx}\" --quiet",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "lint:typecheck": "tsc --project ./tsconfig.json --noEmit",
+    "tsc": "tsc",
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
