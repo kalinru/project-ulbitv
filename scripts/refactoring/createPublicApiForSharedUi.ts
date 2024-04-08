@@ -48,6 +48,8 @@
 
 // Вариант 3: otherSources/createPublicApiForSharedUI.ts
 
+/** Добавляет index.ts public api для shared ui компонентов */
+
 import { Project } from 'ts-morph'
 import path from 'path'
 

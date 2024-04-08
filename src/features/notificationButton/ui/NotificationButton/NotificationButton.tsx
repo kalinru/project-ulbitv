@@ -23,6 +23,11 @@ interface NotificationButtonProps {
   inverted?: boolean
 }
 
+// выводить количество непрочитанных уведомлений.
+// Как то помечать непрочитанные.
+// при выводе в область видимости (intersectionObserver) делать уведомление прочитаным
+// и соответсвенно изменять кол-во непрочитанных и убирать пометку что непрочитано
+// HPopover.unmount = true или вынести фетчинг данных сюда
 export const NotificationButton = memo((props: NotificationButtonProps) => {
   const { className } = props
   const isMobile = useIsMobile()

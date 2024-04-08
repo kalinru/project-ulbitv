@@ -1,3 +1,10 @@
+/** скрипт для генерации отчета по проваленым UI тестам в json формате для reg-cli 
+ * package.json:
+ *  "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
+ *  "test:ui:json": "node scripts/generate-visual-json-report.js",
+ *  "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
+*/
+
 const {promisify} = require('util');
 const {readdir, writeFile} = require('fs');
 const {join: joinPath, relative} = require('path');

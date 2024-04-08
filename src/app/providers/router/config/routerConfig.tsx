@@ -55,6 +55,13 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     path: RoutePath.admin_panel(),
     element: <AdminPanelPage />,
     authOnly: true,
+    // TODO реализовать более гибкую систему доступа к роуту. Пример:
+    // condition: 'AND',
+    // hasAccess: [
+    //   (user) => user.age >= 18,
+    //   isManager.
+    //   isFromRussia,
+    // ],
     roles: [UserRole.MANAGER, UserRole.ADMIN],
   },
   [AppRoutes.FORBIDDEN]: {

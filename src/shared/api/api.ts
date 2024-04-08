@@ -13,3 +13,5 @@ $api?.interceptors.request.use((config) => {
   }
   return config
 })
+
+// TODO обработка ошибок статуса сервера (400, 401, 402, 403, 404..., 500...). Где должен быть обработчик (redux middleware?)? Как не дублировать с rtk.Query

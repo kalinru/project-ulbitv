@@ -43,7 +43,7 @@ export const AnimationProvider = ({ children }: { children: ReactNode }) => {
       GestureRef.current = Gesture
       setIsloaded(true)
     })
-  })
+  }, [])
 
   const value: AnimationContextPayload = useMemo(
     () => ({
