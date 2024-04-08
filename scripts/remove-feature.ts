@@ -1,5 +1,3 @@
-// TODO p1 не работает
-
 import { JsxAttribute, Node, Project, SyntaxKind } from 'ts-morph'
 
 const removedFeatureName = process.argv[2] // example isArticleEnabled
