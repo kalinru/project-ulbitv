@@ -17,7 +17,7 @@ export function buildBabelLoader ({isDev, isTsx}: BuildBabelLoaderProps): webpac
         cacheDirectory: true,
         presets: ['@babel/preset-env'],
         plugins: [
-          // TODO проверить работает ли, если нет выпилить
+          // TODO p2 проверить работает ли, если нет выпилить
           // [
           //   'i18next-extract',
           //   {

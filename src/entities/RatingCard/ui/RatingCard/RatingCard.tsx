@@ -30,7 +30,7 @@ interface RatingCardProps {
   onAccept?: (startCount: number, feedback?: string) => void
 }
 
-// TODO rename entity folder to "Rating"
+// FIXME p3 rename entity folder to "Rating"
 export const RatingCard = memo((props: RatingCardProps) => {
   const {
     className,

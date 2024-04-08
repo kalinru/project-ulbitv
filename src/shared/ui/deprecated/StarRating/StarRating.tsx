@@ -18,7 +18,7 @@ interface StarRatingProps {
 
 const stars = [1, 2, 3, 4, 5]
 
-// TODO move to redesigned folder
+// TODO p3 move to redesigned folder
 /**
  * @deprecated
  */

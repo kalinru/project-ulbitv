@@ -34,4 +34,4 @@ export const buildSlice = <
   }
 }
 
-// TODO сделать тоже самое для AsyncThunk. В комментариях к уроку есть примеры https://ulbitv.ru/pl/teach/control/lesson/view?id=261589594
+// TODO p1 сделать тоже самое для AsyncThunk. В комментариях к уроку есть примеры https://ulbitv.ru/pl/teach/control/lesson/view?id=261589594

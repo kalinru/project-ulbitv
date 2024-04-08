@@ -16,4 +16,4 @@ module.exports = async (layer, sliceName) => {
     await createPublicApi(layer, sliceName);
 };
 
-// TODO добавить флаги hasModel/hasUI
+// TODO p2 добавить флаги hasModel/hasUI

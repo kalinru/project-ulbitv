@@ -37,7 +37,7 @@ const reducers: ReducersList = {
   profile: profileReducer,
 }
 
-// TODO фича: оценка профиля другими пользователями. При оценке, пользоваетль получает уведомление.
+// TODO FEATURE p1: оценка профиля другими пользователями. При оценке, пользоваетль получает уведомление.
 export const EditableProfileCard = memo(
   ({ className, id }: EditableProfileCardProps) => {
     const { t } = useTranslation('profile')

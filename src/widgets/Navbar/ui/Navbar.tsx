@@ -101,7 +101,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
           </ButtonDeprecated>
         }
       />
-      {/* TODO нет анимации при первом открытии модалки */}
+      {/* TODO p1 нет анимации при первом открытии модалки */}
       {/* {isAuthModalOpened && ( */}
       <LoginModal isOpen={isAuthModalOpened} onClose={onCloseModal} />
       {/* )} */}

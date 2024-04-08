@@ -15,7 +15,7 @@ import { fetchProfileData } from './fetchProfileData'
 // }
 
 describe('fetchProfileData.test', () => {
-  // TODO тест не проходит почему-то
+  // TODO p2 тест не проходит почему-то
   // test('success', async () => {
   //   const thunk = new TestAsyncThunk(fetchProfileData)
   //   thunk.api.get.mockReturnValue(Promise.resolve({ data }))

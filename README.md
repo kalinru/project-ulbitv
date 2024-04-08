@@ -233,5 +233,5 @@ package.json:
 
 # Todos
 
-TODO Разобраться с source map - в браузере дубажится только кривой js код
-TODO https://www.youtube.com/live/0r2izWQw320?si=JGWFjCutQh7GZort&t=5349 - оптимизация сборки по mobile/desktop en/ru/... (для адаптива)
+TODO p3 https://www.youtube.com/live/0r2izWQw320?si=JGWFjCutQh7GZort&t=5349 - оптимизация сборки по mobile/desktop en/ru/... (для адаптива)
+TODO p2 форма\модалка авторизации отпралять по нажатии на Enter

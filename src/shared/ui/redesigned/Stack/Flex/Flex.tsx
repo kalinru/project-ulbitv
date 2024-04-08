@@ -15,7 +15,7 @@ type DivProps = DetailedHTMLProps<
   HTMLDivElement
 >
 
-// TODO сделать вывод типа исходя из переданного пропса component (общий тип -  HTMLAttributes<HTMLElement>)
+// TODO p1 сделать вывод типа исходя из переданного пропса component (общий тип -  HTMLAttributes<HTMLElement>)
 export interface FlexProps extends DivProps {
   className?: string
   justify?: FlexJustify
@@ -36,7 +36,7 @@ export const Flex: FC<FlexProps> = ({
   gap,
   max,
   wrap = 'nowrap',
-  // TODO реализвать возможность передачи тега, который будет рендерится (какая-то ошибка не дает)
+  // TODO p1 реализвать возможность передачи тега, который будет рендерится (какая-то ошибка не дает)
   component,
   ...restProps
 }) => {

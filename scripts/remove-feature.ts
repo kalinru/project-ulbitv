@@ -1,4 +1,4 @@
-// TODO не работает
+// TODO p1 не работает
 
 import { JsxAttribute, Node, Project, SyntaxKind } from 'ts-morph'
 

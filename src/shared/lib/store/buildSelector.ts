@@ -16,4 +16,4 @@ export const buildSelector = <T, Args extends any[]>(
   return [useSelectorHook, selector]
 }
 
-// TODO доделать возможнеость работы с reselect. В комментариях к уроку есть примеры https://ulbitv.ru/pl/teach/control/lesson/view?id=261589594
+// TODO p2 доделать возможнеость работы с reselect. В комментариях к уроку есть примеры https://ulbitv.ru/pl/teach/control/lesson/view?id=261589594

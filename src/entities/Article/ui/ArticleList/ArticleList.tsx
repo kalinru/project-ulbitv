@@ -22,7 +22,7 @@ interface ArticleListProps {
   isLoading?: boolean
   view?: ArticleView
   target?: HTMLAttributeAnchorTarget
-  // TODO виртуальный списка
+  // TODO p2 виртуальный списка
   virtualized?: boolean
 }
 

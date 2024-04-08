@@ -17,7 +17,7 @@ interface UiDesignSwitcherProps {
   className?: string
 }
 
-// TODO старый дизайн сломался
+// TODO p1 старый дизайн сломался
 export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
   const { className } = props
   const { t } = useTranslation()

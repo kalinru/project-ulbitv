@@ -18,4 +18,4 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
 ArticleListItem.displayName = 'ArticleListItem'
 
-// TODO добавить еще фич, через слоты, не нарушая архитектуру (лайк, поделиться ...)
+// TODO p1 FEATURE добавить еще фич, через слоты, не нарушая архитектуру (лайк, поделиться ...)
