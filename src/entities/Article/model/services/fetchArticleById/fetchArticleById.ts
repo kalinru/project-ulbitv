@@ -21,6 +21,7 @@ export const fetchArticleById = createAsyncThunk<
       const response = await extra.api.get<IArticle>(`/articles/${articleId}`, {
         params: {
           _expand: 'user',
+          _embed: 'article_likes',
         },
       })
       const data = response.data

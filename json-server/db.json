@@ -1,4 +1,36 @@
 {
+  "article_likes": [
+    {
+      "id": "1",
+      "articleId": "1",
+      "userId": "1"
+    },
+    {
+      "id": "6",
+      "articleId": "1",
+      "userId": "2"
+    },
+    {
+      "id": "7",
+      "articleId": "2",
+      "userId": "2"
+    },
+    {
+      "userId": "1",
+      "articleId": "6",
+      "id": "HrD2vZ0"
+    },
+    {
+      "userId": "1",
+      "articleId": "2",
+      "id": "y5YaHjW"
+    },
+    {
+      "userId": "1",
+      "articleId": "7",
+      "id": "3zgflZm"
+    }
+  ],
   "notifications": [
     {
       "id": "1",
@@ -851,7 +883,7 @@
       },
       "avatar": "https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625",
       "settings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "isArticlesPageWasOpened": true
       }
     },
@@ -921,7 +953,7 @@
       "id": "1",
       "first": "admin4ickd",
       "lastname": "asd",
-      "age": 25,
+      "age": 123,
       "currency": "RUB",
       "country": "Russian",
       "city": "Moscow",

@@ -1,4 +1,4 @@
-import { memo, type FC } from 'react'
+import { type MouseEvent, memo, type FC } from 'react'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
 
@@ -17,7 +17,7 @@ interface NonClickableIconProps extends IconBaseProps {
 
 interface ClickableBaseProps extends IconBaseProps {
   clickable: true
-  onClick: () => void
+  onClick: (event: MouseEvent) => void
 }
 
 type IconProps = NonClickableIconProps | ClickableBaseProps

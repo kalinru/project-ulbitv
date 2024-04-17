@@ -3,6 +3,8 @@ import {
   type FC,
   useCallback,
   type HTMLAttributeAnchorTarget,
+  cloneElement,
+  type ReactElement,
 } from 'react'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
@@ -24,6 +26,7 @@ interface ArticleListProps {
   target?: HTMLAttributeAnchorTarget
   // TODO p2 виртуальный списка
   virtualized?: boolean
+  Slot?: ReactElement
 }
 
 const getSkeletons = (view: ArticleView) => {
@@ -47,9 +50,14 @@ export const ArticleList: FC<ArticleListProps> = memo(
     view = ArticleView.SMALL,
     target = '',
     virtualized = true,
+    Slot,
   }) => {
     const renderArticle = useCallback(
       (article: IArticle) => {
+        let slot
+        if (Slot) {
+          slot = cloneElement(Slot, { article })
+        }
         return (
           <ArticleListItem
             article={article}
@@ -57,10 +65,11 @@ export const ArticleList: FC<ArticleListProps> = memo(
             className={cls.card}
             target={target}
             key={article.id}
+            Slot={slot}
           />
         )
       },
-      [target, view],
+      [Slot, target, view],
     )
 
     return (

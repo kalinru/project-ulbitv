@@ -29,6 +29,12 @@ export type TArticleBlock =
   | IArticleCodeBlock
   | IArticleImageBlock
 
+export interface ArticleLike {
+  id: string
+  articleId: string
+  userId: string
+}
+
 export interface IArticle {
   user?: User
   id: string
@@ -40,4 +46,5 @@ export interface IArticle {
   userId: string
   type: ArticleType[]
   blocks: TArticleBlock[]
+  article_likes?: ArticleLike[]
 }

@@ -22,13 +22,13 @@ import { type ArticleListItemProps } from '../ArticleListItemProps'
 import cls from './ArticleListItemRedesigned.module.scss'
 
 export const ArticleListItemRedesigned: FC<ArticleListItemProps> = memo(
-  ({ className, article, view, target = '' }) => {
+  ({ className, article, view, target = '', Slot }) => {
     const { t } = useTranslation()
 
     const types = <Text style="secondary">{article.type.join(', ')}</Text>
 
     const views = (
-      <HStack>
+      <HStack gap="4">
         <Text className={cls.views}>{article.views}</Text>
         <Icon Svg={EyeIcon} />
       </HStack>
@@ -115,6 +115,7 @@ export const ArticleListItemRedesigned: FC<ArticleListItemProps> = memo(
               <HStack justify="between" max>
                 <Text>{article.createdAt}</Text>
                 {views}
+                {Slot}
               </HStack>
               <HStack gap="4">{userInfo}</HStack>
             </VStack>

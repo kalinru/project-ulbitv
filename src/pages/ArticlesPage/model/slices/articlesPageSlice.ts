@@ -5,8 +5,13 @@ import {
 } from '@reduxjs/toolkit'
 
 import { type StateSchema } from '@/app/providers/StoreProvider'
-import { ArticleView, type IArticle } from '@/entities/Article'
+import {
+  type ArticleLike,
+  ArticleView,
+  type IArticle,
+} from '@/entities/Article'
 import { ArticleSortField, ArticleType } from '@/entities/Article'
+import { likeArticle, dislikeArticle } from '@/features/LikeArticle'
 import { ARTICLES_VIEW_LOCAL_STORAGE_KEY } from '@/shared/consts/localStorage'
 import { type SortOrder } from '@/shared/types/sort'
 
@@ -58,6 +63,9 @@ const articlesPageSlice = createSlice({
     setType: (state, action: PayloadAction<ArticleType>) => {
       state.type = action.payload
     },
+    setArticle: (state, action: PayloadAction<IArticle>) => {
+      articlesAdapter.setOne(state, action.payload)
+    },
     initState: (state) => {
       const view =
         (localStorage.getItem(
@@ -91,6 +99,53 @@ const articlesPageSlice = createSlice({
         state.isLoading = false
         state.error = action.payload
       })
+
+      .addCase(likeArticle.pending, (state, action) => {
+        const articleId = action.meta.arg.articleId
+        const userId = action.meta.arg.userId
+        const article = articlesAdapter
+          .getSelectors()
+          .selectById(state, articleId)
+        if (!article) {
+          return
+        }
+        const articleLikes: ArticleLike[] = [
+          ...(article.article_likes ?? []),
+          { articleId, userId, id: '' },
+        ]
+        articlesAdapter.setOne(state, {
+          ...article,
+          article_likes: articleLikes,
+        })
+      })
+      .addCase(likeArticle.fulfilled, (state, action) => {
+        const article = action.payload
+        articlesAdapter.setOne(state, { ...article })
+      })
+      .addCase(likeArticle.rejected, (state, action) => {})
+
+      .addCase(dislikeArticle.pending, (state, action) => {
+        const articleId = action.meta.arg.articleId
+        const userId = action.meta.arg.userId
+        const article = articlesAdapter
+          .getSelectors()
+          .selectById(state, articleId)
+        if (!article) {
+          return
+        }
+        const articleLikes = article.article_likes?.filter(
+          (like) => like.userId !== userId,
+        )
+        articlesAdapter.setOne(state, {
+          ...article,
+          article_likes: articleLikes,
+        })
+      })
+      .addCase(dislikeArticle.fulfilled, (state, action) => {
+        const article = action.payload
+        articlesAdapter.setOne(state, { ...article })
+      })
+      .addCase(dislikeArticle.rejected, (state, action) => {})
   },
 })
 

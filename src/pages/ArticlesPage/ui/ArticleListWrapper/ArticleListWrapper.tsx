@@ -1,4 +1,4 @@
-import { memo, type FC } from 'react'
+import { type ReactElement, memo, type FC } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
@@ -15,10 +15,11 @@ import { getArticles } from '../../model/slices/articlesPageSlice'
 
 interface ArticleListWrapperProps {
   className?: string
+  Slot?: ReactElement
 }
 
 export const ArticleListWrapper: FC<ArticleListWrapperProps> = memo(
-  ({ className }) => {
+  ({ className, Slot }) => {
     const { t } = useTranslation()
 
     const view = useAppSelector(getArticlesPageView)
@@ -37,6 +38,7 @@ export const ArticleListWrapper: FC<ArticleListWrapperProps> = memo(
           articles={articles}
           view={view}
           isLoading={isLoading}
+          Slot={Slot}
         />
       </div>
     )
