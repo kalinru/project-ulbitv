@@ -20,6 +20,7 @@ export const useModal = ({
   onClose,
 }: UseModalProps) => {
   const [isClosing, setIsClosing] = useState<boolean>(false)
+  const [isOpening, setIsOpening] = useState<boolean>(true)
   const [isMounted, setIsMounted] = useState<boolean>(false)
   const timerRef = useRef<ReturnType<typeof setTimeout>>()
 
@@ -44,6 +45,20 @@ export const useModal = ({
   )
 
   useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout>
+
+    if (isOpen) {
+      timeout = setTimeout(() => {
+        setIsOpening(false)
+      }, 10)
+    }
+
+    return () => {
+      clearTimeout(timeout)
+    }
+  }, [isOpen])
+
+  useEffect(() => {
     if (isOpen) {
       setIsMounted(true)
     }
@@ -62,6 +77,7 @@ export const useModal = ({
 
   return {
     isClosing,
+    isOpening,
     isMounted,
     close,
   }
