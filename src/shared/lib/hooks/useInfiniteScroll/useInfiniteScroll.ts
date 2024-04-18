@@ -6,9 +6,6 @@ export interface UseInfiniteScrollOptions {
   wrapperRef?: MutableRefObject<HTMLElement>
 }
 
-// TODO p3 проверить сценарий когда не заполняется видиая часть полность и
-// не появляется скрол - возможен баг, ято нрикак не подгрузито больше элемнтов
-// Решение не отображать триггер пока не загрузятся элементы.
 export const useInfiniteScroll = ({
   callback,
   triggerRef,
