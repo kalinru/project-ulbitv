@@ -1,13 +1,15 @@
 {
+  "{{count}} просмотров": "{{count}} просмотров",
+  "{{count}} просмотров_few": "{{count}} views",
+  "{{count}} просмотров_many": "{{count}} views",
+  "{{count}} просмотров_one": "{{count}} view",
+  "{{count}} просмотров_plural": "{{count}} просмотров_plural",
+  "{{count}} просмотров_zero": "{{count}} views",
   "Категория": "Category",
   "Комментарии": "Comments",
   "Назад": "Back",
   "Произошла ошибка при загрузке статьи": "Article load error",
   "Редактировать": "Edit",
   "Рекомендуем": "Recomendations",
-  "Статья не найдена": "Article not found",
-  "{{count}} просмотров_zero": "{{count}} views",
-  "{{count}} просмотров_one": "{{count}} view",
-  "{{count}} просмотров_few": "{{count}} views",
-  "{{count}} просмотров_many": "{{count}} views"
+  "Статья не найдена": "Article not found"
 }
