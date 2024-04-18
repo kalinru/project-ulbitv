@@ -14,7 +14,6 @@ import cls from './Button.module.scss'
 export type ButtonVariant = 'clear' | 'outline' | 'filled'
 export type ButtonColor = 'normal' | 'success' | 'error'
 
-// TODO p1 размер s не работает
 export type ButtonSize = 's' | 'm' | 'l' | 'xl'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

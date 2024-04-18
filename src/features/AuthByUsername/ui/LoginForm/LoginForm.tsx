@@ -85,48 +85,49 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
       <ToggleFeatures
         feature="isAppRedesigned"
         on={
-          <VStack
-            gap="16"
-            max
-            className={classNames(cls.LoginForm, {}, [className])}
-          >
-            <Text size="xl">{t('Авторизация')}</Text>
-            {!!error && (
-              <div>
-                <Text style="danger">
-                  {t(
-                    'Пользователь не найден или Вы ввели неверный логиг или пароль',
-                  )}
-                </Text>
-              </div>
-            )}
-            <Input
-              type="text"
-              placeholder={t('Логин')}
-              value={username}
-              onChange={onChangeUsername}
-              autoFocus
-            />
-            <Input
-              type="text"
-              placeholder={t('Пароль')}
-              value={password}
-              onChange={onChangePassword}
-              autoFocus
-            />
-            <HStack justify="end" max>
-              <Button
-                variant="outline"
-                disabled={isLoading}
-                onClick={onLoginClick}
-              >
-                {t('Войти')}
-              </Button>
-            </HStack>
-          </VStack>
+          <form>
+            <VStack
+              gap="16"
+              max
+              className={classNames(cls.LoginForm, {}, [className])}
+            >
+              <Text size="xl">{t('Авторизация')}</Text>
+              {!!error && (
+                <div>
+                  <Text style="danger">
+                    {t(
+                      'Пользователь не найден или Вы ввели неверный логиг или пароль',
+                    )}
+                  </Text>
+                </div>
+              )}
+              <Input
+                type="text"
+                placeholder={t('Логин')}
+                value={username}
+                onChange={onChangeUsername}
+                autoFocus
+              />
+              <Input
+                type="text"
+                placeholder={t('Пароль')}
+                value={password}
+                onChange={onChangePassword}
+              />
+              <HStack justify="end" max>
+                <Button
+                  variant="outline"
+                  disabled={isLoading}
+                  onClick={onLoginClick}
+                >
+                  {t('Войти')}
+                </Button>
+              </HStack>
+            </VStack>
+          </form>
         }
         off={
-          <div className={classNames(cls.LoginForm, {}, [className])}>
+          <form className={classNames(cls.LoginForm, {}, [className])}>
             <h1>{t('Авторизация')}</h1>
             {!!error && (
               <div>
@@ -160,7 +161,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
                 {t('Войти')}
               </ButtonDeprecated>
             </div>
-          </div>
+          </form>
         }
       />
     </DynamicModuleLoader>
