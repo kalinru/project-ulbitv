@@ -1,4 +1,4 @@
-// TODO p3 https://ulbitv.ru/pl/teach/control/lesson/view?id=261589536 в комментариях доработаный скрипт.
+// MAYBE https://ulbitv.ru/pl/teach/control/lesson/view?id=261589536 в комментариях доработаный скрипт.
 
 // 1 Вариант: otherSources/create-public-api-for-ui.ts
 // directories?.forEach((directory) => {

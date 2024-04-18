@@ -2,6 +2,7 @@ import { useContext } from 'react'
 
 import { Theme } from '../../../consts/theme'
 import { ThemeContext } from '../../context/ThemeContext'
+import { toggleFeatures } from '../../features'
 
 interface useThemeResult {
   theme: Theme
@@ -18,7 +19,11 @@ const useTheme = (): useThemeResult => {
         newTheme = Theme.DARK
         break
       case Theme.DARK:
-        newTheme = Theme.CONTRAST
+        newTheme = toggleFeatures({
+          name: 'isAppRedesigned',
+          on: () => Theme.SAND,
+          off: () => Theme.CONTRAST,
+        })
         break
       case Theme.CONTRAST:
         newTheme = Theme.LIGHT

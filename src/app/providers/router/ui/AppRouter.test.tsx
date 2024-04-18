@@ -32,7 +32,7 @@ describe('app/router/AppRouter', () => {
     expect(page).toBeInTheDocument()
   })
 
-  // TODO p3 тест почему то не проходит
+  // MAYBE тест почему то не проходит
   // test('Страница не айдена', async () => {
   //   renderComponent(<AppRouter />, {
   //     route: 'page_does_not_exist_fasf321qf1q'

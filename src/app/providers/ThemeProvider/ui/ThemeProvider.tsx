@@ -27,6 +27,27 @@ const ThemeProvider = ({ children, initialTheme }: ThemeProviderProps) => {
   useEffect(() => {
     document.body.className = theme
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme)
+
+    let themeName = ''
+    switch (theme) {
+      case Theme.CONTRAST:
+        themeName = 'contrast'
+        break
+      case Theme.SAND:
+        themeName = 'sand'
+        break
+      case Theme.DARK:
+        themeName = 'dark'
+        break
+      case Theme.LIGHT:
+        themeName = 'light'
+        break
+      default:
+        themeName = 'light'
+        break
+    }
+
+    import(`@/app/styles/themes/${themeName}.scss`)
   }, [theme])
 
   const defaultProps = useMemo(
