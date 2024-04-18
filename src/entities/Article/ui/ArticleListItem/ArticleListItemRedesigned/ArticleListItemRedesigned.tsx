@@ -83,7 +83,7 @@ export const ArticleListItemRedesigned: FC<ArticleListItemProps> = memo(
                 to={RoutePath.article_details(article.id)}
                 target={target}
               >
-                <Button variant="outline">{t('Читать далее...')}</Button>
+                <Button variant="outline">{t('Читать далее')}...</Button>
               </AppLink>
               {views}
             </HStack>

@@ -24,7 +24,7 @@ export const ArticleAdditionalInfo = ({
   canEdit,
   onEdit,
 }: ArticleAdditionalInfoProps) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('article-details')
 
   return (
     <VStack gap="32" className={classNames('', {}, [className])}>

@@ -1,1 +1,27 @@
-{}
+{
+  "Cсылка на аватар": "Link to avatar",
+  "Аватар": "Avatat",
+  "Ваш возраст": "Age",
+  "Ваша фамилия": "Lastname",
+  "Ваше имя": "Name",
+  "Введите имя пользователя": "Enter username",
+  "Введите ссылку на аватар": "Enter avatar link",
+  "Возраст": "Age",
+  "Город": "City",
+  "Имя": "Name",
+  "Имя и фамилия обязательны": "Name and lastname required",
+  "Имя пользователя": "Username",
+  "Логин": "login",
+  "Некорректный возраст": "incorrent age",
+  "Нет данных": "no data",
+  "Отменить": "cancel",
+  "Ошибка": "Error",
+  "Ошибка сервера": "Server error",
+  "Профиль": "Profile",
+  "Профиль не найден": "Profile not found",
+  "Редактировать": "Edit",
+  "Сохранить": "Save",
+  "Страна": "Country",
+  "Страна обязательна": "Country required",
+  "Фамилия": "Lastname"
+}

@@ -22,7 +22,7 @@ const MainPage = () => {
       <ListBox
         onChange={console.log}
         direction="top left"
-        defaultValue={t('choose value')}
+        defaultValue={t('Выберите значение')}
         value={undefined}
         items={[
           { value: 'milk', content: 'milk' },
@@ -36,7 +36,7 @@ const MainPage = () => {
       <ListBox
         onChange={console.log}
         direction="top right"
-        defaultValue={t('choose value')}
+        defaultValue={t('Выберите значение')}
         value={undefined}
         items={[
           { value: 'milk', content: 'milk' },
@@ -49,7 +49,7 @@ const MainPage = () => {
       <ListBox
         onChange={console.log}
         direction="bottom left"
-        defaultValue={t('choose value')}
+        defaultValue={t('Выберите значение')}
         value={undefined}
         items={[
           { value: 'milk', content: 'milk' },
@@ -62,7 +62,7 @@ const MainPage = () => {
       <ListBox
         onChange={console.log}
         direction="bottom right"
-        defaultValue={t('choose value')}
+        defaultValue={t('Выберите значение')}
         value={undefined}
         items={[
           { value: 'milk', content: 'milk' },
