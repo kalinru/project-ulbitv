@@ -22,7 +22,6 @@ i18n
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
     fallbackLng: 'ru',
-    // FIXME p3 если выбрана не ru локаль, то при загрузке подгружается выбранная локаль + ru
     // lng: 'ru',
     debug: __IS_DEV__,
     interpolation: {
@@ -34,5 +33,3 @@ i18n
   })
 
 export default i18n
-
-// TODO p3 добавить все переводы
