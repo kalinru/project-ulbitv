@@ -18,7 +18,7 @@ import cls from './ListBox.module.scss'
 export interface ListBoxItem {
   value: string
 
-  // TODO p2 выпилить одно из двух
+  // MAYBE выпилить одно из двух (скорее всего label выпилить)
   content?: ReactNode
   label?: ReactNode
 
