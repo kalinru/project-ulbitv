@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 
 import { getUserAuthData } from '@/entities/User'
 import { LoginModal } from '@/features/AuthByUsername'
-import { AvatarDropdown } from '@/features/avatarDropdown'
+import { AvatarDropdown } from '@/features/AvatarDropdown'
 import { NotificationButton } from '@/features/notificationButton'
 import { RoutePath } from '@/shared/consts/router'
 import { classNames } from '@/shared/lib/classNames/classNames'

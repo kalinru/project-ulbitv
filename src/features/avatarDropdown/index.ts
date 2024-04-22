@@ -1,2 +1,1 @@
-//  TODO p3 исправить структуру фичи
-export { AvatarDropdown } from './AvatarDropdown'
+export { AvatarDropdown } from './ui/AvatarDropdown'

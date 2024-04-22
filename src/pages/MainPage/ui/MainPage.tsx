@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 
 import { Counter } from '@/entities/Counter'
-import { RatingCard } from '@/entities/RatingCard'
+import { RatingCard } from '@/entities/Rating'
 import { ListBox } from '@/shared/ui/deprecated/Popups'
 import { Page } from '@/widgets/Page'
 
