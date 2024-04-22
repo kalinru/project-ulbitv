@@ -24,7 +24,7 @@ interface ArticleListProps {
   isLoading?: boolean
   view?: ArticleView
   target?: HTMLAttributeAnchorTarget
-  // TODO p2 виртуальный списка
+  // MAYBE p2 виртуальный списка
   virtualized?: boolean
   Slot?: ReactElement
 }
