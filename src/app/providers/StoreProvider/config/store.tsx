@@ -3,6 +3,9 @@ import {
   configureStore,
   type Reducer,
   type CombinedState,
+  type Middleware,
+  isRejectedWithValue,
+  createListenerMiddleware,
 } from '@reduxjs/toolkit'
 
 import { counterReducer } from '@/entities/Counter'
@@ -13,6 +16,8 @@ import { rtkApi } from '@/shared/api/rtkApi'
 
 import { createReducerManager } from './reducerManager'
 import { type ThunkExtraArg, type StateSchema } from './StateSchema'
+
+export const listenerMiddleware = createListenerMiddleware()
 
 export function createReduxStore(
   initialState: StateSchema,
@@ -41,7 +46,9 @@ export function createReduxStore(
         thunk: {
           extraArgument,
         },
-      }).concat(rtkApi.middleware),
+      })
+        .prepend(listenerMiddleware.middleware)
+        .concat(rtkApi.middleware, exampleMiddleware),
   })
 
   // @ts-expect-error fixme todo
@@ -51,3 +58,11 @@ export function createReduxStore(
 }
 
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
+
+export const exampleMiddleware: Middleware = (api) => (next) => (action) => {
+  if (isRejectedWithValue(action) && action?.payload?.status) {
+    //
+  }
+
+  return next(action)
+}

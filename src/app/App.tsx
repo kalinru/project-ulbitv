@@ -12,6 +12,7 @@ import { Navbar } from '@/widgets/Navbar'
 import { PageLoader } from '@/widgets/PageLoader'
 import { Sidebar } from '@/widgets/Sidebar'
 
+import { useAppInterceptors } from './lib/useAppInterceptors'
 import { useAppToolbar } from './lib/useAppToolbar'
 import { AppRouter } from './providers/router'
 import { withTheme } from './providers/ThemeProvider/ui/withTheme'
@@ -22,6 +23,7 @@ const App = memo((): JSX.Element => {
   const dispatch = useAppDispatch()
   const inited = useAppSelector(getUserIninted)
   const toolbar = useAppToolbar()
+  useAppInterceptors()
 
   useEffect(() => {
     if (!inited) {

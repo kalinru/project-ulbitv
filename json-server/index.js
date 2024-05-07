@@ -42,10 +42,18 @@ server.post('/login', (req, res) => {
 // проверяем, авторизован ли пользователь
 // eslint-disable-next-line
 server.use((req, res, next) => {
-    // if (!req.headers.authorization) {
-    //     console.log(req.headers.authorization);
-    //     return res.status(403).json({ message: 'AUTH ERROR' });
-    // }
+    if (!req.headers.authorization) {
+        console.log(req.headers.authorization);
+        return res.status(403).json({ message: 'AUTH ERROR' });
+    }
+
+    if (req.url.startsWith('/profile')) {
+        return res.status(403).json({ message: 'PROFILE!!!' });
+    }
+
+    if (req.url.startsWith('/notifications')) {
+        return res.status(403).json({ message: 'NOTIF!!!' });
+    }
 
     next();
 });

@@ -234,5 +234,5 @@ package.json:
 # Todos
 
 MAYBE p3 https://www.youtube.com/live/0r2izWQw320?si=JGWFjCutQh7GZort&t=5349 - оптимизация сборки по mobile/desktop en/ru/... (для адаптива)
-TODO p2 починить ошибки в github actions (что-то не проходит)
+
 MAYBE p3 залить на хостинг (Варинт 1 - бесплтано vercel и ... (см. по курсу), Вариант 2 - платно Selectel?)

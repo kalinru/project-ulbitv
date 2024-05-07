@@ -16,5 +16,3 @@ export const rtkApi = createApi({
   }),
   endpoints: (builder) => ({}),
 })
-
-// TODO p1 обработка ошибок статуса сервера (400, 401, 402, 403, 404..., 500...). Где должен быть обработчик (redux middleware?)? Как не дублировать с axios
